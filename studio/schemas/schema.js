@@ -11,6 +11,7 @@ import sampleProject from './documents/sampleProject'
 import siteSettings from './documents/siteSettings'
 import about from './documents/about'
 import home from './documents/home'
+import projects from './documents/projects'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -40,6 +41,7 @@ export default createSchema({
     sampleProject,
     siteSettings,
     about,
-    home
+    home,
+    projects
   ])
 })
