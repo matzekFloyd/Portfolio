@@ -2,7 +2,7 @@ import S from '@sanity/desk-tool/structure-builder'
 import MdSettings from 'react-icons/lib/md/settings'
 
 const hiddenDocTypes = listItem =>
-  !['about', 'home', 'projects', 'category', 'person', 'sampleProject', 'siteSettings'].includes(listItem.getId())
+  !['about', 'home', 'projects', 'contact', 'category', 'person', 'sampleProject', 'siteSettings'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -36,6 +36,14 @@ export default () =>
             .id('about')
             .schemaType('about')
             .documentId('singleton-about')
+        ),
+      S.listItem()
+        .title('Contact')
+        .child(
+          S.editor()
+            .id('contact')
+            .schemaType('contact')
+            .documentId('singleton-contact')
         ),
       S.listItem()
         .title('Home')
