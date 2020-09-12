@@ -1,7 +1,7 @@
 export default {
-  title: 'About Me',
   name: 'about',
   type: 'document',
+  title: 'About Me',
   // eslint-disable-next-line standard/array-bracket-even-spacing
   __experimental_actions: [/* 'create', */ 'update', /* 'delete', */ 'publish'],
   fields: [
