@@ -10,8 +10,6 @@ import person from './documents/person'
 import sampleProject from './documents/sampleProject'
 import siteSettings from './documents/siteSettings'
 import about from './documents/about'
-import home from './documents/home'
-import projects from './documents/projects'
 import contact from './documents/contact'
 
 // Object types
@@ -42,8 +40,6 @@ export default createSchema({
     sampleProject,
     siteSettings,
     about,
-    home,
-    projects,
     contact
   ])
 })
