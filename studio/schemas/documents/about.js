@@ -11,9 +11,14 @@ export default {
       type: 'string'
     },
     {
-      title: 'Description',
-      name: 'description',
-      type: 'string'
+      name: 'aboutImage',
+      title: 'About image',
+      type: 'figure'
+    },
+    {
+      name: 'body',
+      title: 'Body',
+      type: 'aboutPortableText'
     }
   ]
 }

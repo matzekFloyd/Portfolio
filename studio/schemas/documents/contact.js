@@ -11,9 +11,9 @@ export default {
       type: 'string'
     },
     {
-      title: 'Description',
-      name: 'description',
-      type: 'string'
+      name: 'body',
+      title: 'Body',
+      type: 'contactPortableText'
     }
   ]
 }

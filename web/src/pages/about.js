@@ -6,12 +6,35 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
 import {responsiveTitle1} from '../components/typography.module.css'
+import BlockContent from "../components/block-content";
 
 export const query = graphql`
   query AboutPageQuery {
     about: sanityAbout(_id: {regex: "/(drafts.|)singleton-about/"}) {
-      title,
-      description
+      title
+      aboutImage {
+          crop {
+            _key
+            _type
+            top
+            bottom
+            left
+            right
+          }
+          hotspot {
+            _key
+            _type
+            x
+            y
+            height
+            width
+          }
+          asset {
+            _id
+          }
+          alt
+      }
+      _rawBody
     }
   }
 `
@@ -28,11 +51,11 @@ const AboutPage = props => {
   const site = (data || {}).about
   return (
     <Layout>
-      <SEO title='Archive'/>
+      <SEO title='About' />
       <Container>
         <h1 className={responsiveTitle1}>About</h1>
         <h2>{site.title}</h2>
-        <p>{site.description}</p>
+        {site._rawBody && <BlockContent blocks={site._rawBody || []} />}
       </Container>
     </Layout>
   )

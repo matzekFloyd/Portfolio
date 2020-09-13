@@ -6,12 +6,13 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
 import {responsiveTitle1} from '../components/typography.module.css'
+import BlockContent from "../components/block-content";
 
 export const query = graphql`
   query ContactPageQuery {
     contact: sanityContact(_id: {regex: "/(drafts.|)singleton-contact/"}) {
-      title,
-      description
+      title
+      _rawBody
     }
   }
 `
@@ -32,7 +33,7 @@ const ContactPage = props => {
       <Container>
         <h1 className={responsiveTitle1}>Contact</h1>
         <h2>{site.title}</h2>
-        <p>{site.description}</p>
+        {site._rawBody && <BlockContent blocks={site._rawBody || []} />}
       </Container>
     </Layout>
   )

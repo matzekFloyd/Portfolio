@@ -19,6 +19,8 @@ import figure from './objects/figure'
 import projectMember from './objects/projectMember'
 import projectPortableText from './objects/projectPortableText'
 import simplePortableText from './objects/simplePortableText'
+import aboutPortableText from "./objects/aboutPortableText";
+import contactPortableText from "./objects/contactPortableText";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -30,6 +32,8 @@ export default createSchema({
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     bioPortableText,
+    aboutPortableText,
+    contactPortableText,
     figure,
     projectMember,
     projectPortableText,
