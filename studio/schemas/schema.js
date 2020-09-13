@@ -11,6 +11,7 @@ import sampleProject from './documents/sampleProject'
 import siteSettings from './documents/siteSettings'
 import about from './documents/about'
 import contact from './documents/contact'
+import youtube from './documents/youtube'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -40,6 +41,7 @@ export default createSchema({
     sampleProject,
     siteSettings,
     about,
-    contact
+    contact,
+    youtube
   ])
 })
