@@ -19,6 +19,7 @@ export default {
         list: [
           {title: 'Designer', value: 'designer'},
           {title: 'Developer', value: 'developer'},
+          {title: 'Software Architect', value: 'software_architect'},
           {title: 'Front-End Developer', value: 'front_end_developer'},
           {title: 'Back-End Developer', value: 'back_end_developer'},
           {title: 'Editor', value: 'editor'},
