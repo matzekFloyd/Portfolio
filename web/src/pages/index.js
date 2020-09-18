@@ -7,15 +7,37 @@ import {
 } from '../lib/helpers'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import Home from "../components/home";
 
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
       title
       subtitle
+      portrait {
+          crop {
+            _key
+            _type
+            top
+            bottom
+            left
+            right
+          }
+          hotspot {
+            _key
+            _type
+            x
+            y
+            height
+            width
+          }
+          asset {
+            _id
+          }
+          alt
+      }
       description
       keywords
     }
@@ -66,7 +88,7 @@ const IndexPage = props => {
   if (errors) {
     return (
       <Layout>
-        <GraphQLErrorList errors={errors} />
+        <GraphQLErrorList errors={errors}/>
       </Layout>
     )
   }
@@ -86,17 +108,9 @@ const IndexPage = props => {
 
   return (
     <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <SEO title={site.title} description={site.description} keywords={site.keywords}/>
       <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
-        <h2>{site.subtitle}</h2>
-        {/* projectNodes && (
-          <ProjectPreviewGrid
-            title='Latest projects'
-            nodes={projectNodes}
-            browseMoreHref='/projects/'
-          />
-        ) */}
+        <Home site={site} projectNodes={projectNodes}/>
       </Container>
     </Layout>
   )

@@ -1,8 +1,12 @@
 @import '../styles/custom-media.css';
 
+html {
+  scroll-behavior: smooth;
+}
+
 .root {
   box-sizing: border-box;
-  max-width: 960px;
+  max-width: 1200px;
   padding: 1.5em;
   margin: 0 auto;
 

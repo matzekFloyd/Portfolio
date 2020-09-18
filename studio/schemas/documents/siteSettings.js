@@ -21,6 +21,11 @@ export default {
       description: 'Keep it short and sweet!'
     },
     {
+      name: 'portrait',
+      title: 'Portrait',
+      type: 'figure'
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Description',
