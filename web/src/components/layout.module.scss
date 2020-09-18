@@ -1,11 +1,12 @@
 @import '../styles/custom-media.css';
 @import '../styles/custom-properties.css';
+@import '../styles/mixins';
 
 .content {
   background: var(--color-white);
   min-height: calc(100% - 73px - 120px);
 
-  @media (--media-min-small) {
+  @include media-min-small {
     min-height: calc(100% - 88px - 150px);
   }
 }

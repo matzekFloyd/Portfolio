@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './header'
 
 import '../styles/layout.css'
-import styles from './layout.module.css'
+import styles from './layout.module.scss'
 import Footer from "./footer";
 
 const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => (

@@ -2,7 +2,7 @@ import {imageUrlFor} from "../lib/image-url";
 import {buildImageObj} from "../lib/helpers";
 import React, {useState} from "react";
 import ProjectPreviewGrid from "./project-preview-grid";
-import styles from '../components/home.module.css';
+import styles from './home.module.scss';
 import PropTypes from 'prop-types';
 
 const Home = ({site, projectNodes}) => {

@@ -1,0 +1,29 @@
+@mixin hover {
+  @media (hover: hover) {
+    @content
+  }
+}
+
+@mixin media-min-small {
+  @media (min-width: 450px) {
+    @content
+  }
+}
+
+@mixin media-max-small {
+  @media (max-width: 449px) {
+    @content
+  }
+}
+
+@mixin media-min-medium {
+  @media (min-width: 675px) {
+    @content
+  }
+}
+
+@mixin media-min-large {
+  @media (min-width: 900px) {
+    @content
+  }
+}

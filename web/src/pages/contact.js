@@ -5,7 +5,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
-import {responsiveTitle1} from '../components/typography.module.css'
+import {responsiveTitle1} from '../components/typography.module.scss'
 import BlockContent from "../components/block-content";
 
 export const query = graphql`

@@ -1,3 +1,5 @@
+@import '../styles/mixins';
+
 .root {
   display: block;
   color: inherit;
@@ -5,7 +7,7 @@
 }
 
 .title {
-  composes: responsiveTitle1 from './typography.module.css';
+  composes: responsiveTitle1 from './typography.module.scss';
 }
 
 .leadMediaThumb {
@@ -13,7 +15,7 @@
   padding-bottom: 66.666%;
   background: #eee;
 
-  @nest & img {
+  img {
     position: absolute;
     top: 0;
     left: 0;
@@ -24,19 +26,19 @@
 }
 
 .title {
-  @media (hover: hover) {
-    @nest .root:hover & {
+  @include hover {
+    .root:hover & {
       text-decoration: underline;
     }
   }
 }
 
 .excerpt {
-  @nest & p {
+  p {
     margin: 0.5em 0;
   }
 
-  @nest & strong {
+  strong {
     font-weight: 600;
   }
 }
