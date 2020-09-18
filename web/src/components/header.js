@@ -3,7 +3,7 @@ import React from 'react'
 import Icon from './icon'
 import {cn} from '../lib/helpers'
 
-import styles from './header.module.scss'
+import styles from '../styles/components/header.module.scss';
 
 const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
   <div className={styles.root}>

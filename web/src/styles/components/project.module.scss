@@ -1,12 +1,10 @@
-@import '../styles/custom-media.css';
-@import '../styles/custom-properties.css';
-@import '../styles/mixins';
+@import "../base/base";
 
 .root {
 }
 
 .title {
-  composes: responsiveTitle1 from './typography.module.css';
+  composes: responsiveTitle1 from './typography.module.scss';
 }
 
 .mainImage {
@@ -32,7 +30,7 @@
 
 .mainContent {
   a {
-    color: var(--color-accent);
+    color: $color-accent;
   }
 
   a:hover {
@@ -46,11 +44,11 @@
 .publishedAt {
   composes: small from './typography.module.scss';
   margin: 1.5rem 0 3rem;
-  color: var(--color-gray);
+  color: $color-gray;
 }
 
 .categories {
-  border-top: 1px solid var(--color-very-light-gray);
+  border-top: 1px solid $color-very-light-gray;
   margin: 2rem 0 3rem;
 
   ul {
@@ -70,7 +68,7 @@
 }
 
 .relatedProjects {
-  border-top: 1px solid var(--color-very-light-gray);
+  border-top: 1px solid $color-very-light-gray;
   margin: 2rem 0 3rem;
 
   ul {

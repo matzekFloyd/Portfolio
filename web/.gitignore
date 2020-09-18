@@ -69,3 +69,15 @@ yarn.lock
 
 # Secrets
 .env.development
+
+# css / css.map
+src/styles/*.css
+src/styles/*.css.map
+src/styles/base/*.css
+src/styles/base/*.css.map
+src/styles/components/*.css
+src/styles/components/*.css.map
+src/styles/helpers/*.css
+src/styles/helpers/*.css.map
+src/styles/layout/*.css
+src/styles/layout/*.css.map

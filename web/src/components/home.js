@@ -2,7 +2,7 @@ import {imageUrlFor} from "../lib/image-url";
 import {buildImageObj} from "../lib/helpers";
 import React, {useState} from "react";
 import ProjectPreviewGrid from "./project-preview-grid";
-import styles from './home.module.scss';
+import styles from '../styles/components/home.module.scss';
 import PropTypes from 'prop-types';
 
 const Home = ({site, projectNodes}) => {
@@ -28,11 +28,6 @@ const Home = ({site, projectNodes}) => {
 }
 
 function Introduction({title, subtitle, description, toggleLatestProjects}) {
-
-  let scrollToLatestProjects = () => {
-    let element = document.getElementById("latest-projects");
-    element.scrollIntoView();
-  };
 
   return <div className={styles.introduction}>
     <h1 hidden>Welcome to {title}</h1>

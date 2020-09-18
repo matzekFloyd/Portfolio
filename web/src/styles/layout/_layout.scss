@@ -1,0 +1,21 @@
+@import '../base/base';
+
+html {
+  font-family: $font-family-sans;
+  font-size: $font-base-size;
+  line-height: $font-base-line-height;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background: $color-white;
+  color: $color-black;
+  margin: 0;
+}
+
+html,
+body,
+body > div,
+body > div > div {
+  height: 100%;
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import '../styles/layout.css'
-import styles from './footer.module.scss'
+import '../styles/layout/_layout.scss'
+import styles from '../styles/components/footer.module.scss';
 
 const Footer = ({}) => (
   <>

@@ -3,7 +3,7 @@ import {buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 import {ucfirst} from '../lib/string-utils'
 
-import styles from './role-list.module.scss'
+import styles from '../styles/components/role-list.module.scss';
 
 function RoleList ({items, title}) {
   return (

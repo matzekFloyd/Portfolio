@@ -2,11 +2,11 @@ import {Link} from 'gatsby'
 import React from 'react'
 import ProjectPreview from './project-preview'
 
-import styles from './project-preview-grid.module.scss'
+import styles from '../styles/components/project-preview-grid.module.scss';
 
 function ProjectPreviewGrid (props) {
   return (
-    <div id={"latest-projects"} className={styles.root}>
+    <div className={styles.root}>
       {props.title && <h2 className={styles.headline}>{props.title}</h2>}
       <ul className={styles.grid}>
         {props.nodes &&

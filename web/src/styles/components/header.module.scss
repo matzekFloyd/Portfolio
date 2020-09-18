@@ -1,6 +1,5 @@
-@import '../styles/custom-media.css';
-@import '../styles/custom-properties.css';
-@import '../styles/mixins';
+@import "../base/base";
+
 
 .root {
   position: relative;
@@ -31,7 +30,7 @@
   }
 
   a:hover {
-    color: var(--color-accent);
+    color: $color-accent;
   }
 
 }
@@ -46,7 +45,7 @@
   outline: none;
   color: inherit;
 
-  & svg {
+  svg {
     display: block;
     fill: inherit;
   }
@@ -72,14 +71,14 @@
 
   @include hover {
     ul li a:hover {
-      color: var(--color-accent);
+      color: $color-accent;
     }
   }
 
   @include media-max-small {
     position: absolute;
-    background: var(--color-white);
-    color: var(--color-black);
+    background: $color-white;
+    color: $color-black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     left: 0;
     right: 0;

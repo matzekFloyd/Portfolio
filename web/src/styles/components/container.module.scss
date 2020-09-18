@@ -1,4 +1,4 @@
-@import '../styles/custom-media.css';
+@import "../base/base";
 
 html {
   scroll-behavior: smooth;
@@ -10,7 +10,7 @@ html {
   padding: 1.5em;
   margin: 0 auto;
 
-  @media (--media-min-small) {
+  @include media-min-small {
     padding: 2em;
   }
 }

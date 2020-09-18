@@ -4,8 +4,8 @@ import {cn, buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 import BlockText from './block-text'
 
-import styles from './project-preview.module.scss'
-import {responsiveTitle3} from './typography.module.scss'
+import styles from '../styles/components/project-preview.module.scss';
+import {responsiveTitle3} from '../styles/components/typography.module.scss';
 
 function ProjectPreview (props) {
   return (

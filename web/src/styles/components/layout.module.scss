@@ -1,9 +1,8 @@
-@import '../styles/custom-media.css';
-@import '../styles/custom-properties.css';
-@import '../styles/mixins';
+@import "../base/base";
+
 
 .content {
-  background: var(--color-white);
+  background: $color-white;
   min-height: calc(100% - 73px - 120px);
 
   @include media-min-small {
