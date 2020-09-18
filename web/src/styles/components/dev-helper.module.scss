@@ -1,0 +1,28 @@
+@import "../base/base";
+
+.root {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 2px;
+
+  @include media-desktop-small {
+    background-color: green;
+  }
+
+  @include media-desktop-normal {
+    background-color: green;
+  }
+
+  @include media-desktop-big {
+    background-color: green;
+  }
+
+  @include media-desktop-wide {
+    background-color: red;
+  }
+
+}

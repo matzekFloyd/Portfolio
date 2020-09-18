@@ -27,3 +27,27 @@
     @content
   }
 }
+
+@mixin media-desktop-small {
+  @media (min-width: 1200px) {
+    @content
+  }
+}
+
+@mixin media-desktop-normal {
+  @media (min-width: 1200px) and (max-width: 1799px) {
+    @content
+  }
+}
+
+@mixin media-desktop-big {
+  @media (min-width: 1800px) {
+    @content
+  }
+}
+
+@mixin media-desktop-wide {
+  @media (min-width: 2000px) {
+    @content
+  }
+}

@@ -4,6 +4,7 @@ import Icon from './icon'
 import {cn} from '../lib/helpers'
 
 import styles from '../styles/components/header.module.scss';
+import DevHelper from "./devHelper";
 
 const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
   <div className={styles.root}>
@@ -13,7 +14,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
       </div>
 
       <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
-        <Icon symbol='hamburger' />
+        <Icon symbol='hamburger'/>
       </button>
 
       <nav className={cn(styles.nav, showNav && styles.showNav)}>
@@ -30,6 +31,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
         </ul>
       </nav>
     </div>
+    <DevHelper/>
   </div>
 )
 
