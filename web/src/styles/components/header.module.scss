@@ -9,7 +9,7 @@
 .wrapper {
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 1200px;
   padding: 1em;
   display: flex;
 
@@ -30,7 +30,7 @@
   }
 
   a:hover {
-    color: $color-accent;
+    color: $col-accent-tertiary;
   }
 
 }

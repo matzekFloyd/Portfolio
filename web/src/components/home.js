@@ -1,42 +1,51 @@
 import {imageUrlFor} from "../lib/image-url";
 import {buildImageObj} from "../lib/helpers";
-import React, {useState} from "react";
+import React from "react";
 import ProjectPreviewGrid from "./project-preview-grid";
 import styles from '../styles/components/home.module.scss';
 import PropTypes from 'prop-types';
+import {HorizontalLine} from "./util";
+import {Link} from 'gatsby'
+
 
 const Home = ({site, projectNodes}) => {
 
-  const [showLatestProjects, toggleLatestProjects] = useState(false);
-
   return <>
-    <div className={styles.container + (!showLatestProjects ? "" : " " + styles.hide)}>
-      <Introduction title={site.title} subtitle={site.subtitle} description={site.description}
-                    toggleLatestProjects={() => toggleLatestProjects(!showLatestProjects)}/>
+    <Section className={styles.sectionDescription}>
+      <Description title={site.title} subtitle={site.subtitle} description={site.description}/>
       <Portrait portrait={site.portrait}/>
-    </div>
-    <div className={styles.container + (showLatestProjects ? "" : " " + styles.hide)}>
+    </Section>
+    <HorizontalLine/>
+    <Section className={styles.sectionLatestProjects}>
       {projectNodes && (
         <ProjectPreviewGrid
-          title='Latest projects'
+          title={'Latest projects'}
           nodes={projectNodes}
-          browseMoreHref='/projects/'
+          browseMoreHref={'/projects/'}
         />
       )}
-    </div>
+    </Section>
   </>
 }
 
-function Introduction({title, subtitle, description, toggleLatestProjects}) {
+function Section({children, className}) {
+  return <section className={className}>{children}</section>;
+}
 
-  return <div className={styles.introduction}>
-    <h1 hidden>Welcome to {title}</h1>
-    <h2>{subtitle}</h2>
-    <p>{description}</p>
-    <ul>
-      <li><a href={"/about/"}>About me</a></li>
-      <li><a onClick={toggleLatestProjects}>Latest Projects</a></li>
-    </ul>
+Section.propTypes = {
+  className: PropTypes.string.isRequired
+}
+
+function Description({subtitle, description}) {
+  return <div className={styles.description}>
+    <h1>{subtitle}</h1>
+    <h2>{description}</h2>
+    <nav>
+      <ul>
+        <li><Link to={"/about/"}>About me</Link></li>
+        <li><Link to={"/projects/"}>Browse Projects</Link></li>
+      </ul>
+    </nav>
   </div>
 }
 

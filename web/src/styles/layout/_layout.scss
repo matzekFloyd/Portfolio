@@ -1,21 +1,23 @@
 @import '../base/base';
 
-html {
-  font-family: $font-family-sans;
-  font-size: $font-base-size;
-  line-height: $font-base-line-height;
-}
-
 body {
+  font-family: $txt-main-font;
+  font-size: $txt-floating-size;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: auto;
+  width: 90%;
   -webkit-font-smoothing: antialiased;
-  background: $color-white;
-  color: $color-black;
-  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body,
-body > div,
-body > div > div {
-  height: 100%;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
+h1, h2, h3, h4 {
+  font-family: $txt-headline-font;
+  color: $col-accent-primary;
 }
