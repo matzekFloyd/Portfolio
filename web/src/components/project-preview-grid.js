@@ -4,6 +4,7 @@ import ProjectPreview from './project-preview'
 import PropTypes from 'prop-types';
 
 import styles from '../styles/components/project-preview-grid.module.scss';
+import {ButtonRedirect} from "./util";
 
 function ProjectPreviewGrid(props) {
   return (
@@ -18,9 +19,7 @@ function ProjectPreviewGrid(props) {
         ))}
       </ul>
       {props.browseMoreHref && (
-        <div className={styles.browseMoreNav}>
-          <Link to={props.browseMoreHref}>Browse more</Link>
-        </div>
+          <ButtonRedirect to={props.browseMoreHref} text={"Browse more"} additionalStyles={styles.browseMoreNav}/>
       )}
     </div>
   )

@@ -28,18 +28,6 @@
 }
 
 .browseMoreNav {
-  composes: large from './typography.module.scss';
   margin-top: 1rem;
-  text-align: right;
-
-  a {
-    display: inline-block;
-    padding: 0.5rem 0;
-    color: inherit;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: $col-hover;
-  }
+  float: right;
 }

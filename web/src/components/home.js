@@ -4,7 +4,7 @@ import React from "react";
 import ProjectPreviewGrid from "./project-preview-grid";
 import styles from '../styles/components/home.module.scss';
 import PropTypes from 'prop-types';
-import {HorizontalLine} from "./util";
+import {ButtonRedirect, HorizontalLine} from "./util";
 import {Link} from 'gatsby'
 
 
@@ -42,8 +42,12 @@ function Description({subtitle, description}) {
     <h2>{description}</h2>
     <nav>
       <ul>
-        <li><Link to={"/about/"}>About me</Link></li>
-        <li><Link to={"/projects/"}>Browse Projects</Link></li>
+        <li>
+          <ButtonRedirect to={"/about/"} text={"About me"}/>
+        </li>
+        <li>
+          <ButtonRedirect to={"/projects/"} text={"Browse Projects"}/>
+        </li>
       </ul>
     </nav>
   </div>

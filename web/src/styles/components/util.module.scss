@@ -3,3 +3,30 @@
 .horizontalLine {
   width: 92.5%;
 }
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 6px;
+  background: $col-accent-primary;
+  font-family: "Rubik","Arial",sans-serif;
+  font-weight: 400;
+  color: #fff;
+
+  a {
+    font-family: $txt-main-font;
+    font-size: $font-title3-size;
+    line-height: $font-title3-line-height;
+    padding: 1.5rem 2.5rem 0.5rem 2.5rem;
+    margin-bottom: 5px;
+    margin-top: -5px;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+}
+
+.button:hover {
+  background-color: $col-hover;
+}
