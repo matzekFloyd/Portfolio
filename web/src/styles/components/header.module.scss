@@ -30,7 +30,7 @@
   }
 
   a:hover {
-    color: $col-accent-tertiary;
+    color: $col-hover;
   }
 
 }
@@ -71,14 +71,14 @@
 
   @include hover {
     ul li a:hover {
-      color: $color-accent;
+      color: $col-hover;
     }
   }
 
   @include media-max-small {
     position: absolute;
-    background: $color-white;
-    color: $color-black;
+    background: $col-white;
+    color: $col-black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     left: 0;
     right: 0;
@@ -111,4 +111,8 @@
 
 .showNav {
   display: block;
+}
+
+.active {
+  color: $col-active;
 }

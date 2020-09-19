@@ -43,19 +43,19 @@ const AboutPage = props => {
   const {data, errors} = props
   if (errors) {
     return (
-      <Layout>
+      <Layout location={props.location}>
         <GraphQLErrorList errors={errors}/>
       </Layout>
     )
   }
   const site = (data || {}).about
   return (
-    <Layout>
-      <SEO title='About' />
+    <Layout location={props.location}>
+      <SEO title='About'/>
       <Container>
         <h1 className={responsiveTitle1}>About</h1>
         <h2>{site.title}</h2>
-        {site._rawBody && <BlockContent blocks={site._rawBody || []} />}
+        {site._rawBody && <BlockContent blocks={site._rawBody || []}/>}
       </Container>
     </Layout>
   )

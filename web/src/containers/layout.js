@@ -1,6 +1,7 @@
 import {graphql, StaticQuery} from 'gatsby'
 import React, {useState} from 'react'
 import Layout from '../components/layout'
+import PropTypes from 'prop-types';
 
 const query = graphql`
   query SiteTitleQuery {
@@ -39,6 +40,9 @@ function LayoutContainer (props) {
       }}
     />
   )
+}
+LayoutContainer.propTypes = {
+  location: PropTypes.object.isRequired
 }
 
 export default LayoutContainer

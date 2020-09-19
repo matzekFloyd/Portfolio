@@ -1,13 +1,3 @@
-$font-family-sans: Lato, sans-serif;
-
-$color-black: #202123;
-$color-dark-gray: #32373e;
-$color-gray: #697a90;
-$color-light-gray: #b4bcc7;
-$color-very-light-gray: #e7ebed;
-$color-white: #fff;
-$color-accent: #156dff;
-
 /* Typography */
 $font-micro-size: calc(10 / 16 * 1rem); /* 10px */
 $font-micro-line-height: calc(12 / 10); /* 12px */
@@ -26,9 +16,12 @@ $font-title1-size: calc(49 / 16 * 1rem); /* 49px */
 $font-title1-line-height: calc(57 / 49); /* 57px */
 
 /* Brand */
-$col-white: #FFFFFF;
-$col-black: #000000;
-$col-grey: grey;
+$col-white: #fff;
+$col-black: #202123;
+$col-dark-grey: #32373e;
+$col-grey: #697a90;
+$col-light-grey: #b4bcc7;
+$col-very-light-grey: #e7ebed;
 
 $col-background: #F5F5F5;
 
@@ -40,3 +33,7 @@ $col-accent-black: #1D2731;
 $txt-main-font: 'Lato', sans-serif;
 $txt-headline-font: 'Merriweather', serif;
 $txt-floating-size: 16px;
+
+$col-accent: $col-accent-primary;
+$col-hover: $col-accent-secondary;
+$col-active: $col-accent-tertiary;

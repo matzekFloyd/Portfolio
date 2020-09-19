@@ -1,17 +1,13 @@
 @import "../base/base";
 
-
 .root {
   margin: 2em 0 4em;
-}
 
-.headline {
-  font-size: $font-micro-size;
-  line-height: $font-micro-line-height;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin: 2rem 0;
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 2rem 0;
+  }
 }
 
 .grid {
@@ -32,7 +28,7 @@
 }
 
 .browseMoreNav {
-  composes: small from './typography.module.scss';
+  composes: large from './typography.module.scss';
   margin-top: 1rem;
   text-align: right;
 
@@ -44,6 +40,6 @@
   }
 
   a:hover {
-    color: $color-accent;
+    color: $col-hover;
   }
 }

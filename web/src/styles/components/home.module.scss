@@ -47,7 +47,7 @@
 
     @include hover {
       ul li a:hover {
-        color: $color-accent;
+        color: $col-hover;
       }
     }
   }
@@ -67,8 +67,8 @@
 
 figure.portrait {
   width: 100%;
-  padding: 40px;
+  padding: 35px;
   margin-bottom: 50px;
-  background-color: #121316;
+  background-color: $col-black;
   border-radius: 6px;
 }
