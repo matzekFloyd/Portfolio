@@ -9,9 +9,8 @@
   cursor: pointer;
   border-radius: 6px;
   background: $col-accent-primary;
-  font-family: "Rubik","Arial",sans-serif;
-  font-weight: 400;
-  color: #fff;
+  color: $col-white;
+  margin: 7.5px;
 
   a {
     font-family: $txt-main-font;

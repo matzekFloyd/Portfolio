@@ -5,6 +5,8 @@ import {cn} from '../lib/helpers'
 import PropTypes from 'prop-types';
 import styles from '../styles/components/header.module.scss';
 import DevHelper from "./devHelper";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCode, faUser, faComment} from "@fortawesome/free-solid-svg-icons";
 
 const HOME = "/";
 const ABOUT = "/about/";
@@ -27,14 +29,14 @@ function Header({onHideNav, onShowNav, showNav, siteTitle, location}) {
 
       <nav className={cn(styles.nav, showNav && styles.showNav)}>
         <ul>
-          <li className={isActive(ABOUT) && styles.active}>
-            <Link to='/about/'>About</Link>
+          <li className={isActive(ABOUT) ? styles.active : undefined}>
+            <Link to='/about/'> <FontAwesomeIcon icon={faUser}/> About</Link>
           </li>
-          <li className={isActive(PROJECTS) && styles.active}>
-            <Link to='/projects/'>Projects</Link>
+          <li className={isActive(PROJECTS) ? styles.active : undefined}>
+            <Link to='/projects/'> <FontAwesomeIcon icon={faCode}/> Projects</Link>
           </li>
-          <li className={isActive(CONTACT) && styles.active}>
-            <Link to='/contact/'>Contact</Link>
+          <li className={isActive(CONTACT) ? styles.active : undefined}>
+            <Link to='/contact/'> <FontAwesomeIcon icon={faComment}/> Contact</Link>
           </li>
         </ul>
       </nav>
