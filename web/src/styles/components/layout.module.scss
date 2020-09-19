@@ -1,8 +1,10 @@
 @import "../base/base";
 
+body {
+  background-color: $col-white;
+}
 
 .content {
-  background: $col-white;
   min-height: calc(100% - 73px - 120px);
 
   @include media-min-small {

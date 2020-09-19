@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 import styles from "../styles/components/util.module.scss";
 import {cn} from "../lib/helpers";
 
-export const HorizontalLine = () => (
-  <hr className={styles.horizontalLine}/>
-);
+export function HorizontalLine({minWidth}) {
+  return <hr className={styles.horizontalLine} style={{minWidth: minWidth + "px"}}/>
+}
+HorizontalLine.propTypes = {
+  minWidth: PropTypes.string
+}
 
 export const ButtonWrapper = ({children, additionalStyles}) => {
   return <div className={cn(styles.button, additionalStyles)}>

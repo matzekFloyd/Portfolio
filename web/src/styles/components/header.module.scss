@@ -20,6 +20,8 @@
 
 .branding {
   font-weight: 600;
+  font-size: $font-title3-size;
+  line-height: $font-title3-line-height;
   flex: 1;
 
   a {
@@ -57,6 +59,7 @@
 
 .nav {
   display: none;
+  margin: auto;
 
   ul {
     margin: 0;

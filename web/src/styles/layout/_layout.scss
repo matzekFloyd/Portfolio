@@ -1,13 +1,18 @@
 @import '../base/base';
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  height: 100%;
   font-family: $txt-main-font;
   font-size: $txt-floating-size;
   display: flex;
   flex-direction: column;
   position: relative;
   margin: auto;
-  width: 90%;
+  width: 85%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

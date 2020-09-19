@@ -11,6 +11,7 @@ const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle, location}) 
     <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} location={location}/>
     <HorizontalLine/>
     <div className={styles.content}>{children}</div>
+    <HorizontalLine/>
     <Footer />
   </>
 )
