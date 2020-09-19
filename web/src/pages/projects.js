@@ -40,7 +40,7 @@ const ProjectsPage = props => {
   const {data, errors} = props
   if (errors) {
     return (
-      <Layout>
+      <Layout location={props.location}>
         <GraphQLErrorList errors={errors} />
       </Layout>
     )
@@ -48,7 +48,7 @@ const ProjectsPage = props => {
   const projectNodes =
     data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
   return (
-    <Layout>
+    <Layout location={props.location}>
       <SEO title='Projects' />
       <Container>
         <h1 className={responsiveTitle1}>Projects</h1>

@@ -21,14 +21,14 @@ const ContactPage = props => {
   const {data, errors} = props
   if (errors) {
     return (
-      <Layout>
+      <Layout location={props.location}>
         <GraphQLErrorList errors={errors}/>
       </Layout>
     )
   }
   const site = (data || {}).contact
   return (
-    <Layout>
+    <Layout location={props.location}>
       <SEO title='Contact'/>
       <Container>
         <h1 className={responsiveTitle1}>Contact</h1>

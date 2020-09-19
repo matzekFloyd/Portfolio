@@ -87,7 +87,7 @@ const IndexPage = props => {
 
   if (errors) {
     return (
-      <Layout>
+      <Layout location={props.location}>
         <GraphQLErrorList errors={errors}/>
       </Layout>
     )
@@ -107,7 +107,7 @@ const IndexPage = props => {
   }
 
   return (
-    <Layout>
+    <Layout location={props.location}>
       <SEO title={site.title} description={site.description} keywords={site.keywords}/>
       <Container>
         <Home site={site} projectNodes={projectNodes}/>
