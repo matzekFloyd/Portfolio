@@ -5,8 +5,6 @@ import ProjectPreviewGrid from "./project-preview-grid";
 import styles from '../styles/components/home.module.scss';
 import PropTypes from 'prop-types';
 import {ButtonRedirect, HorizontalLine} from "./util";
-import {Link} from 'gatsby'
-
 
 const Home = ({site, projectNodes}) => {
 
@@ -46,7 +44,7 @@ function Description({subtitle, description}) {
           <ButtonRedirect to={"/about/"} text={"About me"}/>
         </li>
         <li>
-          <ButtonRedirect to={"/projects/"} text={"Browse Projects"}/>
+          <ButtonRedirect to={"/projects/"} text={"See Projects"}/>
         </li>
       </ul>
     </nav>
