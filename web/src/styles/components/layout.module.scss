@@ -2,7 +2,7 @@
 
 
 .content {
-  background: $color-white;
+  background: $col-white;
   min-height: calc(100% - 73px - 120px);
 
   @include media-min-small {

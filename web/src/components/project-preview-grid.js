@@ -1,20 +1,21 @@
 import {Link} from 'gatsby'
 import React from 'react'
 import ProjectPreview from './project-preview'
+import PropTypes from 'prop-types';
 
 import styles from '../styles/components/project-preview-grid.module.scss';
 
-function ProjectPreviewGrid (props) {
+function ProjectPreviewGrid(props) {
   return (
     <div className={styles.root}>
-      {props.title && <h2 className={styles.headline}>{props.title}</h2>}
+      {props.title && <h1>{props.title}</h1>}
       <ul className={styles.grid}>
         {props.nodes &&
-          props.nodes.map(node => (
-            <li key={node.id}>
-              <ProjectPreview {...node} />
-            </li>
-          ))}
+        props.nodes.map(node => (
+          <li key={node.id}>
+            <ProjectPreview {...node} />
+          </li>
+        ))}
       </ul>
       {props.browseMoreHref && (
         <div className={styles.browseMoreNav}>
@@ -24,6 +25,12 @@ function ProjectPreviewGrid (props) {
     </div>
   )
 }
+
+ProjectPreviewGrid.propTypes = {
+  title: PropTypes.string.isRequired,
+  nodes: PropTypes.array,
+  browseMoreHref: PropTypes.string.isRequired
+};
 
 ProjectPreviewGrid.defaultProps = {
   title: '',

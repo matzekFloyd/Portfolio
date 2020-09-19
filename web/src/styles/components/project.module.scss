@@ -30,7 +30,7 @@
 
 .mainContent {
   a {
-    color: $color-accent;
+    color: $col-accent;
   }
 
   a:hover {
@@ -44,11 +44,11 @@
 .publishedAt {
   composes: small from './typography.module.scss';
   margin: 1.5rem 0 3rem;
-  color: $color-gray;
+  color: $col-grey;
 }
 
 .categories {
-  border-top: 1px solid $color-very-light-gray;
+  border-top: 1px solid $col-very-light-grey;
   margin: 2rem 0 3rem;
 
   ul {
@@ -68,7 +68,7 @@
 }
 
 .relatedProjects {
-  border-top: 1px solid $color-very-light-gray;
+  border-top: 1px solid $col-very-light-grey;
   margin: 2rem 0 3rem;
 
   ul {
