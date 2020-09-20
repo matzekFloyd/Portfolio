@@ -18,7 +18,7 @@
     line-height: $font-title3-line-height;
     padding: 1.5rem 2.5rem 0.5rem 2.5rem;
     margin-bottom: 5px;
-    margin-top: -5px;
+    margin-top: -7.5px;
     display: block;
     color: inherit;
     text-decoration: none;
@@ -28,4 +28,5 @@
 
 .button:hover {
   background-color: $col-hover;
+  border-color: $col-accent-primary;
 }

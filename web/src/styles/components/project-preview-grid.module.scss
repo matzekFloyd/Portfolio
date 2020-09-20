@@ -28,6 +28,20 @@
 }
 
 .browseMoreNav {
-  margin-top: 1rem;
-  float: right;
+  display: flex;
+  align-content: center;
+  margin: 40px auto 0 auto;
+
+  a {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include media-min-medium {
+    float: right;
+  }
+
+  @include media-max-medium {
+    width: 100%;
+  }
 }

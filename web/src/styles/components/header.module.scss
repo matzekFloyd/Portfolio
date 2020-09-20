@@ -72,6 +72,10 @@
     text-decoration: none;
   }
 
+  .active {
+    text-decoration: underline;
+  }
+
   @include hover {
     ul li a:hover {
       color: $col-hover;
@@ -106,7 +110,7 @@
     }
 
     ul li a {
-      padding: 0.5rem;
+      padding: 1rem;
     }
   }
 
@@ -117,5 +121,5 @@
 }
 
 .active {
-  color: $col-active;
+  color: $col-accent-primary;
 }

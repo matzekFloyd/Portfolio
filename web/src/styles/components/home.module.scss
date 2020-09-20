@@ -43,13 +43,17 @@
       margin: 0 2.5%;
     }
 
+    @include media-max-medium {
+
+    }
+
   }
 }
 
 .portrait {
   margin: auto;
   max-width: 420px;
-  min-width: 350px;
+  min-width: 330px;
 
   img {
     width: 100%;
@@ -64,4 +68,28 @@ figure.portrait {
   margin-bottom: 50px;
   background-color: $col-accent-primary;
   border-radius: 6px;
+}
+
+@media (max-width: 1000px) {
+  .sectionDescription {
+    flex-wrap: wrap-reverse;
+  }
+
+  .description {
+    padding: 20px 0 0 0;
+
+    h1 {
+      text-align: center;
+    }
+  }
+}
+
+@include media-max-small {
+  .portrait {
+    min-width: 0;
+  }
+
+  figure.portrait {
+    padding: 0;
+  }
 }
