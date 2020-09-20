@@ -4,3 +4,20 @@
   min-height: $section-min-height;
   margin: 50px auto;
 }
+
+.contactsList {
+  margin: 50px 0 0 5%;
+
+  ul li {
+    list-style-type: none;
+    margin: 7.5px 0;
+  }
+
+  a {
+    color: $col-accent;
+  }
+
+  a:hover {
+    color: $col-hover;
+  }
+}

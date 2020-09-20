@@ -12,6 +12,7 @@ import siteSettings from './documents/siteSettings'
 import about from './documents/about'
 import contact from './documents/contact'
 import youtube from './documents/youtube'
+import contacts from "./documents/contacts";
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -41,6 +42,7 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     category,
+    contacts,
     person,
     sampleProject,
     siteSettings,

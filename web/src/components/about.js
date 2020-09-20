@@ -8,8 +8,7 @@ import styles from "../styles/components/about.module.scss";
 const About = ({site}) => {
   return <>
     <Section className={styles.sectionAbout}>
-      <h1 className={responsiveTitle1}>About</h1>
-      <h2>{site.title}</h2>
+      <h1 className={responsiveTitle1}>{site.title}</h1>
       <TwoColumnLayout>
         <Column className={styles.leftCol}>
           {site._rawBodyLeftCol && <BlockContent blocks={site._rawBodyLeftCol || []}/>}

@@ -10,6 +10,12 @@ export const query = graphql`
   query ContactPageQuery {
     contact: sanityContact(_id: {regex: "/(drafts.|)singleton-contact/"}) {
       title
+      contacts {
+        title
+        url
+        isEmail
+        isSocialMedia
+      }
       _rawBody
     }
   }

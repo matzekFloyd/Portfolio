@@ -14,7 +14,7 @@ const Projects = ({projectNodes}) => {
   </>
 }
 Projects.propTypes = {
-  projectNodes: PropTypes.object.isRequired,
+  projectNodes: PropTypes.array.isRequired,
 }
 
 export default Projects;
