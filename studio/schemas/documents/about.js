@@ -16,8 +16,13 @@ export default {
       type: 'figure'
     },
     {
-      name: 'body',
-      title: 'Body',
+      name: 'bodyLeftCol',
+      title: 'Body Left Column',
+      type: 'aboutPortableText'
+    },
+    {
+      name: 'bodyRightCol',
+      title: 'Body Right Column',
       type: 'aboutPortableText'
     }
   ]

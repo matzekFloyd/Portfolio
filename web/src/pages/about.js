@@ -4,9 +4,7 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-
-import {responsiveTitle1} from '../styles/components/typography.module.scss';
-import BlockContent from "../components/block-content";
+import About from "../components/about";
 
 export const query = graphql`
   query AboutPageQuery {
@@ -34,7 +32,8 @@ export const query = graphql`
           }
           alt
       }
-      _rawBody
+      _rawBodyLeftCol
+      _rawBodyRightCol
     }
   }
 `
@@ -53,9 +52,7 @@ const AboutPage = props => {
     <Layout location={props.location}>
       <SEO title='About'/>
       <Container>
-        <h1 className={responsiveTitle1}>About</h1>
-        <h2>{site.title}</h2>
-        {site._rawBody && <BlockContent blocks={site._rawBody || []}/>}
+        <About site={site}/>
       </Container>
     </Layout>
   )

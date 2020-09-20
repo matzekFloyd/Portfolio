@@ -4,7 +4,7 @@ import React from "react";
 import ProjectPreviewGrid from "./project-preview-grid";
 import styles from '../styles/components/home.module.scss';
 import PropTypes from 'prop-types';
-import {ButtonRedirect, HorizontalLine} from "./util";
+import {ButtonRedirect, HorizontalLine, Section} from "./util";
 
 const Home = ({site, projectNodes}) => {
 
@@ -24,14 +24,6 @@ const Home = ({site, projectNodes}) => {
       )}
     </Section>
   </>
-}
-
-function Section({children, className}) {
-  return <section className={className}>{children}</section>;
-}
-
-Section.propTypes = {
-  className: PropTypes.string.isRequired
 }
 
 function Description({subtitle, description}) {
