@@ -1,7 +1,7 @@
 @import "../base/base";
 
 .sectionAbout {
-  min-height: 750px;
+  min-height: $section-min-height;
   margin: 50px auto;
 }
 

@@ -4,9 +4,7 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-
-import {responsiveTitle1} from '../styles/components/typography.module.scss';
-import BlockContent from "../components/block-content";
+import Contact from "../components/contact";
 
 export const query = graphql`
   query ContactPageQuery {
@@ -31,9 +29,7 @@ const ContactPage = props => {
     <Layout location={props.location}>
       <SEO title='Contact'/>
       <Container>
-        <h1 className={responsiveTitle1}>Contact</h1>
-        <h2>{site.title}</h2>
-        {site._rawBody && <BlockContent blocks={site._rawBody || []} />}
+        <Contact site={site}/>
       </Container>
     </Layout>
   )

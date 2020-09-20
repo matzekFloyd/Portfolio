@@ -2,12 +2,11 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
+import Projects from "../components/projects";
 
-import {responsiveTitle1} from '../styles/components/typography.module.scss';
 
 export const query = graphql`
   query ProjectsPageQuery {
@@ -51,8 +50,7 @@ const ProjectsPage = props => {
     <Layout location={props.location}>
       <SEO title='Projects' />
       <Container>
-        <h1 className={responsiveTitle1}>Projects</h1>
-        {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
+        <Projects projectNodes={projectNodes}/>
       </Container>
     </Layout>
   )

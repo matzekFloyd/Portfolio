@@ -8,10 +8,12 @@
 }
 
 .mainImage {
+  margin-top: 50px;
 
   img {
     border-radius: 1%;
-    max-width: 1200px;
+    //max-width: 1200px;
+    max-height: 600px;
     height: auto;
     display: block;
     margin: auto;
@@ -34,7 +36,7 @@
   }
 
   a:hover {
-    color: inherit;
+    color: $col-hover;
   }
 }
 
