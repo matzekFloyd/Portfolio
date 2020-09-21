@@ -2,7 +2,7 @@ import S from '@sanity/desk-tool/structure-builder'
 import MdSettings from 'react-icons/lib/md/settings'
 
 const hiddenDocTypes = listItem =>
-  !['about', 'contact', 'category', 'person', 'sampleProject', 'siteSettings'].includes(listItem.getId())
+  !['about', 'contact', 'impressum', 'category', 'person', 'sampleProject', 'siteSettings'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -44,6 +44,14 @@ export default () =>
             .id('contact')
             .schemaType('contact')
             .documentId('singleton-contact')
+        ),
+      S.listItem()
+        .title('Impressum')
+        .child(
+          S.editor()
+            .id('impressum')
+            .schemaType('impressum')
+            .documentId('singleton-impressum')
         ),
       // This returns an array of all the document types
       // defined in schema.js. We filter out those that we have

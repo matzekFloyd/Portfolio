@@ -13,6 +13,7 @@ import about from './documents/about'
 import contact from './documents/contact'
 import youtube from './documents/youtube'
 import contacts from "./documents/contacts";
+import impressum from "./documents/impressum";
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -22,6 +23,7 @@ import projectPortableText from './objects/projectPortableText'
 import simplePortableText from './objects/simplePortableText'
 import aboutPortableText from "./objects/aboutPortableText";
 import contactPortableText from "./objects/contactPortableText";
+import impressumPortableText from "./objects/impressumPortableText";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -35,6 +37,7 @@ export default createSchema({
     bioPortableText,
     aboutPortableText,
     contactPortableText,
+    impressumPortableText,
     figure,
     projectMember,
     projectPortableText,
@@ -43,6 +46,7 @@ export default createSchema({
     // in the studio.
     category,
     contacts,
+    impressum,
     person,
     sampleProject,
     siteSettings,
