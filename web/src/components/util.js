@@ -3,8 +3,6 @@ import {Link} from 'gatsby'
 import PropTypes from 'prop-types';
 import styles from "../styles/components/util.module.scss";
 import {cn} from "../lib/helpers";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
 
 export function HorizontalLine({minWidth}) {
   return <hr className={styles.horizontalLine} style={{minWidth: minWidth + "px"}}/>
@@ -29,9 +27,7 @@ export const ButtonWrapper = ({children, additionalStyles}) => {
 
 export const ButtonRedirect = ({text, to, additionalStyles}) => {
   return <ButtonWrapper additionalStyles={additionalStyles}>
-    <Link to={to}>
-      <FontAwesomeIcon icon={faAngleDoubleRight} style={{marginRight: 10 + "px"}}/>
-      {text}</Link>
+    <Link to={to}>{text}</Link>
   </ButtonWrapper>
 }
 ButtonRedirect.propTypes = {

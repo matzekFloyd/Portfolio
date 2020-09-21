@@ -27,7 +27,8 @@ $col-background: #F5F5F5;
 
 $col-accent-primary: #0B3C5D;
 $col-accent-secondary: #328CC1;
-$col-accent-tertiary: #D9B310;
+//$col-accent-tertiary: #D9B310;
+$col-accent-tertiary: #A88603;
 $col-accent-black: #1D2731;
 
 $txt-main-font: 'Lato', sans-serif;
@@ -39,4 +40,4 @@ $col-hover: $col-accent-secondary;
 $col-active: $col-accent-tertiary;
 
 /* Components */
-$section-min-height: 675px;
+$section-min-height: 660px;

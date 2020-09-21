@@ -15,6 +15,7 @@ body {
   width: 85%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
 }
 
 code {
@@ -25,4 +26,13 @@ code {
 h1, h2, h3, h4 {
   font-family: $txt-headline-font;
   color: $col-accent-primary;
+}
+
+a {
+  color: $col-accent-tertiary;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $col-hover;
 }

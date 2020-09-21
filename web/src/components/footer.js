@@ -8,7 +8,7 @@ const Footer = ({}) => (
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
         <div className={styles.siteInfo}>
-          © 2020 Mathias Mayrhofer
+          © 2020 Mathias Mayrhofer | Built with <a href={"https://www.sanity.io/"} target={"_blank"}>Sanity.io</a>
         </div>
       </div>
     </footer>

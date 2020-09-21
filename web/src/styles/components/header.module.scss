@@ -25,14 +25,10 @@
   flex: 1;
 
   a {
+    color: $col-accent-primary;
     display: inline-block;
     padding: 0.5em;
-    color: inherit;
     text-decoration: none;
-  }
-
-  a:hover {
-    color: $col-hover;
   }
 
 }
@@ -72,14 +68,13 @@
     text-decoration: none;
   }
 
-  .active {
-    text-decoration: underline;
+  ul li a:hover {
+    color: $col-hover;
   }
 
-  @include hover {
-    ul li a:hover {
-      color: $col-hover;
-    }
+  .active {
+    color: $col-accent-primary;
+    font-weight: bold;
   }
 
   @include media-max-small {
@@ -118,8 +113,4 @@
 
 .showNav {
   display: block;
-}
-
-.active {
-  color: $col-accent-primary;
 }
