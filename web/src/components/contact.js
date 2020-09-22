@@ -6,7 +6,31 @@ import {Section} from "./util";
 import styles from "../styles/components/contact.module.scss";
 
 function Contact({site}) {
-  const contacts = site.contacts || [];
+  let contacts = site.contacts || [];
+
+  let sortAlphabetically = (a, b) => {
+
+    if (a.isEmail && b.isEmail) {
+
+      if (a.url < b.url) {
+        return -1;
+      }
+
+      if (a.url > b.url) {
+        return 1;
+      }
+    }
+
+    if (a.title < b.title) {
+      return -1;
+    }
+
+    if (a.title > b.title) {
+      return 1;
+    }
+  }
+  contacts.sort(sortAlphabetically);
+
   let email = [];
   let social = [];
   let other = [];
@@ -43,6 +67,7 @@ function ContactsList({title, contacts}) {
     </ul>
   </div>;
 }
+
 ContactsList.propTypes = {
   title: PropTypes.string.isRequired,
   contacts: PropTypes.array.isRequired
