@@ -9,7 +9,7 @@ import RoleList from './role-list'
 
 import styles from '../styles/components/project.module.scss';
 
-function Project (props) {
+function Project(props) {
   const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProjects} = props
   return (
     <article className={styles.root}>
@@ -25,7 +25,7 @@ function Project (props) {
         <div className={styles.grid}>
           <div className={styles.mainContent}>
             <h1 className={styles.title}>{title}</h1>
-            {_rawBody && <BlockContent blocks={_rawBody || []} />}
+            {_rawBody && <BlockContent blocks={_rawBody || []}/>}
           </div>
           <aside className={styles.metaContent}>
             {publishedAt && (
@@ -35,14 +35,16 @@ function Project (props) {
                   : format(new Date(publishedAt), 'MMMM Do YYYY')}
               </div>
             )}
-            {members && members.length > 0 && <RoleList items={members} title='Project members' />}
+            {members && members.length > 0 && <RoleList items={members} title='Project members'/>}
             {categories && categories.length > 0 && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
                 <ul>
-                  {categories.map(category => (
-                    <li key={category._id}>{category.title}</li>
-                  ))}
+                  {categories.map(category => {
+                    return category.url ?
+                      <li key={category._id}><a href={category.url} target={"_blank"}>{category.title}</a></li> :
+                      <li key={category._id}>{category.title}</li>
+                  })}
                 </ul>
               </div>
             )}
