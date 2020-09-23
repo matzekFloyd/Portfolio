@@ -1,4 +1,3 @@
-import {Link} from 'gatsby'
 import React from 'react'
 import ProjectPreview from './project-preview'
 import PropTypes from 'prop-types';

@@ -8,16 +8,25 @@ import styles from '../styles/components/project-preview.module.scss';
 import {responsiveTitle3} from '../styles/components/typography.module.scss';
 
 function ProjectPreview (props) {
+
+  let previewImage = undefined;
+
+  if(props.previewImage && props.previewImage.asset) {
+    previewImage = props.previewImage;
+  } else if (props.mainImage && props.mainImage.asset) {
+    previewImage = props.mainImage;
+  }
+
   return (
     <Link className={styles.root} to={`/project/${props.slug.current}`}>
       <div className={styles.leadMediaThumb}>
-        {props.mainImage && props.mainImage.asset && (
+        {previewImage && (
           <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
+            src={imageUrlFor(buildImageObj(previewImage))
               .width(600)
               .height(Math.floor((9 / 16) * 600))
               .url()}
-            alt={props.mainImage.alt}
+            alt={previewImage.alt}
           />
         )}
       </div>

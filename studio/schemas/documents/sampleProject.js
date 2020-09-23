@@ -48,6 +48,11 @@ export default {
       type: 'datetime'
     },
     {
+      name: 'previewImage',
+      title: 'Preview image',
+      type: 'figure'
+    },
+    {
       name: 'mainImage',
       title: 'Main image',
       type: 'figure'
@@ -75,7 +80,7 @@ export default {
       title: 'title',
       publishedAt: 'publishedAt',
       slug: 'slug',
-      media: 'mainImage'
+      media: 'previewImage'
     },
     prepare({title = 'No title', publishedAt, slug = {}, media}) {
       const dateSegment = format(publishedAt, 'YYYY/MM')

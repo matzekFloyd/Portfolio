@@ -18,6 +18,12 @@ export const query = graphql`
       edges {
         node {
           id
+          previewImage {
+            asset {
+              _id
+            }
+            alt
+          }
           mainImage {
             asset {
               _id

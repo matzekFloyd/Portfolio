@@ -16,7 +16,7 @@ export const Section = ({children, className}) => {
   return <section className={className}>{children}</section>;
 }
 Section.propTypes = {
-  className: PropTypes.string.isRequired
+  className: PropTypes.string
 }
 
 export const ButtonWrapper = ({children, additionalStyles}) => {
