@@ -11,11 +11,6 @@ export default {
       type: 'string'
     },
     {
-      name: 'aboutImage',
-      title: 'About image',
-      type: 'figure'
-    },
-    {
       name: 'bodyLeftCol',
       title: 'Body Left Column',
       type: 'aboutPortableText'
