@@ -13,7 +13,7 @@ export const query = graphql`
     projects: allSanitySampleProject(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
-      filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
+      filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}, hidden: {ne: true}},
     ) {
       edges {
         node {

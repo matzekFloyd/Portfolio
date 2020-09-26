@@ -6,6 +6,11 @@ export default {
   type: 'document',
   fields: [
     {
+      title: "Hidden",
+      name: "hidden",
+      type: "boolean"
+    },
+    {
       name: 'title',
       title: 'Title',
       type: 'string'
