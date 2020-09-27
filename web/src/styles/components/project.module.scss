@@ -84,3 +84,8 @@
   composes: base from './typography.module.scss';
   margin: 0.5rem 0 0;
 }
+
+iframe {
+  display: block;
+  margin: auto;
+}
