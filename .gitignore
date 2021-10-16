@@ -6,3 +6,13 @@
 
 # lerna files
 /lerna-debug.log
+.idea/dbnavigator.xml
+.idea/misc.xml
+.idea/mm-sanity-portfolio.iml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/watcherTasks.xml
+.idea/codeStyles/codeStyleConfig.xml
+.idea/codeStyles/Project.xml
+studio/yarn.lock
+studio/config/@sanity/form-builder.json
