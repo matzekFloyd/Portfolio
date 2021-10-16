@@ -33,7 +33,7 @@ function Description({subtitle, description}) {
     <nav>
       <ul>
         <li>
-          <ButtonRedirect to={"/about/"} text={"About me"}/>
+          <ButtonRedirect to={"/about/"} text={"About Me"}/>
         </li>
         <li>
           <ButtonRedirect to={"/projects/"} text={"My Projects"}/>
