@@ -5,7 +5,7 @@ import YouTube from 'react-youtube'
 const Preview = ({value}) => {
   const {url} = value
   const id = getYouTubeId(url)
-  return (<YouTube videoId={id} />)
+  return React.createElement(YouTube, {videoId: id})
 }
 
 export default {
