@@ -9,7 +9,7 @@ import previewStyles from '../styles/projectPreview.module.css'
 
 export default function ProjectsPage({site, projects}) {
   return (
-    <SiteLayout siteTitle={site?.title} pageTitle="Projects" description={site?.description}>
+    <SiteLayout siteTitle={site?.title} pageTitle="Projects" description={site?.description} keywords={site?.keywords}>
       <section className={pageStyles.sectionProjects}>
         <h2>Projects</h2>
         <ul className={pageStyles.grid}>

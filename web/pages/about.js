@@ -5,7 +5,7 @@ import {PortableTextContent} from '../lib/portableText'
 
 export default function AboutPage({site, about}) {
   return (
-    <SiteLayout siteTitle={site?.title} pageTitle="About" description={site?.description}>
+    <SiteLayout siteTitle={site?.title} pageTitle="About" description={site?.description} keywords={site?.keywords}>
       <h2>{about?.title || 'About'}</h2>
       <div className="card">
         <PortableTextContent value={about?.bodyLeftCol} />
