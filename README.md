@@ -1,17 +1,19 @@
-# Portfolio - personal dev notes
+# Portfolio
 
-Personal setup and maintenance notes for this repo.
+Post-migration developer guide for the Next.js frontend and Sanity Studio v3 stack.
 
-## Runtime (important)
+## Runtime
 
-This project now targets modern Node LTS.
-Use the pinned version from:
-- `.nvmrc`
-- `.node-version`
+Canonical Node version:
 
-## Quick start
+- `20.19.5`
 
-Using nvm-windows:
+Version files:
+
+- root: `.nvmrc`, `.node-version`
+- studio: `studio/.nvmrc`, `studio/.node-version`
+
+If you use nvm-windows:
 
 ```bash
 nvm install 20.19.5
@@ -19,38 +21,70 @@ nvm use 20.19.5
 node -v
 ```
 
-Then:
+## Local setup
+
+From repository root:
 
 ```bash
+npm install
+```
+
+### Frontend (`web`)
+
+```bash
+cd web
 npm install
 npm run dev
 ```
 
-Local URLs:
-- Frontend: `http://localhost:8000`
-- Sanity Studio: `http://localhost:3333`
+Default URL: `http://localhost:8000`
 
-## Build
+### Studio (`studio`)
+
+```bash
+cd studio
+npm install
+npm run dev -- --port 3334
+```
+
+Default URL: `http://localhost:3334`
+
+## Build commands
+
+Frontend:
+
+```bash
+cd web
+npm run build
+```
+
+Studio:
+
+```bash
+cd studio
+npm run build
+```
+
+Monorepo build:
 
 ```bash
 npm run build
 ```
 
-## Deployment reminder
+## Deployment
 
-Netlify deploys from this repository.
+Netlify deploy settings are documented in:
 
-Use two separate Netlify sites:
+- [`docs/deployment/netlify.md`](docs/deployment/netlify.md)
 
-- Frontend site (`web`) for public pages
-- Studio site (`studio`) for Sanity Studio
+Migration summary, caveats, and rollback pointer:
 
-Final deployment settings are documented in [`docs/deployment/netlify.md`](docs/deployment/netlify.md).
+- [`docs/migration/final-stack-notes.md`](docs/migration/final-stack-notes.md)
 
 ## Contributing
 
-For branch naming and the `production` deploy workflow, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
+For branch naming and workflow conventions, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## License
 
-Private/personal project. See [`LICENSE`](LICENSE).
+Repository usage policy is defined in [`LICENSE`](LICENSE) (all rights reserved / proprietary).
