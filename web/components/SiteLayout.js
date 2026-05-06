@@ -21,16 +21,22 @@ export default function SiteLayout({children, siteTitle, pageTitle, description}
       </Head>
       <div className="shell">
         <header className="header">
-          <h1>{siteTitle || 'Portfolio'}</h1>
-          <nav>
-            {navItems().map((item) => (
-              <Link key={item.href} href={item.href} className="navLink">
-                {item.label}
-              </Link>
-            ))}
+          <div className="branding">
+            <Link href="/">{siteTitle || 'Portfolio'}</Link>
+          </div>
+          <nav className="nav">
+            <ul>
+              {navItems().map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="navLink">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
         </header>
-        <main>{children}</main>
+        <main className="content">{children}</main>
       </div>
     </>
   )

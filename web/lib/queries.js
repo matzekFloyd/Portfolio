@@ -2,7 +2,8 @@ export const siteSettingsQuery = `*[_type == "siteSettings" && _id in ["siteSett
   title,
   subtitle,
   description,
-  keywords
+  keywords,
+  portrait
 }`
 
 export const latestProjectsQuery = `*[_type == "sampleProject" && hidden != true && defined(slug.current)]

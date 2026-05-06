@@ -1,0 +1,41 @@
+.title {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 2.3rem;
+  line-height: 1.2;
+  margin: 1.2rem 0 1rem;
+  color: #1d2731;
+}
+
+.mainImage {
+  margin-top: 32px;
+}
+
+.mainImage img {
+  border-radius: 8px;
+}
+
+.body {
+  margin-top: 22px;
+  background: #fff;
+  border: 1px solid #dbe2eb;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+}
+
+.categories {
+  border-top: 1px solid #dbe2eb;
+  margin: 1.4rem 0 0;
+  padding-top: 0.8rem;
+}
+
+.categoriesTitle {
+  margin: 0;
+  font-weight: 700;
+  color: #1d2731;
+}
+
+.categoriesList {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+  color: #4d5f77;
+}
