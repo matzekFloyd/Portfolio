@@ -4,20 +4,18 @@ Personal setup and maintenance notes for this repo.
 
 ## Runtime (important)
 
-This project is on a legacy Gatsby/Sanity stack and requires Node `14.21.3`.
+This project now targets modern Node LTS.
 Use the pinned version from:
 - `.nvmrc`
 - `.node-version`
-
-If you are on a newer Node version (for example Node 20/22), `npm install` may fail because of legacy `node-sass`.
 
 ## Quick start
 
 Using nvm-windows:
 
 ```bash
-nvm install 14.21.3
-nvm use 14.21.3
+nvm install 20.19.5
+nvm use 20.19.5
 node -v
 ```
 

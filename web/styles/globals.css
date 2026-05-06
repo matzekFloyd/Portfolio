@@ -1,0 +1,43 @@
+html,
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background: #0e1116;
+  color: #f2f6ff;
+}
+
+a {
+  color: #8ec5ff;
+  text-decoration: none;
+}
+
+.shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 56px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.navLink {
+  margin-right: 12px;
+}
+
+.card {
+  border: 1px solid #293548;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 12px;
+  background: #141b24;
+}
+
+.meta {
+  color: #9aa8bc;
+}
