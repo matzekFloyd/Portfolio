@@ -1,0 +1,33 @@
+.sectionProjects {
+  min-height: 640px;
+  margin: 44px auto;
+}
+
+.sectionProjects h2 {
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 1rem;
+  margin: 0 0 18px;
+  color: #0b3c5d;
+}
+
+.grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 980px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

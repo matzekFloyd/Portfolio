@@ -1,0 +1,30 @@
+.root {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.title {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 1.35rem;
+  margin: 0.9rem 0 0.6rem;
+  color: #1d2731;
+}
+
+.excerpt {
+  margin: 0;
+  color: #4d5f77;
+  line-height: 1.5;
+}
+
+.thumb {
+  position: relative;
+  padding-bottom: 66.666%;
+  background: #d8e0ea;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.thumb img {
+  object-fit: cover;
+}
