@@ -1,38 +1,65 @@
-# Portfolio
+# Portfolio - personal dev notes
 
-A portfolio using structured content and a static site builder.
+Personal setup and maintenance notes for this repo.
 
-Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-io%2Fsanity-template-gatsby-portfolio).
+## Runtime (important)
 
-## What you have
+This project is on a legacy Gatsby/Sanity stack and requires Node `14.21.3`.
+Use the pinned version from:
+- `.nvmrc`
+- `.node-version`
 
-- A blazing fast portfolio with [Gatsby.js](https://gatsbyjs.org)
-- Structured content using [Sanity.io](https://www.sanity.io)
-- Global deployment on [Netlify](https://netlify.com)
+If you are on a newer Node version (for example Node 20/22), `npm install` may fail because of legacy `node-sass`.
 
 ## Quick start
 
-1. Clone this repository from your GitHub account
-2. `npm install` in the project root folder on local
-3. `npm run dev` to start the Studio and frontend locally
-   - Your Studio should be running on [http://localhost:3333](http://localhost:3333)
-   - Your frontend should be running on [http://localhost:8000](http://localhost:8000)
-4. `npm run build` to build to production locally
+Using nvm-windows:
 
-## Enable real-time content preview in development
+```bash
+nvm install 14.21.3
+nvm use 14.21.3
+node -v
+```
 
-1. Go to your [project’s API settings on manage.sanity.io](https://manage.sanity.io/projects/aartfjgc/settings/api) and create a token with read rights.
-2. Copy `.env.development.template` to `.env.development` and paste in the token: `SANITY_READ_TOKEN="yourTokenHere"`.
-3. Restart the development server (`ctrl + C` and `npm run dev`).
+Then:
 
-If you want to disable the preview you can set `watchMode: false` in gatsby-config.js. If you just want to preview published changes you can set `overlayDrafts: false` in gatsby-config.js.
+```bash
+npm install
+npm run dev
+```
 
-## Deploy changes
+Local URLs:
+- Frontend: `http://localhost:8000`
+- Sanity Studio: `http://localhost:3333`
 
-Netlify automatically deploys new changes commited to the `master` branch on GitHub. If you want to change the deployment branch you may do so in [build & deploy settings on Netlify](https://www.netlify.com/docs/continuous-deployment/#branches-deploys).
+## Build
 
-## Get help
+```bash
+npm run build
+```
 
-[![Slack Community Button](https://slack.sanity.io/badge.svg)](https://slack.sanity.io/)
+## Optional: Sanity preview token
 
-Join [Sanity’s developer community](https://slack.sanity.io) or ping us [on twitter](https://twitter.com/sanity_io).
+For draft/real-time content preview in local development:
+
+1. Create a Sanity API token with read rights.
+2. Copy `.env.development.template` to `.env.development`.
+3. Add:
+
+```bash
+SANITY_READ_TOKEN="yourTokenHere"
+```
+
+4. Restart `npm run dev`.
+
+Preview settings in `gatsby-config.js`:
+- Disable live watch: `watchMode: false`
+- Show only published content: `overlayDrafts: false`
+
+## Deployment reminder
+
+Netlify deploys from this repository.
+
+## License
+
+Private/personal project. See [`LICENSE`](LICENSE).
