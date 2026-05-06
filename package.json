@@ -6,7 +6,7 @@
     "build": "lerna run build --parallel",
     "dev": "lerna run dev --parallel",
     "format": "lerna run format",
-    "build-studio": "(cd studio && npm run build)",
+    "build-studio": "node -e \"const cp=require('child_process'); const run=(cmd)=>cp.execSync(cmd,{stdio:'inherit'}); if(process.env.NETLIFY){console.log('Netlify detected: installing and building studio'); run('cd studio && npm ci && npm run build');} else {run('cd studio && npm run build');}\"",
     "build-web": "node -e \"const cp=require('child_process'); const run=(cmd)=>cp.execSync(cmd,{stdio:'inherit'}); if(process.env.NETLIFY){console.log('Netlify detected: building web only'); run('cd web && npm ci && npm run build');} else {run('lerna bootstrap && (cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd web && npm run build)');}\"",
     "graphql-deploy": "lerna run graphql-deploy",
     "lint": "lerna run lint",
