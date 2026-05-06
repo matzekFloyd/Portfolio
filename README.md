@@ -60,6 +60,10 @@ Preview settings in `gatsby-config.js`:
 
 Netlify deploys from this repository.
 
+## Contributing
+
+For branch naming and the `production` deploy workflow, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
 ## License
 
 Private/personal project. See [`LICENSE`](LICENSE).

@@ -1,0 +1,27 @@
+name: Branch Name Check
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  validate-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate source branch naming convention
+        shell: bash
+        run: |
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          REGEX='^([a-z]{2,3}\/)?PF-[0-9]+--[a-z0-9._-]+$'
+
+          echo "Checking branch: ${BRANCH_NAME}"
+
+          if [[ ! "${BRANCH_NAME}" =~ ${REGEX} ]]; then
+            echo "Invalid branch name: ${BRANCH_NAME}"
+            echo "Expected format: [initials/]PF-<number>--<short-kebab-description>"
+            echo "If provided, initials must be 2-3 lowercase letters."
+            echo "Examples: PF-12--contact-form, mm/PF-12--contact-form"
+            exit 1
+          fi
+
+          echo "Branch name is valid."
