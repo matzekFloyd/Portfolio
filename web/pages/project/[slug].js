@@ -15,6 +15,9 @@ export default function ProjectPage({site, project}) {
       siteTitle={site?.title}
       pageTitle={project.title}
       description={blocksToText(project.excerpt) || site?.description}
+      keywords={site?.keywords}
+      ogImage={imageUrl}
+      ogType="article"
     >
       <h2 className={styles.title}>{project.title}</h2>
       {imageUrl ? (

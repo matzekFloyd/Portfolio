@@ -5,7 +5,7 @@ import {PortableTextContent} from '../lib/portableText'
 
 export default function ImpressumPage({site, impressum}) {
   return (
-    <SiteLayout siteTitle={site?.title} pageTitle="Impressum" description={site?.description}>
+    <SiteLayout siteTitle={site?.title} pageTitle="Impressum" description={site?.description} keywords={site?.keywords}>
       <h2>{impressum?.title || 'Impressum'}</h2>
       <div className="card">
         {impressum?.owner ? <p>{impressum.owner}</p> : null}

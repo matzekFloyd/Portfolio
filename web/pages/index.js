@@ -8,8 +8,15 @@ import pageStyles from '../styles/home.module.css'
 import previewStyles from '../styles/projectPreview.module.css'
 
 export default function HomePage({site, projects}) {
+  const ogImage = site?.portrait?.asset ? urlFor(site.portrait).width(1200).height(630).fit('crop').url() : null
   return (
-    <SiteLayout siteTitle={site?.title} pageTitle={site?.title} description={site?.description}>
+    <SiteLayout
+      siteTitle={site?.title}
+      pageTitle={site?.title}
+      description={site?.description}
+      keywords={site?.keywords}
+      ogImage={ogImage}
+    >
       <section className={pageStyles.sectionDescription}>
         <div className={pageStyles.description}>
           <h2>{site?.subtitle || 'Software Developer from Vienna, Austria.'}</h2>

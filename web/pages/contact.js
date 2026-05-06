@@ -11,7 +11,7 @@ function contactHref(item) {
 
 export default function ContactPage({site, contact}) {
   return (
-    <SiteLayout siteTitle={site?.title} pageTitle="Contact" description={site?.description}>
+    <SiteLayout siteTitle={site?.title} pageTitle="Contact" description={site?.description} keywords={site?.keywords}>
       <h2>{contact?.title || 'Contact'}</h2>
       <div className="card">
         <PortableTextContent value={contact?.body} />
