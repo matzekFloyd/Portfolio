@@ -29,7 +29,6 @@ export async function getStaticProps() {
     props: {
       site: site || null,
       impressum: impressum || null
-    },
-    revalidate: 60
+    }
   }
 }

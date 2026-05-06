@@ -33,7 +33,6 @@ export async function getStaticProps() {
     props: {
       site: site || null,
       contact: contact || null
-    },
-    revalidate: 60
+    }
   }
 }

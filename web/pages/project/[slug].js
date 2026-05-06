@@ -43,7 +43,7 @@ export async function getStaticPaths() {
   const slugs = await sanityClient.fetch(projectSlugsQuery)
   return {
     paths: (slugs || []).map((item) => ({params: {slug: item.slug}})),
-    fallback: 'blocking'
+    fallback: false
   }
 }
 
@@ -52,12 +52,11 @@ export async function getStaticProps({params}) {
     sanityClient.fetch(siteSettingsQuery),
     sanityClient.fetch(projectBySlugQuery, {slug: params.slug})
   ])
-  if (!project) return {notFound: true, revalidate: 60}
+  if (!project) return {notFound: true}
   return {
     props: {
       site: site || null,
       project
-    },
-    revalidate: 60
+    }
   }
 }
