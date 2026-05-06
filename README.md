@@ -60,6 +60,15 @@ Preview settings in `gatsby-config.js`:
 
 Netlify deploys from this repository.
 
+For frontend deploys, configure the Netlify site to build only the `web` package:
+
+- Base directory: `web`
+- Build command: `npm ci && npm run build`
+- Publish directory: `public`
+- Node version: `14.21.3`
+
+Why: the Studio package now targets modern Node for Sanity v3+, while the legacy Gatsby frontend still builds on Node 14. Building from repo root on Netlify can try to install both and fail.
+
 ## Contributing
 
 For branch naming and the `production` deploy workflow, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
