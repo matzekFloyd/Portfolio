@@ -49,7 +49,11 @@ export default function SiteLayout({children, siteTitle, pageTitle, description,
             <ul>
               {navItems().map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="navLink">
+                  <Link
+                    href={item.href}
+                    className={`navLink${router.pathname === item.href ? ' activeNavLink' : ''}`}
+                    aria-current={router.pathname === item.href ? 'page' : undefined}
+                  >
                     {item.label}
                   </Link>
                 </li>

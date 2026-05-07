@@ -9,8 +9,8 @@ export const TRYOUTS = {
     assetBasePath: '/try-static/geomania',
     available: true
   },
-  'bear-with-me': {
-    slug: 'bear-with-me',
+  bearwithme: {
+    slug: 'bearwithme',
     title: 'Bear with Me',
     description: 'Try Bear with Me directly in your browser.',
     type: 'app',
@@ -18,8 +18,8 @@ export const TRYOUTS = {
     targetUrl: 'https://www.bearwithme.at/',
     available: true
   },
-  'evo-lift': {
-    slug: 'evo-lift',
+  evolift: {
+    slug: 'evolift',
     title: 'Evo Lift',
     description: 'Try Evo Lift directly in your browser.',
     type: 'app',
