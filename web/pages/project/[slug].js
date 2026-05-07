@@ -1,14 +1,17 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import SiteLayout from '../../components/SiteLayout'
 import {sanityClient, urlFor} from '../../lib/sanity'
 import {projectBySlugQuery, projectSlugsQuery, siteSettingsQuery} from '../../lib/queries'
 import {PortableTextContent, blocksToText} from '../../lib/portableText'
+import {getTryoutBySlug} from '../../lib/tryouts'
 import styles from '../../styles/projectDetail.module.css'
 
 export default function ProjectPage({site, project}) {
   if (!project) return <SiteLayout siteTitle={site?.title} pageTitle="Project" description={site?.description}>Not found.</SiteLayout>
 
   const imageUrl = urlFor(project.mainImage || project.previewImage)?.width(1200).height(675).fit('crop').url()
+  const tryout = getTryoutBySlug(project.slug)
 
   return (
     <SiteLayout
@@ -20,6 +23,13 @@ export default function ProjectPage({site, project}) {
       ogType="article"
     >
       <h2 className={styles.title}>{project.title}</h2>
+      {tryout?.available ? (
+        <p className={styles.tryCta}>
+          <Link href={`/try/${tryout.slug}`} className={styles.tryButton}>
+            Try it
+          </Link>
+        </p>
+      ) : null}
       {imageUrl ? (
         <div className={styles.mainImage}>
           <Image src={imageUrl} alt={project.title} width={1200} height={675} style={{width: '100%', height: 'auto'}} />

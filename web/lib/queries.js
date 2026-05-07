@@ -42,6 +42,10 @@ export const projectBySlugQuery = `*[_type == "sampleProject" && slug.current ==
   }
 }`
 
+export const projectAvailabilityBySlugQuery = `*[_type == "sampleProject" && hidden != true && slug.current == $slug][0]{
+  _id
+}`
+
 export const aboutQuery = `*[_type == "about" && _id in ["singleton-about", "drafts.singleton-about"]][0]{
   title,
   bodyLeftCol,
