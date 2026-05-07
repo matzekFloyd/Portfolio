@@ -1,15 +1,15 @@
 :root {
-  --bg: #f6f9ff;
+  --bg: #f5f7fb;
   --surface: #ffffff;
-  --surface-muted: #f2f6ff;
-  --text: #1f2640;
-  --text-muted: #5e6482;
-  --border: #dbe0f6;
-  --accent: #3459d6;
-  --accent-soft: #e8efff;
-  --shadow: 0 12px 28px rgba(52, 89, 214, 0.1);
-  --radius-lg: 16px;
-  --radius-md: 12px;
+  --surface-muted: #f8f9fc;
+  --text: #111827;
+  --text-muted: #4b5563;
+  --border: #d9dee8;
+  --accent: #1f4acc;
+  --accent-soft: #e8eefc;
+  --shadow: 0 2px 8px rgba(17, 24, 39, 0.05);
+  --radius-lg: 12px;
+  --radius-md: 10px;
 }
 
 *,
@@ -27,9 +27,9 @@ body {
 body {
   font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 17px;
-  line-height: 1.82;
-  letter-spacing: 0.005em;
-  background: radial-gradient(circle at 10% 0, #ffffff 0%, var(--bg) 52%);
+  line-height: 1.75;
+  letter-spacing: 0.003em;
+  background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -43,7 +43,7 @@ a {
 }
 
 a:hover {
-  color: #2a4ab8;
+  color: #173aa7;
 }
 
 .shell {
@@ -54,26 +54,63 @@ a:hover {
 
 .header {
   position: sticky;
-  top: 0.9rem;
+  top: 0;
   z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.6rem;
-  padding: 0.8rem 1rem;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(219, 224, 246, 0.8);
-  border-radius: var(--radius-lg);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 22px rgba(52, 89, 214, 0.1);
+  margin-bottom: 1.25rem;
+  padding: 0.9rem 0 0.78rem;
+  background: var(--bg);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  isolation: isolate;
 }
 
-.branding a {
+.header::after {
+  content: '';
+  position: absolute;
+  left: -2.6rem;
+  right: -2.6rem;
+  bottom: 0;
+  border-bottom: 1px solid rgba(217, 222, 232, 0.55);
+  z-index: -1;
+}
+
+.brandLink {
+  position: relative;
+  display: inline-block;
   font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #2f4fbe;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: #1f4acc;
+  padding: 0.02rem 0.36rem;
+}
+
+.homeBrandLink::before,
+.homeBrandLink::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+}
+
+.homeBrandLink::before {
+  background:
+    linear-gradient(#1f4acc, #1f4acc) left top / 11px 2px no-repeat,
+    linear-gradient(#1f4acc, #1f4acc) left top / 2px 11px no-repeat,
+    linear-gradient(#1f4acc, #1f4acc) right top / 11px 2px no-repeat,
+    linear-gradient(#1f4acc, #1f4acc) right top / 2px 11px no-repeat;
+}
+
+.homeBrandLink::after {
+  background:
+    linear-gradient(#1f4acc, #1f4acc) left bottom / 11px 2px no-repeat,
+    linear-gradient(#1f4acc, #1f4acc) left bottom / 2px 11px no-repeat,
+    linear-gradient(#1f4acc, #1f4acc) right bottom / 11px 2px no-repeat,
+    linear-gradient(#1f4acc, #1f4acc) right bottom / 2px 11px no-repeat;
 }
 
 .nav ul {
@@ -86,30 +123,55 @@ a:hover {
 
 .navLink {
   display: inline-block;
+  position: relative;
   padding: 0.52rem 0.85rem;
   border-radius: 999px;
   font-size: 0.93rem;
   font-weight: 500;
-  color: #646b92;
+  color: #4b5563;
 }
 
 .navLink:hover {
   color: var(--text);
-  background: #eaf0ff;
+  background: var(--surface-muted);
 }
 
 .activeNavLink {
-  color: #1f3f9b;
-  background: var(--accent-soft);
+  color: #1d43b8;
+  background: transparent;
+}
+
+.activeNavLink::before,
+.activeNavLink::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+}
+
+.activeNavLink::before {
+  background:
+    linear-gradient(#1f4acc, #1f4acc) left top / 11px 2px no-repeat,
+    linear-gradient(#1f4acc, #1f4acc) left top / 2px 11px no-repeat,
+    linear-gradient(#1f4acc, #1f4acc) right top / 11px 2px no-repeat,
+    linear-gradient(#1f4acc, #1f4acc) right top / 2px 11px no-repeat;
+}
+
+.activeNavLink::after {
+  background:
+    linear-gradient(#1f4acc, #1f4acc) left bottom / 11px 2px no-repeat,
+    linear-gradient(#1f4acc, #1f4acc) left bottom / 2px 11px no-repeat,
+    linear-gradient(#1f4acc, #1f4acc) right bottom / 11px 2px no-repeat,
+    linear-gradient(#1f4acc, #1f4acc) right bottom / 2px 11px no-repeat;
 }
 
 .content h2 {
-  font-size: clamp(1.72rem, 1.48rem + 1.05vw, 2.2rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.68rem, 1.46rem + 1.02vw, 2.1rem);
+  font-weight: 650;
+  letter-spacing: -0.018em;
   line-height: 1.26;
-  margin: 0 0 0.9rem;
-  color: #232949;
+  margin: 0 0 0.8rem;
+  color: #111827;
 }
 
 .content p,
@@ -120,8 +182,8 @@ a:hover {
 }
 
 .content h3 {
-  font-weight: 600;
-  color: #32385b;
+  font-weight: 650;
+  color: #1f2937;
 }
 
 .content p + p {
@@ -133,37 +195,65 @@ a:hover {
 }
 
 .content a {
-  color: #2f53cc;
+  color: #1f4acc;
   text-decoration: underline;
-  text-decoration-color: rgba(47, 83, 204, 0.35);
+  text-decoration-color: rgba(31, 74, 204, 0.35);
   text-underline-offset: 3px;
   text-decoration-thickness: 1.5px;
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .content a:hover {
-  color: #2544ad;
-  text-decoration-color: rgba(37, 68, 173, 0.58);
+  color: #173aa7;
+  text-decoration-color: rgba(23, 58, 167, 0.58);
 }
 
 .content a:focus-visible,
 .navLink:focus-visible {
-  outline: 2px solid #5d7df0;
+  outline: 2px solid #5b7ce0;
   outline-offset: 2px;
   border-radius: 6px;
+}
+
+.siteFooter {
+  margin-top: 2.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(217, 222, 232, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.footerMeta {
+  font-size: 0.84rem;
+  color: #6b7280;
+}
+
+.footerLink {
+  font-size: 0.84rem;
+  color: #6b7280;
+  text-decoration: none;
+}
+
+.footerLink:hover {
+  color: #4b5563;
+  text-decoration: underline;
+  text-decoration-color: rgba(75, 85, 99, 0.35);
+  text-underline-offset: 3px;
 }
 
 .card {
   background: transparent;
   border: 0;
-  border-left: 3px solid #d7e4ff;
+  border-left: 2px solid #d8e0ef;
   border-radius: 0;
   padding: 1rem 1.05rem;
   margin-bottom: 0.6rem;
 }
 
 .meta {
-  color: #5b6784;
+  color: #6b7280;
 }
 
 .portableFigure {
@@ -211,9 +301,13 @@ a:hover {
 
   .header {
     position: static;
-    border-radius: var(--radius-md);
-    margin-bottom: 1.5rem;
-    padding: 0.8rem;
+    margin-bottom: 1.1rem;
+    padding: 0.72rem 0 0.65rem;
+  }
+
+  .header::after {
+    left: -1.2rem;
+    right: -1.2rem;
   }
 
   .nav ul {
@@ -233,5 +327,10 @@ a:hover {
 
   .content p + p {
     margin-top: 0.9rem;
+  }
+
+  .siteFooter {
+    margin-top: 1.7rem;
+    flex-wrap: wrap;
   }
 }

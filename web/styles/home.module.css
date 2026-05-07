@@ -1,52 +1,94 @@
 .sectionDescription {
   display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin: 2.25rem 0 3.25rem;
-  padding: 0.5rem 0;
+  align-items: stretch;
+  gap: 2.4rem;
+  margin: 1.4rem 0 2.8rem;
+  padding: 0;
+  background: #ffffff;
+  border: 0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .description {
   margin: 0;
-  padding-right: 2rem;
+  padding: 1.35rem 1.35rem 1.35rem 0;
   text-align: left;
+  max-width: 760px;
+  display: block;
+}
+
+.kicker {
+  margin: 0 0 0.8rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b7280;
 }
 
 .description h2 {
-  margin: 0 0 24px;
-  font-size: clamp(2rem, 1.4rem + 2vw, 2.8rem);
-  line-height: 1.28;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  color: #232949;
+  margin: 0 0 0.9rem;
+  font-size: clamp(2.05rem, 1.6rem + 1.8vw, 2.85rem);
+  line-height: 1.2;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  color: #111827;
+  max-width: 18ch;
 }
 
 .description p {
   margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.9;
-  color: #5e6482;
-  max-width: 62ch;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: #4b5563;
+  max-width: 58ch;
+}
+
+.ctaWrap {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.ctaLink {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1d43b8;
+  text-decoration: underline;
+  text-decoration-color: rgba(29, 67, 184, 0.4);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.2px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.ctaLink:hover {
+  color: #173aa7;
+  text-decoration-color: rgba(23, 58, 167, 0.6);
 }
 
 .portrait {
   margin: 0;
-  max-width: 420px;
-  min-width: 300px;
+  width: clamp(240px, 29vw, 350px);
+  flex-shrink: 0;
 }
 
 .portrait img {
   width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 20px 36px rgba(52, 89, 214, 0.16);
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  box-shadow: none;
+  border: 0;
 }
 
 .sectionLatestProjects h3 {
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin: 0 0 18px;
-  color: #2f4fbe;
+  color: #4b5563;
 }
 
 .grid {
@@ -72,22 +114,30 @@
 
 @media (max-width: 1000px) {
   .sectionDescription {
-    flex-wrap: wrap-reverse;
-    margin: 1.4rem 0 2.6rem;
-    padding: 0.25rem 0;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin: 1rem 0 2.3rem;
+    padding: 1rem;
+    overflow: visible;
   }
 
   .description {
-    padding: 0.7rem 0 0;
+    order: 1;
+    padding: 0;
+  }
+
+  .portrait {
+    order: 2;
+    width: min(360px, 100%);
   }
 
   .description h2 {
-    font-size: clamp(1.7rem, 1.45rem + 1.4vw, 2.15rem);
-    line-height: 1.34;
+    font-size: clamp(1.75rem, 1.45rem + 1.5vw, 2.2rem);
+    line-height: 1.24;
   }
 
   .description p {
-    font-size: 1.02rem;
-    line-height: 1.85;
+    font-size: 1rem;
+    line-height: 1.76;
   }
 }

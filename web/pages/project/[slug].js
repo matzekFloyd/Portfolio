@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import {useState} from 'react'
 import SiteLayout from '../../components/SiteLayout'
 import {sanityClient, urlFor} from '../../lib/sanity'
 import {projectBySlugQuery, projectSlugsQuery, siteSettingsQuery} from '../../lib/queries'
@@ -8,10 +9,16 @@ import {getTryoutBySlug} from '../../lib/tryouts'
 import styles from '../../styles/projectDetail.module.css'
 
 export default function ProjectPage({site, project}) {
+  const [isImageOpen, setIsImageOpen] = useState(false)
   if (!project) return <SiteLayout siteTitle={site?.title} pageTitle="Project" description={site?.description}>Not found.</SiteLayout>
 
-  const imageUrl = urlFor(project.mainImage || project.previewImage)?.width(1200).height(675).fit('crop').url()
+  const heroImage = project.mainImage || project.previewImage
+  const imageUrl = urlFor(heroImage)?.width(1200).height(675).fit('crop').url()
+  const imageAlt = heroImage?.alt || project.title
+  const imageCaption = heroImage?.caption
   const tryout = getTryoutBySlug(project.slug)
+  const categories = project.categories || []
+  const hasMetaColumn = Boolean(imageUrl || categories.length > 0)
 
   return (
     <SiteLayout
@@ -22,32 +29,66 @@ export default function ProjectPage({site, project}) {
       ogImage={imageUrl}
       ogType="article"
     >
-      <h2 className={styles.title}>{project.title}</h2>
-      {tryout?.available ? (
-        <p className={styles.tryCta}>
-          <Link href={`/try/${tryout.slug}`} className={styles.tryButton}>
-            Try it
-          </Link>
-        </p>
-      ) : null}
-      {imageUrl ? (
-        <div className={styles.mainImage}>
-          <Image src={imageUrl} alt={project.title} width={1200} height={675} style={{width: '100%', height: 'auto'}} />
-        </div>
-      ) : null}
-      {(project.categories || []).length > 0 ? (
-        <div className={styles.categories}>
-          <p className={styles.categoriesTitle}>Categories</p>
-          <ul className={styles.categoriesList}>
-            {project.categories.map((category) => (
-              <li key={category._id}>{category.title}</li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
-      <div className={styles.body}>
-        <PortableTextContent value={project.body} />
+      <div className={styles.titleRow}>
+        <h2 className={styles.title}>{project.title}</h2>
+        {tryout?.available ? (
+          <p className={styles.tryCta}>
+            <Link href={`/try/${tryout.slug}`} className={styles.tryButton}>
+              Try it
+            </Link>
+          </p>
+        ) : null}
       </div>
+      <div className={`${styles.contentGrid}${!hasMetaColumn ? ` ${styles.contentGridSingle}` : ''}`}>
+        <div className={styles.body}>
+          {categories.length > 0 ? (
+            <div className={styles.categoriesTop}>
+              <ul className={styles.categoryTags}>
+                {categories.map((category) => (
+                  <li key={category._id} className={styles.categoryTag}>
+                    {category.title}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+          <PortableTextContent value={project.body} />
+        </div>
+        {hasMetaColumn ? (
+          <aside className={styles.metaColumn}>
+            {imageUrl ? (
+              <div className={styles.mainImage}>
+                <button
+                  type="button"
+                  className={styles.imageButton}
+                  onClick={() => setIsImageOpen(true)}
+                  aria-label={`Open larger image for ${project.title}`}
+                >
+                  <Image src={imageUrl} alt={imageAlt} width={1200} height={675} style={{width: '100%', height: 'auto'}} />
+                </button>
+                {imageCaption ? <p className={styles.imageCaption}>{imageCaption}</p> : null}
+              </div>
+            ) : null}
+          </aside>
+        ) : null}
+      </div>
+      {isImageOpen && imageUrl ? (
+        <div className={styles.lightbox} onClick={() => setIsImageOpen(false)} role="presentation">
+          <div className={styles.lightboxInner}>
+            <button type="button" className={styles.lightboxClose} onClick={() => setIsImageOpen(false)} aria-label="Close image">
+              Close
+            </button>
+            <Image
+              src={imageUrl}
+              alt={imageAlt}
+              width={1800}
+              height={1012}
+              className={styles.lightboxImage}
+              style={{width: '100%', height: 'auto'}}
+            />
+          </div>
+        </div>
+      ) : null}
     </SiteLayout>
   )
 }

@@ -4,11 +4,7 @@
 }
 
 .sectionProjects h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.9rem;
-  margin: 0 0 18px;
-  color: #334155;
+  margin: 0 0 1rem;
 }
 
 .grid {

@@ -7,11 +7,10 @@
   border-radius: 0;
   padding: 0.2rem 0;
   box-shadow: none;
-  transition: transform 0.22s ease;
+  transition: none;
 }
 
 .root:hover {
-  transform: translateY(-3px);
   text-decoration: none;
 }
 
@@ -25,7 +24,7 @@
   font-weight: 600;
   line-height: 1.34;
   margin: 0.9rem 0 0.45rem;
-  color: #232949;
+  color: #111827;
   letter-spacing: -0.01em;
   text-decoration: underline;
   text-decoration-color: transparent;
@@ -41,7 +40,7 @@
 .excerpt {
   margin: 0;
   font-size: 1.03rem;
-  color: #5e6482;
+  color: #4b5563;
   line-height: 1.85;
   max-width: 58ch;
 }
@@ -61,12 +60,19 @@
 .thumb {
   position: relative;
   padding-bottom: 66.666%;
-  background: linear-gradient(140deg, #e8f0ff, #d9e7ff);
-  border-radius: 14px;
+  background: #edf1f7;
+  border-radius: 10px;
+  border: 1px solid #d9dee8;
   overflow: hidden;
-  box-shadow: 0 14px 30px rgba(52, 89, 214, 0.14);
+  box-shadow: none;
 }
 
 .thumb img {
   object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.22s ease;
+}
+
+.root:hover .thumb img {
+  transform: scale(1.02);
 }

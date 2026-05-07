@@ -20,11 +20,11 @@
 }
 
 .embedWrap {
-  background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
-  border: 1px solid #dbe6ff;
-  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #d9dee8;
+  border-radius: 10px;
   padding: 0.9rem;
-  box-shadow: 0 12px 24px rgba(52, 89, 214, 0.12);
+  box-shadow: none;
   overflow: hidden;
 }
 

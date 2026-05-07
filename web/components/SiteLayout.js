@@ -4,16 +4,15 @@ import {useRouter} from 'next/router'
 
 function navItems() {
   return [
-    {href: '/', label: 'Home'},
-    {href: '/about', label: 'About'},
     {href: '/projects', label: 'Projects'},
-    {href: '/contact', label: 'Contact'},
-    {href: '/impressum', label: 'Impressum'}
+    {href: '/about', label: 'About'},
+    {href: '/contact', label: 'Contact'}
   ]
 }
 
 export default function SiteLayout({children, siteTitle, pageTitle, description, keywords, ogImage, ogType = 'website'}) {
   const router = useRouter()
+  const currentYear = new Date().getFullYear()
   const effectiveSiteTitle = siteTitle || 'Portfolio'
   const fullTitle = pageTitle
     ? pageTitle === effectiveSiteTitle
@@ -43,7 +42,13 @@ export default function SiteLayout({children, siteTitle, pageTitle, description,
       <div className="shell">
         <header className="header">
           <div className="branding">
-            <Link href="/">{siteTitle || 'Portfolio'}</Link>
+            <Link
+              href="/"
+              aria-label={siteTitle || 'Portfolio'}
+              className={`brandLink${router.pathname === '/' ? ' homeBrandLink' : ''}`}
+            >
+              MM
+            </Link>
           </div>
           <nav className="nav">
             <ul>
@@ -62,6 +67,12 @@ export default function SiteLayout({children, siteTitle, pageTitle, description,
           </nav>
         </header>
         <main className="content">{children}</main>
+        <footer className="siteFooter">
+          <span className="footerMeta">© {currentYear} Mathias Mayrhofer</span>
+          <Link href="/impressum" className="footerLink">
+            Impressum
+          </Link>
+        </footer>
       </div>
     </>
   )

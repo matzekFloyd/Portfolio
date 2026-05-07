@@ -14,7 +14,7 @@
 
 .column {
   min-width: 0;
-  border-left: 3px solid #d7e4ff;
+  border-left: 2px solid #d8e0ef;
   padding-left: 0.95rem;
 }
 
@@ -24,7 +24,7 @@
 
 .column :global(.portableFigure) {
   margin: 1rem 0 1.15rem;
-  border-radius: 18px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -33,7 +33,7 @@
   max-height: 560px;
   height: auto;
   object-fit: contain;
-  border-radius: 18px;
+  border-radius: 10px;
 }
 
 .column :global(.portableFigure figcaption) {
