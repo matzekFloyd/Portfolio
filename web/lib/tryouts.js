@@ -17,6 +17,15 @@ export const TRYOUTS = {
     mode: 'embedded',
     targetUrl: 'https://www.bearwithme.at/',
     available: true
+  },
+  'evo-lift': {
+    slug: 'evo-lift',
+    title: 'Evo Lift',
+    description: 'Try Evo Lift directly in your browser.',
+    type: 'app',
+    mode: 'embedded',
+    targetUrl: 'https://evo-lift.vercel.app/',
+    available: true
   }
 }
 
