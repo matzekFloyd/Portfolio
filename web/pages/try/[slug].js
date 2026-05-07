@@ -2,7 +2,7 @@ import SiteLayout from '../../components/SiteLayout'
 import Link from 'next/link'
 import {useRef} from 'react'
 import {sanityClient} from '../../lib/sanity'
-import {siteSettingsQuery} from '../../lib/queries'
+import {projectAvailabilityBySlugQuery, projectSlugsQuery, siteSettingsQuery} from '../../lib/queries'
 import {getTryoutBySlug, getTryoutSlugs} from '../../lib/tryouts'
 import styles from '../../styles/tryPage.module.css'
 
@@ -134,17 +134,24 @@ export default function TryoutPage({site, tryout}) {
 }
 
 export async function getStaticPaths() {
+  const projectSlugs = await sanityClient.fetch(projectSlugsQuery)
+  const projectSlugSet = new Set((projectSlugs || []).map((item) => item.slug))
+  const activeTryoutSlugs = getTryoutSlugs().filter((slug) => projectSlugSet.has(slug))
+
   return {
-    paths: getTryoutSlugs().map((slug) => ({params: {slug}})),
+    paths: activeTryoutSlugs.map((slug) => ({params: {slug}})),
     fallback: false
   }
 }
 
 export async function getStaticProps({params}) {
-  const [site] = await Promise.all([sanityClient.fetch(siteSettingsQuery)])
+  const [site, projectAvailability] = await Promise.all([
+    sanityClient.fetch(siteSettingsQuery),
+    sanityClient.fetch(projectAvailabilityBySlugQuery, {slug: params.slug})
+  ])
   const tryout = getTryoutBySlug(params.slug)
 
-  if (!tryout || !tryout.available) {
+  if (!tryout || !tryout.available || !projectAvailability?._id) {
     return {notFound: true}
   }
 
