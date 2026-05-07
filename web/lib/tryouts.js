@@ -8,6 +8,15 @@ export const TRYOUTS = {
     targetUrl: '/try-static/geomania/index.html',
     assetBasePath: '/try-static/geomania',
     available: true
+  },
+  'bear-with-me': {
+    slug: 'bear-with-me',
+    title: 'Bear with Me',
+    description: 'Try Bear with Me directly in your browser.',
+    type: 'app',
+    mode: 'embedded',
+    targetUrl: 'https://www.bearwithme.at/',
+    available: true
   }
 }
 
