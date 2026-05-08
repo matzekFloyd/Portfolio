@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import {useRouter} from 'next/router'
+import {useEffect, useState} from 'react'
 
 function navItems() {
   return [
@@ -12,6 +13,7 @@ function navItems() {
 
 export default function SiteLayout({children, siteTitle, pageTitle, description, keywords, ogImage, ogType = 'website'}) {
   const router = useRouter()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const currentYear = new Date().getFullYear()
   const effectiveSiteTitle = siteTitle || 'Portfolio'
   const fullTitle = pageTitle
@@ -22,6 +24,11 @@ export default function SiteLayout({children, siteTitle, pageTitle, description,
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mm-sanity-portfolio.netlify.app'
   const canonicalUrl = `${siteUrl}${router.asPath === '/' ? '' : router.asPath}`
   const keywordsContent = Array.isArray(keywords) ? keywords.join(', ') : keywords
+
+  useEffect(() => {
+    setIsMenuOpen(false)
+  }, [router.asPath])
+
   return (
     <>
       <Head>
@@ -40,7 +47,7 @@ export default function SiteLayout({children, siteTitle, pageTitle, description,
         {ogImage ? <meta name="twitter:image" content={ogImage} /> : null}
       </Head>
       <div className="shell">
-        <header className="header">
+        <header className={`header${isMenuOpen ? ' menuOpen' : ''}`}>
           <div className="branding">
             <Link
               href="/"
@@ -50,7 +57,22 @@ export default function SiteLayout({children, siteTitle, pageTitle, description,
               MM
             </Link>
           </div>
-          <nav className="nav">
+          {!isMenuOpen ? (
+            <button
+              type="button"
+              className="menuToggle"
+              aria-label="Open navigation menu"
+              aria-expanded={false}
+              aria-controls="main-navigation"
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <span className="menuLine" />
+              <span className="menuLine" />
+              <span className="menuLine" />
+            </button>
+          ) : null}
+          {isMenuOpen ? <button type="button" className="navBackdrop" aria-label="Close navigation menu" onClick={() => setIsMenuOpen(false)} /> : null}
+          <nav id="main-navigation" className={`nav${isMenuOpen ? ' navOpen' : ''}`}>
             <ul>
               {navItems().map((item) => (
                 <li key={item.href}>
