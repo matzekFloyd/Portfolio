@@ -1,0 +1,44 @@
+.title {
+  margin-bottom: 0.9rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #dbe2eb;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.details {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(92px, 120px) 1fr;
+  gap: 0.45rem 0.9rem;
+}
+
+.details dt {
+  margin: 0;
+  font-weight: 700;
+  color: #1d2731;
+}
+
+.details dd {
+  margin: 0;
+  color: #4d5f77;
+}
+
+.body :global(p:first-child) {
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  .details {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+
+  .details dt {
+    margin-top: 0.45rem;
+  }
+}

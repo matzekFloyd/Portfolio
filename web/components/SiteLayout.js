@@ -1,19 +1,20 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import {useRouter} from 'next/router'
+import {useEffect, useState} from 'react'
 
 function navItems() {
   return [
-    {href: '/', label: 'Home'},
-    {href: '/about', label: 'About'},
     {href: '/projects', label: 'Projects'},
-    {href: '/contact', label: 'Contact'},
-    {href: '/impressum', label: 'Impressum'}
+    {href: '/about', label: 'About'},
+    {href: '/contact', label: 'Contact'}
   ]
 }
 
 export default function SiteLayout({children, siteTitle, pageTitle, description, keywords, ogImage, ogType = 'website'}) {
   const router = useRouter()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const currentYear = new Date().getFullYear()
   const effectiveSiteTitle = siteTitle || 'Portfolio'
   const fullTitle = pageTitle
     ? pageTitle === effectiveSiteTitle
@@ -23,6 +24,11 @@ export default function SiteLayout({children, siteTitle, pageTitle, description,
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mm-sanity-portfolio.netlify.app'
   const canonicalUrl = `${siteUrl}${router.asPath === '/' ? '' : router.asPath}`
   const keywordsContent = Array.isArray(keywords) ? keywords.join(', ') : keywords
+
+  useEffect(() => {
+    setIsMenuOpen(false)
+  }, [router.asPath])
+
   return (
     <>
       <Head>
@@ -41,15 +47,40 @@ export default function SiteLayout({children, siteTitle, pageTitle, description,
         {ogImage ? <meta name="twitter:image" content={ogImage} /> : null}
       </Head>
       <div className="shell">
-        <header className="header">
+        <header className={`header${isMenuOpen ? ' menuOpen' : ''}`}>
           <div className="branding">
-            <Link href="/">{siteTitle || 'Portfolio'}</Link>
+            <Link
+              href="/"
+              aria-label={siteTitle || 'Portfolio'}
+              className={`brandLink${router.pathname === '/' ? ' homeBrandLink' : ''}`}
+            >
+              MM
+            </Link>
           </div>
-          <nav className="nav">
+          {!isMenuOpen ? (
+            <button
+              type="button"
+              className="menuToggle"
+              aria-label="Open navigation menu"
+              aria-expanded={false}
+              aria-controls="main-navigation"
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <span className="menuLine" />
+              <span className="menuLine" />
+              <span className="menuLine" />
+            </button>
+          ) : null}
+          {isMenuOpen ? <button type="button" className="navBackdrop" aria-label="Close navigation menu" onClick={() => setIsMenuOpen(false)} /> : null}
+          <nav id="main-navigation" className={`nav${isMenuOpen ? ' navOpen' : ''}`}>
             <ul>
               {navItems().map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="navLink">
+                  <Link
+                    href={item.href}
+                    className={`navLink${router.pathname === item.href ? ' activeNavLink' : ''}`}
+                    aria-current={router.pathname === item.href ? 'page' : undefined}
+                  >
                     {item.label}
                   </Link>
                 </li>
@@ -58,6 +89,12 @@ export default function SiteLayout({children, siteTitle, pageTitle, description,
           </nav>
         </header>
         <main className="content">{children}</main>
+        <footer className="siteFooter">
+          <span className="footerMeta">© {currentYear} Mathias Mayrhofer</span>
+          <Link href="/impressum" className="footerLink">
+            Impressum
+          </Link>
+        </footer>
       </div>
     </>
   )

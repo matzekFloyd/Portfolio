@@ -18,10 +18,6 @@ export default function HomePage({site, projects}) {
       ogImage={ogImage}
     >
       <section className={pageStyles.sectionDescription}>
-        <div className={pageStyles.description}>
-          <h2>{site?.subtitle || 'Software Developer from Vienna, Austria.'}</h2>
-          <p>{site?.description}</p>
-        </div>
         {site?.portrait?.asset ? (
           <div className={pageStyles.portrait}>
             <Image
@@ -29,10 +25,25 @@ export default function HomePage({site, projects}) {
               alt={site.title || 'Portrait'}
               width={560}
               height={560}
-              style={{width: '100%', height: 'auto'}}
+              style={{width: '100%', height: '100%', display: 'block'}}
             />
           </div>
         ) : null}
+        <div className={pageStyles.description}>
+          <p className={pageStyles.kicker}>Software Developer</p>
+          <h2>{site?.subtitle || 'Software Developer from Vienna, Austria.'}</h2>
+          <p>{site?.description}</p>
+          <p className={pageStyles.ctaWrap}>
+            <span className={pageStyles.ctaLinks}>
+              <Link href="/projects" className={pageStyles.ctaLink}>
+                Explore projects
+              </Link>
+              <Link href="/about" className={pageStyles.ctaLink}>
+                About me
+              </Link>
+            </span>
+          </p>
+        </div>
       </section>
       <section className={pageStyles.sectionLatestProjects}>
         <h3>Latest projects</h3>

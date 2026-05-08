@@ -1,36 +1,66 @@
 .title {
-  font-family: Merriweather, Georgia, serif;
-  font-size: 2rem;
-  line-height: 1.2;
-  margin: 1.2rem 0 1rem;
-  color: #1d2731;
+  font-size: clamp(1.72rem, 1.42rem + 1.05vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.28;
+  margin: 1.2rem 0 0.55rem;
+  color: #232949;
+  letter-spacing: -0.02em;
 }
 
 .backWrap {
-  margin: 0.2rem 0 1rem;
+  margin: 0 0 1.1rem;
 }
 
 .backLink {
-  color: #1d2731;
+  color: #3459d6;
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+  font-weight: 600;
 }
 
 .embedWrap {
   background: #fff;
-  border: 1px solid #dbe2eb;
+  border: 1px solid #d9dee8;
   border-radius: 10px;
-  padding: 0.6rem;
+  padding: 0.9rem;
+  box-shadow: none;
+  overflow: hidden;
 }
 
 .embed {
   width: 100%;
-  min-height: 75vh;
+  min-height: clamp(520px, 75vh, 920px);
   border: 0;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #fff;
+  box-shadow: inset 0 0 0 1px #e3eaf3;
 }
 
 .note {
-  color: #4d5f77;
+  font-size: 1.02rem;
+  line-height: 1.82;
+  color: #5e6482;
+}
+
+@media (max-width: 760px) {
+  .embedWrap {
+    padding: 0.55rem;
+    border-radius: 12px;
+  }
+
+  .embed {
+    min-height: 70vh;
+    border-radius: 8px;
+  }
+
+  .title {
+    font-size: clamp(1.58rem, 1.42rem + 1vw, 1.9rem);
+    line-height: 1.32;
+  }
+
+  .note {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
 }
