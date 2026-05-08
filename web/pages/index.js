@@ -7,13 +7,6 @@ import {blocksToText} from '../lib/portableText'
 import pageStyles from '../styles/home.module.css'
 import previewStyles from '../styles/projectPreview.module.css'
 
-function firstSentence(text = '') {
-  const clean = text.trim().replace(/\s+/g, ' ')
-  if (!clean) return ''
-  const match = clean.match(/^.+?[.!?](?:\s|$)/)
-  return match ? match[0].trim() : clean
-}
-
 export default function HomePage({site, projects}) {
   const ogImage = site?.portrait?.asset ? urlFor(site.portrait).width(1200).height(630).fit('crop').url() : null
   return (
@@ -41,9 +34,14 @@ export default function HomePage({site, projects}) {
           <h2>{site?.subtitle || 'Software Developer from Vienna, Austria.'}</h2>
           <p>{site?.description}</p>
           <p className={pageStyles.ctaWrap}>
-            <Link href="/projects" className={pageStyles.ctaLink}>
-              Explore projects
-            </Link>
+            <span className={pageStyles.ctaLinks}>
+              <Link href="/projects" className={pageStyles.ctaLink}>
+                Explore projects
+              </Link>
+              <Link href="/about" className={pageStyles.ctaLink}>
+                About me
+              </Link>
+            </span>
           </p>
         </div>
       </section>
@@ -61,7 +59,7 @@ export default function HomePage({site, projects}) {
                     </div>
                   ) : null}
                   <h4 className={previewStyles.title}>{project.title}</h4>
-                  <p className={previewStyles.excerpt}>{firstSentence(blocksToText(project.excerpt))}</p>
+                  <p className={previewStyles.excerpt}>{blocksToText(project.excerpt)}</p>
                 </Link>
               </li>
             )

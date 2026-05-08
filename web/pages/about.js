@@ -7,10 +7,8 @@ import styles from '../styles/about.module.css'
 export default function AboutPage({site, about}) {
   return (
     <SiteLayout siteTitle={site?.title} pageTitle="About" description={site?.description} keywords={site?.keywords}>
-      <section className={styles.about}>
-        <header className={styles.header}>
-          <h2>{about?.title || 'About'}</h2>
-        </header>
+      <h2 className={styles.title}>{about?.title || 'About'}</h2>
+      <section className={styles.card} aria-label="About content">
         <div className={styles.columns}>
           <article className={styles.column}>
             <PortableTextContent value={about?.bodyLeftCol} />

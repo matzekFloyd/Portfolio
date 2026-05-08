@@ -50,6 +50,13 @@
   text-align: left;
 }
 
+.ctaLinks {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.95rem;
+  flex-wrap: wrap;
+}
+
 .ctaLink {
   display: inline-block;
   font-size: 0.9rem;
@@ -114,21 +121,25 @@
 
 @media (max-width: 1000px) {
   .sectionDescription {
-    flex-wrap: wrap;
-    gap: 1.2rem;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 1rem;
     margin: 1rem 0 2.3rem;
-    padding: 1rem;
-    overflow: visible;
+    padding: 0;
+    overflow: hidden;
   }
 
   .description {
-    order: 1;
-    padding: 0;
+    order: 2;
+    flex: 1;
+    min-width: 0;
+    padding: 0.95rem 1rem 0.95rem 0;
   }
 
   .portrait {
-    order: 2;
-    width: min(360px, 100%);
+    order: 1;
+    width: clamp(150px, 30vw, 240px);
+    flex-shrink: 0;
   }
 
   .description h2 {
@@ -139,5 +150,58 @@
   .description p {
     font-size: 1rem;
     line-height: 1.76;
+  }
+}
+
+@media (max-width: 640px) {
+  .sectionDescription {
+    gap: 0.85rem;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .portrait {
+    width: clamp(120px, 35vw, 170px);
+  }
+
+  .description h2 {
+    font-size: clamp(1.45rem, 1.15rem + 1.8vw, 1.8rem);
+  }
+}
+
+@media (max-width: 680px) {
+  .portrait {
+    display: none;
+  }
+
+  .sectionDescription {
+    display: block;
+    margin: 0.9rem 0 2rem;
+    padding: 0.2rem 0;
+    gap: 0;
+  }
+
+  .description {
+    max-width: 100%;
+    padding: 0.65rem 0.9rem 0.75rem;
+  }
+
+  .description h2 {
+    max-width: 22ch;
+    margin-bottom: 0.75rem;
+  }
+
+  .description p {
+    max-width: 62ch;
+  }
+
+  .ctaWrap {
+    margin-top: 0.85rem;
+    text-align: center;
+  }
+
+  .ctaLinks {
+    width: 100%;
+    justify-content: center;
+    gap: 0.7rem;
   }
 }
