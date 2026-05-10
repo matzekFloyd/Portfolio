@@ -5,7 +5,6 @@ import SiteLayout from '../../components/SiteLayout'
 import {sanityClient, urlFor} from '../../lib/sanity'
 import {projectBySlugQuery, projectSlugsQuery, siteSettingsQuery} from '../../lib/queries'
 import {PortableTextContent, blocksToText} from '../../lib/portableText'
-import {getTryoutBySlug} from '../../lib/tryouts'
 import styles from '../../styles/projectDetail.module.css'
 
 export default function ProjectPage({site, project}) {
@@ -16,7 +15,7 @@ export default function ProjectPage({site, project}) {
   const imageUrl = urlFor(heroImage)?.width(1200).height(675).fit('crop').url()
   const imageAlt = heroImage?.alt || project.title
   const imageCaption = heroImage?.caption
-  const tryout = getTryoutBySlug(project.slug)
+  const tryout = project.tryout?.enabled && project.tryout?.url ? project.tryout : null
   const categories = project.categories || []
   const hasMetaColumn = Boolean(imageUrl || categories.length > 0)
 
@@ -31,11 +30,22 @@ export default function ProjectPage({site, project}) {
     >
       <div className={styles.titleRow}>
         <h2 className={styles.title}>{project.title}</h2>
-        {tryout?.available ? (
+        {tryout ? (
           <p className={styles.tryCta}>
-            <Link href={`/try/${tryout.slug}`} className={styles.tryButton}>
-              Try it
-            </Link>
+            {tryout.mode === 'external' ? (
+              <a
+                href={tryout.url}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.tryButton}
+              >
+                Try it
+              </a>
+            ) : (
+              <Link href={`/try/${project.slug}`} className={styles.tryButton}>
+                Try it
+              </Link>
+            )}
           </p>
         ) : null}
       </div>

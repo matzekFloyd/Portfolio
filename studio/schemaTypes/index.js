@@ -17,6 +17,7 @@ import simplePortableText from '../schemas/objects/simplePortableText'
 import aboutPortableText from '../schemas/objects/aboutPortableText'
 import contactPortableText from '../schemas/objects/contactPortableText'
 import impressumPortableText from '../schemas/objects/impressumPortableText'
+import tryout from '../schemas/objects/tryout'
 
 export const schemaTypes = [
   bioPortableText,
@@ -27,6 +28,7 @@ export const schemaTypes = [
   projectMember,
   projectPortableText,
   simplePortableText,
+  tryout,
   category,
   contacts,
   impressum,
