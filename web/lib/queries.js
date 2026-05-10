@@ -36,6 +36,7 @@ export const projectBySlugQuery = `*[_type == "sampleProject" && slug.current ==
   excerpt,
   mainImage,
   previewImage,
+  tryout,
   "categories": categories[]->{
     _id,
     title
@@ -44,6 +45,18 @@ export const projectBySlugQuery = `*[_type == "sampleProject" && slug.current ==
 
 export const projectAvailabilityBySlugQuery = `*[_type == "sampleProject" && hidden != true && slug.current == $slug][0]{
   _id
+}`
+
+export const tryoutSlugsQuery = `*[_type == "sampleProject" && hidden != true && defined(slug.current) && tryout.enabled == true && defined(tryout.url)]{
+  "slug": slug.current
+}`
+
+export const projectTryoutBySlugQuery = `*[_type == "sampleProject" && hidden != true && slug.current == $slug && tryout.enabled == true && defined(tryout.url)][0]{
+  _id,
+  title,
+  "slug": slug.current,
+  excerpt,
+  tryout
 }`
 
 export const aboutQuery = `*[_type == "about" && _id in ["singleton-about", "drafts.singleton-about"]][0]{

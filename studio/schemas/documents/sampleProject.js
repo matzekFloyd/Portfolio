@@ -69,6 +69,11 @@ export default {
       of: [{type: 'reference', to: {type: 'category'}}]
     },
     {
+      name: 'tryout',
+      title: 'Tryout',
+      type: 'tryout'
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'projectPortableText'
@@ -85,15 +90,17 @@ export default {
       title: 'title',
       publishedAt: 'publishedAt',
       slug: 'slug',
-      media: 'previewImage'
+      media: 'previewImage',
+      tryoutEnabled: 'tryout.enabled'
     },
-    prepare({title = 'No title', publishedAt, slug = {}, media}) {
+    prepare({title = 'No title', publishedAt, slug = {}, media, tryoutEnabled}) {
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
+      const subtitle = publishedAt ? path : 'Missing publishing date'
       return {
-        title,
+        title: tryoutEnabled ? `${title} · Try it` : title,
         media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
+        subtitle
       }
     }
   }

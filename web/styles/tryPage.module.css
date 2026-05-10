@@ -28,6 +28,22 @@
   overflow: hidden;
 }
 
+.aspect16x9 .embed,
+.aspect4x3 .embed {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+}
+
+.aspect4x3 .embed {
+  aspect-ratio: 4 / 3;
+}
+
+.aspectAuto .embed {
+  aspect-ratio: auto;
+}
+
 .embed {
   width: 100%;
   min-height: clamp(520px, 75vh, 920px);
