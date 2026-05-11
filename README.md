@@ -1,5 +1,7 @@
 # Portfolio
 
+![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red.svg)
+
 Post-migration developer guide for the Next.js frontend and Sanity Studio v3 stack.
 
 ## Runtime
