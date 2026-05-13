@@ -68,8 +68,10 @@ yarn.lock
 # Yarn Integrity file
 .yarn-integrity
 
-# Secrets
-.env.development
+# Local env files — production values come from Netlify, not the repo
+.env
+.env.*
+!.env.example
 
 # css / css.map
 src/styles/*.css
