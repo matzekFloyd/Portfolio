@@ -30,13 +30,15 @@ export default function TryoutPage({site, tryout}) {
       description={tryout.description || site?.description}
       keywords={site?.keywords}
     >
-      <h2 className={styles.title}>{tryout.title}</h2>
+      <div className={styles.titleRow}>
+        <h2 className={styles.title}>{tryout.title}</h2>
+        <p className={styles.backCta}>
+          <Link href={`/project/${tryout.slug}`} className={styles.backButton}>
+            Back to project
+          </Link>
+        </p>
+      </div>
       {tryout.description ? <p className={styles.note}>{tryout.description}</p> : null}
-      <p className={styles.backWrap}>
-        <Link href={`/project/${tryout.slug}`} className={styles.backLink}>
-          Back to project
-        </Link>
-      </p>
       {tryout.mode === 'external' ? (
         <p className={styles.note}>
           <a href={tryout.url} target="_blank" rel="noreferrer">
