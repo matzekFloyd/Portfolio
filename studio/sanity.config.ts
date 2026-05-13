@@ -5,11 +5,13 @@ import {documentListWidget} from 'sanity-plugin-dashboard-widget-document-list'
 import {schemaTypes} from './schemaTypes'
 import {structure} from './structure'
 
+const dataset = process.env.SANITY_STUDIO_DATASET || 'production'
+
 export default defineConfig({
   name: 'default',
-  title: 'MM - Portfolio',
+  title: dataset === 'production' ? 'MM - Portfolio' : `MM - Portfolio (${dataset})`,
   projectId: 'aartfjgc',
-  dataset: 'production',
+  dataset,
   plugins: [
     dashboardTool({
       widgets: [
