@@ -35,22 +35,40 @@ Notes:
 
 ## Required environment variables
 
+No env vars are strictly required. Both sites have safe production defaults
+embedded in code (`projectId: 'aartfjgc'`, `dataset: 'production'`). Netlify
+builds run without any `.env` file in the repo, so the fallbacks apply.
+
+Setting the values in the Netlify dashboard anyway makes the deployment
+self-documenting and lets you point an individual site at a non-default
+dataset (e.g. a staging deploy that reads from `development`).
+
 ### Frontend site (`web`)
 
-Required:
+Optional (recommended for self-documentation):
 
-- none (defaults are embedded for project id + dataset)
-
-Optional overrides:
-
-- `NEXT_PUBLIC_SANITY_PROJECT_ID`
-- `NEXT_PUBLIC_SANITY_DATASET`
+- `NEXT_PUBLIC_SANITY_PROJECT_ID` — `aartfjgc`
+- `NEXT_PUBLIC_SANITY_DATASET` — `production`
 
 ### Studio site (`studio`)
 
-Required:
+Optional (recommended for self-documentation):
 
-- none for standard Studio build/deploy
+- `SANITY_STUDIO_DATASET` — `production`
+
+When `SANITY_STUDIO_DATASET` is set to something other than `production`, the
+studio title automatically suffixes the dataset name (e.g.
+`MM - Portfolio (development)`) so a non-prod deploy can't be confused with
+the live editor.
+
+### Legacy variables to remove
+
+If any of these are still configured in the Netlify dashboard from the Gatsby
+era, delete them — no code reads them anymore:
+
+- `GATSBY_SANITY_PROJECT_ID`
+- `GATSBY_SANITY_DATASET`
+- `SANITY_READ_TOKEN`, `SANITY_API_TOKEN` (Gatsby Sanity source plugin)
 
 ## Verification checklist
 

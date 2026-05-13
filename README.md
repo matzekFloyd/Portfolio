@@ -31,6 +31,24 @@ From repository root:
 npm install
 ```
 
+### Configuration
+
+Both packages read their Sanity dataset from environment files. The repo ships
+`.env.example` files in each package — copy them once on a fresh clone:
+
+```bash
+cp web/.env.example web/.env
+cp studio/.env.example studio/.env
+```
+
+`.env` is gitignored. Production values come from Netlify (or fall back to
+sensible defaults baked into the code). Local dev points at a separate Sanity
+dataset called `development` so editor changes can't accidentally leak to the
+live site.
+
+If the `development` dataset doesn't exist yet on the Sanity project, create it
+once (see `docs/migration/final-stack-notes.md`).
+
 ### Frontend (`web`)
 
 ```bash
@@ -50,6 +68,10 @@ npm run dev -- --port 3334
 ```
 
 Default URL: `http://localhost:3334`
+
+When the studio is pointing at the `development` dataset, the browser tab and
+top-left title display `MM - Portfolio (development)` — that's the visual
+confirmation you're not on production.
 
 ## Build commands
 
