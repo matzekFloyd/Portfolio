@@ -7,7 +7,7 @@ export const siteSettingsQuery = `*[_type == "siteSettings" && _id in ["siteSett
 }`
 
 export const latestProjectsQuery = `*[_type == "sampleProject" && hidden != true && defined(slug.current)]
-  | order(coalesce(publishedAt, _createdAt) desc)[0...6]{
+  | order(coalesce(publishedAt, _createdAt) desc)[0...3]{
   _id,
   title,
   "slug": slug.current,

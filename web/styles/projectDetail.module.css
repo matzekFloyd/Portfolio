@@ -5,6 +5,8 @@
   gap: 0.75rem;
   margin: 0.8rem 0 0.9rem;
   flex-wrap: wrap;
+  container-type: inline-size;
+  container-name: project-title-row;
 }
 
 .title {
@@ -184,12 +186,6 @@
     gap: 0.9rem;
   }
 
-  .titleRow {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.55rem;
-  }
-
   .title {
     font-size: clamp(1.7rem, 1.45rem + 1.25vw, 2rem);
     line-height: 1.32;
@@ -205,5 +201,17 @@
 
   .lightboxInner {
     width: 96vw;
+  }
+}
+
+@container project-title-row (max-width: 480px) {
+  .tryCta {
+    width: 100%;
+  }
+
+  .tryCta .tryButton {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 }
