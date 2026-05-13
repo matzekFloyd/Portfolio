@@ -82,3 +82,8 @@ Expected:
 - Frontend preview deploy succeeds and serves from `out`.
 - Studio preview deploy succeeds and loads routes via SPA redirect.
 - Production deploys succeed without manual command overrides.
+
+## See also
+
+- [`webhooks.md`](./webhooks.md) — how to trigger a frontend rebuild
+  automatically when content is published in Sanity Studio.
