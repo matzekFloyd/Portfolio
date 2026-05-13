@@ -7,7 +7,6 @@ import contact from '../schemas/documents/contact'
 import youtube from '../schemas/documents/youtube'
 import contacts from '../schemas/documents/contacts'
 import impressum from '../schemas/documents/impressum'
-import dashboardNote from '../schemas/documents/dashboardNote'
 
 import bioPortableText from '../schemas/objects/bioPortableText'
 import figure from '../schemas/objects/figure'
@@ -37,6 +36,5 @@ export const schemaTypes = [
   siteSettings,
   about,
   contact,
-  youtube,
-  dashboardNote
+  youtube
 ]
