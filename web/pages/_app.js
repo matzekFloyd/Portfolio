@@ -1,17 +1,20 @@
+import {Inter} from 'next/font/google'
 import '../styles/globals.css'
-import Head from 'next/head'
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap'
+})
 
 export default function App({Component, pageProps}) {
   return (
     <>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        />
-      </Head>
+      <style jsx global>{`
+        html {
+          --font-inter: ${inter.style.fontFamily};
+        }
+      `}</style>
       <Component {...pageProps} />
     </>
   )
