@@ -1,3 +1,14 @@
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  margin: 1.2rem 0 0.9rem;
+  flex-wrap: wrap;
+  container-type: inline-size;
+  container-name: try-title-row;
+}
+
 .title {
   font-size: clamp(1.72rem, 1.42rem + 1.05vw, 2.1rem);
   font-weight: 600;
@@ -7,24 +18,45 @@
   letter-spacing: -0.02em;
 }
 
-.backWrap {
-  margin: 0 0 1.1rem;
+.titleRow .title {
+  margin: 0;
 }
 
-.backLink {
-  color: #3459d6;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1.5px;
+.backCta {
+  margin: 0.1rem 0 0;
+  flex-shrink: 0;
+}
+
+.backButton {
+  display: inline-block;
+  background: transparent;
+  color: #1f4acc;
+  border: 1px solid #c4d1ee;
+  padding: 0.58rem 0.95rem;
+  border-radius: 8px;
+  text-decoration: none !important;
   font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.2;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.backButton:hover {
+  background: #e8eefc;
+  border-color: #1f4acc;
+  color: #173aa7;
+}
+
+.backButton:focus-visible {
+  background: #e8eefc;
+  border-color: #1f4acc;
+  color: #173aa7;
+  outline: 2px solid #5b7ce0;
+  outline-offset: 2px;
 }
 
 .embedWrap {
-  background: #fff;
-  border: 1px solid #d9dee8;
   border-radius: 10px;
-  padding: 0.9rem;
-  box-shadow: none;
   overflow: hidden;
 }
 
@@ -48,9 +80,8 @@
   width: 100%;
   min-height: clamp(520px, 75vh, 920px);
   border: 0;
-  border-radius: 10px;
+  display: block;
   background: #fff;
-  box-shadow: inset 0 0 0 1px #e3eaf3;
 }
 
 .note {
@@ -61,13 +92,11 @@
 
 @media (max-width: 760px) {
   .embedWrap {
-    padding: 0.55rem;
-    border-radius: 12px;
+    border-radius: 8px;
   }
 
   .embed {
     min-height: 70vh;
-    border-radius: 8px;
   }
 
   .title {
@@ -78,5 +107,17 @@
   .note {
     font-size: 1rem;
     line-height: 1.8;
+  }
+}
+
+@container try-title-row (max-width: 480px) {
+  .backCta {
+    width: 100%;
+  }
+
+  .backButton {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 }

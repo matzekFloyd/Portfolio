@@ -47,6 +47,28 @@
   vertical-align: middle;
 }
 
+.categoryTagLink {
+  color: #1f4acc;
+  border-color: #c4d1ee;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.categoryTagLink:hover {
+  background: #e8eefc;
+  border-color: #1f4acc;
+  color: #173aa7;
+}
+
+.categoryTagLink:focus-visible {
+  background: #e8eefc;
+  border-color: #1f4acc;
+  color: #173aa7;
+  outline: 2px solid #5b7ce0;
+  outline-offset: 2px;
+}
+
 .tryCta .tryButton {
   display: inline-block;
   background: #1f4acc;
@@ -66,7 +88,7 @@
   text-decoration: none;
 }
 
-.mainImage {
+.metaImage {
   margin-top: 0;
   max-width: 100%;
 }
@@ -80,7 +102,7 @@
   cursor: zoom-in;
 }
 
-.mainImage img {
+.metaImage img {
   border-radius: 10px;
   box-shadow: none;
   border: 1px solid #d9dee8;
@@ -120,7 +142,7 @@
 
 .metaColumn {
   display: grid;
-  gap: 0.35rem;
+  gap: 1.1rem;
 }
 
 .lightbox {
@@ -177,7 +199,7 @@
     padding: 0 0.8rem 0.8rem;
   }
 
-  .mainImage {
+  .metaImage {
     max-width: 100%;
   }
 
