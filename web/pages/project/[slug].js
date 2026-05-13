@@ -17,17 +17,30 @@ function isExternalHttpUrl(value) {
   }
 }
 
+function buildMetaImage(image, fallbackAlt) {
+  if (!image) return null
+  const src = urlFor(image)?.width(1200).height(675).fit('crop').url()
+  if (!src) return null
+  return {
+    src,
+    alt: image.alt || fallbackAlt,
+    caption: image.caption || null
+  }
+}
+
 export default function ProjectPage({site, project}) {
-  const [isImageOpen, setIsImageOpen] = useState(false)
+  const [lightboxImage, setLightboxImage] = useState(null)
   if (!project) return <SiteLayout siteTitle={site?.title} pageTitle="Project" description={site?.description}>Not found.</SiteLayout>
 
   const heroImage = project.mainImage || project.previewImage
-  const imageUrl = urlFor(heroImage)?.width(1200).height(675).fit('crop').url()
-  const imageAlt = heroImage?.alt || project.title
-  const imageCaption = heroImage?.caption
+  const metaImages = [
+    buildMetaImage(heroImage, project.title),
+    buildMetaImage(project.secondaryImage, project.title)
+  ].filter(Boolean)
+  const ogImageUrl = metaImages[0]?.src || null
   const tryout = project.tryout?.enabled && project.tryout?.url ? project.tryout : null
   const categories = project.categories || []
-  const hasMetaColumn = Boolean(imageUrl || categories.length > 0)
+  const hasMetaColumn = metaImages.length > 0 || categories.length > 0
 
   return (
     <SiteLayout
@@ -35,7 +48,7 @@ export default function ProjectPage({site, project}) {
       pageTitle={project.title}
       description={blocksToText(project.excerpt) || site?.description}
       keywords={site?.keywords}
-      ogImage={imageUrl}
+      ogImage={ogImageUrl}
       ogType="article"
     >
       <div className={styles.titleRow}>
@@ -91,31 +104,31 @@ export default function ProjectPage({site, project}) {
         </div>
         {hasMetaColumn ? (
           <aside className={styles.metaColumn}>
-            {imageUrl ? (
-              <div className={styles.mainImage}>
+            {metaImages.map((image, index) => (
+              <div key={index} className={styles.metaImage}>
                 <button
                   type="button"
                   className={styles.imageButton}
-                  onClick={() => setIsImageOpen(true)}
-                  aria-label={`Open larger image for ${project.title}`}
+                  onClick={() => setLightboxImage(image)}
+                  aria-label={`Open larger image ${index + 1} for ${project.title}`}
                 >
-                  <Image src={imageUrl} alt={imageAlt} width={1200} height={675} style={{width: '100%', height: 'auto'}} />
+                  <Image src={image.src} alt={image.alt} width={1200} height={675} style={{width: '100%', height: 'auto'}} />
                 </button>
-                {imageCaption ? <p className={styles.imageCaption}>{imageCaption}</p> : null}
+                {image.caption ? <p className={styles.imageCaption}>{image.caption}</p> : null}
               </div>
-            ) : null}
+            ))}
           </aside>
         ) : null}
       </div>
-      {isImageOpen && imageUrl ? (
-        <div className={styles.lightbox} onClick={() => setIsImageOpen(false)} role="presentation">
+      {lightboxImage ? (
+        <div className={styles.lightbox} onClick={() => setLightboxImage(null)} role="presentation">
           <div className={styles.lightboxInner}>
-            <button type="button" className={styles.lightboxClose} onClick={() => setIsImageOpen(false)} aria-label="Close image">
+            <button type="button" className={styles.lightboxClose} onClick={() => setLightboxImage(null)} aria-label="Close image">
               Close
             </button>
             <Image
-              src={imageUrl}
-              alt={imageAlt}
+              src={lightboxImage.src}
+              alt={lightboxImage.alt}
               width={1800}
               height={1012}
               className={styles.lightboxImage}

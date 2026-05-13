@@ -88,7 +88,7 @@
   text-decoration: none;
 }
 
-.mainImage {
+.metaImage {
   margin-top: 0;
   max-width: 100%;
 }
@@ -102,7 +102,7 @@
   cursor: zoom-in;
 }
 
-.mainImage img {
+.metaImage img {
   border-radius: 10px;
   box-shadow: none;
   border: 1px solid #d9dee8;
@@ -142,7 +142,7 @@
 
 .metaColumn {
   display: grid;
-  gap: 0.35rem;
+  gap: 1.1rem;
 }
 
 .lightbox {
@@ -199,7 +199,7 @@
     padding: 0 0.8rem 0.8rem;
   }
 
-  .mainImage {
+  .metaImage {
     max-width: 100%;
   }
 

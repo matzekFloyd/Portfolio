@@ -63,6 +63,13 @@ export default {
       type: 'figure'
     },
     {
+      name: 'secondaryImage',
+      title: 'Secondary image',
+      description:
+        'Optional second image shown in the right column on the project detail page, stacked below the main image.',
+      type: 'figure'
+    },
+    {
       name: 'categories',
       title: 'Categories',
       type: 'array',

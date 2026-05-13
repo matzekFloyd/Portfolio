@@ -35,6 +35,7 @@ export const projectBySlugQuery = `*[_type == "sampleProject" && slug.current ==
   body,
   excerpt,
   mainImage,
+  secondaryImage,
   previewImage,
   tryout,
   "categories": categories[]->{
