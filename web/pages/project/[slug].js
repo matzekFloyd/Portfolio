@@ -7,6 +7,16 @@ import {projectBySlugQuery, projectSlugsQuery, siteSettingsQuery} from '../../li
 import {PortableTextContent, blocksToText} from '../../lib/portableText'
 import styles from '../../styles/projectDetail.module.css'
 
+function isExternalHttpUrl(value) {
+  if (typeof value !== 'string' || !value) return false
+  try {
+    const parsed = new URL(value)
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:'
+  } catch {
+    return false
+  }
+}
+
 export default function ProjectPage({site, project}) {
   const [isImageOpen, setIsImageOpen] = useState(false)
   if (!project) return <SiteLayout siteTitle={site?.title} pageTitle="Project" description={site?.description}>Not found.</SiteLayout>
@@ -54,11 +64,26 @@ export default function ProjectPage({site, project}) {
           {categories.length > 0 ? (
             <div className={styles.categoriesTop}>
               <ul className={styles.categoryTags}>
-                {categories.map((category) => (
-                  <li key={category._id} className={styles.categoryTag}>
-                    {category.title}
-                  </li>
-                ))}
+                {categories.map((category) => {
+                  const linkUrl = isExternalHttpUrl(category.url) ? category.url : null
+                  return (
+                    <li key={category._id}>
+                      {linkUrl ? (
+                        <a
+                          href={linkUrl}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className={`${styles.categoryTag} ${styles.categoryTagLink}`}
+                          aria-label={`${category.title} (opens in new tab)`}
+                        >
+                          {category.title}
+                        </a>
+                      ) : (
+                        <span className={styles.categoryTag}>{category.title}</span>
+                      )}
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           ) : null}

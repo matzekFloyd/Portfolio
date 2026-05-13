@@ -236,7 +236,8 @@ a:hover {
   margin-top: 1.05rem;
 }
 
-.content li + li {
+.content ul:not([class]) > li + li,
+.content ol:not([class]) > li + li {
   margin-top: 0.38rem;
 }
 
