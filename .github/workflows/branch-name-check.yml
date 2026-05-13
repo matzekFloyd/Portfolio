@@ -16,6 +16,11 @@ jobs:
 
           echo "Checking branch: ${BRANCH_NAME}"
 
+          if [[ "${BRANCH_NAME}" =~ ^dependabot/ ]]; then
+            echo "Dependabot branch detected — skipping naming convention check."
+            exit 0
+          fi
+
           if [[ ! "${BRANCH_NAME}" =~ ${REGEX} ]]; then
             echo "Invalid branch name: ${BRANCH_NAME}"
             echo "Expected format: [initials/]PF-<number>--<short-kebab-description>"
