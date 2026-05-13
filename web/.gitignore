@@ -56,6 +56,10 @@ typings/
 .next/
 out/
 
+# Legacy Gatsby build artifacts — the current stack outputs to out/, not public/
+public/page-data/
+public/static/d/
+
 # Mac files
 .DS_Store
 
