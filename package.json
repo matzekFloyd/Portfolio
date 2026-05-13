@@ -3,7 +3,7 @@
   "name": "sanity-gatsby-portfolio",
   "version": "0.0.0",
   "engines": {
-    "node": ">=20.19.5"
+    "node": ">=22.12.0"
   },
   "scripts": {
     "build": "lerna run build --parallel",

@@ -8,7 +8,7 @@ Post-migration developer guide for the Next.js frontend and Sanity Studio v3 sta
 
 Canonical Node version:
 
-- `20.19.5`
+- `22.22.2` (Node 22 LTS "Jod" — maintenance support until April 2027)
 
 Version files:
 
@@ -18,8 +18,8 @@ Version files:
 If you use nvm-windows:
 
 ```bash
-nvm install 20.19.5
-nvm use 20.19.5
+nvm install 22.22.2
+nvm use 22.22.2
 node -v
 ```
 

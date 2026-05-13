@@ -11,7 +11,7 @@ Use `web/netlify.toml` as source of truth:
 - Base directory: `web`
 - Build command: `npm ci && npm run build`
 - Publish directory: `out`
-- Node version: `20.19.5`
+- Node version: `22.22.2`
 
 Notes:
 
@@ -27,7 +27,7 @@ Use `studio/netlify.toml` as source of truth:
 - Base directory: `studio`
 - Build command: `npm install && npm run build`
 - Publish directory: `dist`
-- Node version: `20.19.5`
+- Node version: `22.22.2`
 
 Notes:
 

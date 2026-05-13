@@ -6,7 +6,7 @@ This document summarizes the post-migration stack and operational caveats.
 
 - Frontend: Next.js static export (`web`)
 - CMS/editor: Sanity Studio v3 (`studio`)
-- Canonical runtime: Node `20.19.5`
+- Canonical runtime: Node `22.22.2` (Node 22 LTS "Jod")
 
 ## Key migration changes
 
@@ -62,7 +62,9 @@ npx sanity dataset copy production development
 - Frontend uses static export mode. Avoid ISR-specific settings (`revalidate`, `fallback: "blocking"`).
 - If local Studio `:3333` is occupied, run Studio on another port:
   - `npm run dev -- --port 3334`
-- Keep Node version pinned to `20.19.5` across root and studio.
+- Keep Node version pinned to `22.22.2` across root and studio. The previous
+  pin (`20.19.5`) became EOL on 2026-04-30; Sanity v5 also requires
+  `>=20.19.1` or `>=22.12`.
 - After creating or recreating a dataset, the Sanity CDN may serve a cached
   404 on the new dataset name for up to ~60 seconds. If `next dev` reports
   `Dataset not found` right after `dataset create`, give it a minute and
