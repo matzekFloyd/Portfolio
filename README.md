@@ -2,14 +2,12 @@
 
 ![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red.svg)
 
-Personal portfolio website for Mathias Mayrhofer, live at [mathiasmayrhofer.at](https://mathiasmayrhofer.at). The site lists projects plus about, contact, and impressum pages. All content is editor-managed in a headless CMS.
+Personal portfolio website for Mathias Mayrhofer. The site lists projects plus about, contact, and impressum pages. All content is editor-managed in a headless CMS.
 
-The repository is a monorepo with two packages:
+The repository is a monorepo with two packages, each deployed independently as a Netlify site:
 
-- `web/` — Next.js static-export frontend, the public site
-- `studio/` — Sanity Studio v5, the editor where all content (project metadata, tryout URLs, about/contact/impressum text, site settings) lives
-
-Both are deployed independently as Netlify sites.
+- `web/` — Next.js static-export frontend → [mathiasmayrhofer.at](https://mathiasmayrhofer.at)
+- `studio/` — Sanity Studio v5 → [studio.mathiasmayrhofer.at](https://studio.mathiasmayrhofer.at) (editor where all content — project metadata, tryout URLs, about/contact/impressum text, site settings — lives)
 
 ## Runtime
 

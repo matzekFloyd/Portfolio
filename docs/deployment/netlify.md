@@ -6,6 +6,8 @@ This repository deploys with two independent Netlify sites.
 
 Scope: public portfolio website.
 
+Live URL: [mathiasmayrhofer.at](https://mathiasmayrhofer.at)
+
 Use `web/netlify.toml` as source of truth:
 
 - Base directory: `web`
@@ -21,6 +23,8 @@ Notes:
 ## 2) Studio site (`studio`)
 
 Scope: Sanity Studio editor.
+
+Live URL: [studio.mathiasmayrhofer.at](https://studio.mathiasmayrhofer.at) (login required)
 
 Use `studio/netlify.toml` as source of truth:
 
