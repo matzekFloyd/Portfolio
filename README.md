@@ -2,7 +2,14 @@
 
 ![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red.svg)
 
-Post-migration developer guide for the Next.js frontend and Sanity Studio v3 stack.
+Personal portfolio website for Mathias Mayrhofer, live at [mathiasmayrhofer.at](https://mathiasmayrhofer.at). The site lists projects plus about, contact, and impressum pages. All content is editor-managed in a headless CMS.
+
+The repository is a monorepo with two packages:
+
+- `web/` — Next.js static-export frontend, the public site
+- `studio/` — Sanity Studio v5, the editor where all content (project metadata, tryout URLs, about/contact/impressum text, site settings) lives
+
+Both are deployed independently as Netlify sites.
 
 ## Runtime
 
