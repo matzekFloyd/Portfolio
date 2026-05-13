@@ -102,6 +102,20 @@ Monorepo build:
 npm run build
 ```
 
+## Brand assets
+
+The favicon is regenerated from a single high-resolution master:
+
+- Source: `assets/brand/favicon-master.png`
+- Output: `web/public/favicon.ico` and `studio/static/favicon.ico` (multi-resolution: 16/32/48/64 px)
+
+```bash
+npm run build:favicon
+```
+
+Generated `.ico` files are committed so production builds don't have to install
+`sharp`. Re-run the command whenever the master PNG changes.
+
 ## Deployment
 
 Netlify deploy settings are documented in:
