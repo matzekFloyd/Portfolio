@@ -21,7 +21,7 @@ export default function SiteLayout({children, siteTitle, pageTitle, description,
       ? pageTitle
       : `${pageTitle} | ${effectiveSiteTitle}`
     : effectiveSiteTitle
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mm-sanity-portfolio.netlify.app'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mathiasmayrhofer.at'
   const canonicalUrl = `${siteUrl}${router.asPath === '/' ? '' : router.asPath}`
   const keywordsContent = Array.isArray(keywords) ? keywords.join(', ') : keywords
 

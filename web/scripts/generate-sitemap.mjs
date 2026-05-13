@@ -31,7 +31,7 @@ function loadDotEnv(path) {
 loadDotEnv(join(process.cwd(), '.env'))
 
 const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://mm-sanity-portfolio.netlify.app'
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://mathiasmayrhofer.at'
 ).replace(/\/$/, '')
 const PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'aartfjgc'
 const DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
