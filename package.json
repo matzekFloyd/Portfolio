@@ -2,23 +2,25 @@
   "private": true,
   "name": "sanity-gatsby-portfolio",
   "version": "0.0.0",
+  "workspaces": [
+    "web",
+    "studio"
+  ],
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
-    "build": "lerna run build --parallel",
-    "dev": "lerna run dev --parallel",
-    "format": "lerna run format",
+    "build": "npm run build --workspaces --if-present",
+    "dev": "npm run dev --workspaces --if-present",
+    "format": "npm run format --workspaces --if-present",
     "build-studio": "node -e \"const cp=require('child_process'); const run=(cmd)=>cp.execSync(cmd,{stdio:'inherit'}); if(process.env.NETLIFY){console.log('Netlify detected: installing and building studio'); run('cd studio && npm ci && npm run build');} else {run('cd studio && npm run build');}\"",
-    "build-web": "node -e \"const cp=require('child_process'); const run=(cmd)=>cp.execSync(cmd,{stdio:'inherit'}); if(process.env.NETLIFY){console.log('Netlify detected: building web only'); run('cd web && npm ci && npm run build');} else {run('lerna bootstrap && (cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd web && npm run build)');}\"",
-    "graphql-deploy": "lerna run graphql-deploy",
-    "lint": "lerna run lint",
-    "postinstall": "node -e \"if (process.env.NETLIFY) { console.log('Skipping lerna bootstrap on Netlify frontend build'); process.exit(0) } require('child_process').execSync('lerna bootstrap', { stdio: 'inherit' })\"",
+    "build-web": "node -e \"const cp=require('child_process'); const run=(cmd)=>cp.execSync(cmd,{stdio:'inherit'}); if(process.env.NETLIFY){console.log('Netlify detected: building web only'); run('cd web && npm ci && npm run build');} else {run('(cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd web && npm run build)');}\"",
+    "graphql-deploy": "npm run graphql-deploy --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
     "build:favicon": "node scripts/build-favicon.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "lerna": "^3.13.1",
     "png-to-ico": "^2.1.8",
     "sharp": "^0.34.2"
   },
