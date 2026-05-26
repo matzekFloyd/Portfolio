@@ -1,3 +1,5 @@
+import {portableTextLinkFields} from '../definitions/portableTextLinkFields'
+
 export default {
   title: 'Portable Text',
   name: 'projectPortableText',
@@ -30,13 +32,7 @@ export default {
             title: 'URL',
             name: 'link',
             type: 'object',
-            fields: [
-              {
-                title: 'URL',
-                name: 'href',
-                type: 'url'
-              }
-            ]
+            fields: portableTextLinkFields
           }
         ]
       }

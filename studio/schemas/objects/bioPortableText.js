@@ -1,3 +1,5 @@
+import {portableTextLinkFields} from '../definitions/portableTextLinkFields'
+
 export default {
   name: 'bioPortableText',
   type: 'array',
@@ -19,13 +21,7 @@ export default {
             name: 'link',
             type: 'object',
             title: 'URL',
-            fields: [
-              {
-                title: 'URL',
-                name: 'href',
-                type: 'url'
-              }
-            ]
+            fields: portableTextLinkFields
           }
         ]
       }

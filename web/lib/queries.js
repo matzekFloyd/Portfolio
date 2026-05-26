@@ -41,7 +41,8 @@ export const projectBySlugQuery = `*[_type == "sampleProject" && slug.current ==
   "categories": categories[]->{
     _id,
     title,
-    url
+    url,
+    openInNewTab
   }
 }`
 
@@ -75,7 +76,8 @@ export const contactQuery = `*[_type == "contact" && _id in ["singleton-contact"
     title,
     url,
     isEmail,
-    isSocialMedia
+    isSocialMedia,
+    openInNewTab
   }
 }`
 

@@ -10,6 +10,11 @@ function contactHref(item) {
   return `https://${item.url}`
 }
 
+function contactOpensInNewTab(item) {
+  if (item.isEmail) return false
+  return item.openInNewTab !== false
+}
+
 export default function ContactPage({site, contact}) {
   return (
     <SiteLayout siteTitle={site?.title} pageTitle="Contact" description={site?.description} keywords={site?.keywords}>
@@ -22,26 +27,42 @@ export default function ContactPage({site, contact}) {
           </div>
           {(contact?.contacts || []).length > 0 ? (
             <ul className={styles.list}>
-              {(contact?.contacts || []).map((item) => (
-                <li key={item._id}>
-                  <a href={contactHref(item)} target={item.isEmail ? '_self' : '_blank'} rel="noreferrer" className={styles.link}>
-                    {item.title}
-                  </a>
-                </li>
-              ))}
+              {(contact?.contacts || []).map((item) => {
+                const newTab = contactOpensInNewTab(item)
+                return (
+                  <li key={item._id}>
+                    <a
+                      href={contactHref(item)}
+                      target={newTab ? '_blank' : '_self'}
+                      rel={newTab ? 'noopener noreferrer' : undefined}
+                      className={styles.link}
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                )
+              })}
             </ul>
           ) : null}
         </section>
       ) : (contact?.contacts || []).length > 0 ? (
         <section className={styles.card} aria-label="Contact links">
           <ul className={styles.list}>
-            {(contact?.contacts || []).map((item) => (
-              <li key={item._id}>
-                <a href={contactHref(item)} target={item.isEmail ? '_self' : '_blank'} rel="noreferrer" className={styles.link}>
-                  {item.title}
-                </a>
-              </li>
-            ))}
+            {(contact?.contacts || []).map((item) => {
+              const newTab = contactOpensInNewTab(item)
+              return (
+                <li key={item._id}>
+                  <a
+                    href={contactHref(item)}
+                    target={newTab ? '_blank' : '_self'}
+                    rel={newTab ? 'noopener noreferrer' : undefined}
+                    className={styles.link}
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
         </section>
       ) : null}
