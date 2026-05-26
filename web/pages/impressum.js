@@ -26,7 +26,6 @@ export default function ImpressumPage({site, impressum}) {
 
             {emailHref ? (
               <p className={styles.mailRow}>
-                <span className={styles.lineLabel}>Mail:</span>{' '}
                 <a href={emailHref} className={styles.mailLink}>
                   {emailTrimmed}
                 </a>

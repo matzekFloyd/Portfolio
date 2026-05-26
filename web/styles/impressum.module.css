@@ -38,11 +38,6 @@
   line-height: 1.45;
 }
 
-.lineLabel {
-  font-weight: 600;
-  color: #6b7280;
-}
-
 .mailLink {
   color: #1f2937;
   text-decoration: underline;
@@ -56,8 +51,8 @@
 }
 
 .addressBlock {
-  margin: 0.1rem 0 0;
-  padding-top: 0.15rem;
+  margin: 0;
+  padding: 0;
 }
 
 .addressLine {
