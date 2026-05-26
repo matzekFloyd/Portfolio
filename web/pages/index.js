@@ -31,7 +31,7 @@ export default function HomePage({site, projects}) {
         ) : null}
         <div className={pageStyles.description}>
           <p className={pageStyles.kicker}>Software Engineer</p>
-          <h2>{site?.subtitle || 'Software Developer from Vienna, Austria.'}</h2>
+          <h2>{site?.subtitle || 'Software Engineer from Vienna, Austria.'}</h2>
           <p>{site?.description}</p>
           <p className={pageStyles.ctaWrap}>
             <span className={pageStyles.ctaLinks}>
