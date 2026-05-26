@@ -15,6 +15,18 @@ function extractYouTubeId(url = '') {
 }
 
 const components = {
+  marks: {
+    link({value, children}) {
+      const href = value?.href
+      if (!href) return <span>{children}</span>
+      const openInNewTab = value?.openInNewTab === true
+      return (
+        <a href={href} target={openInNewTab ? '_blank' : undefined} rel={openInNewTab ? 'noopener noreferrer' : undefined}>
+          {children}
+        </a>
+      )
+    }
+  },
   types: {
     figure: ({value}) => {
       const imageUrl = value ? urlFor(value).width(1400).fit('max').url() : null

@@ -79,15 +79,16 @@ export default function ProjectPage({site, project}) {
               <ul className={styles.categoryTags}>
                 {categories.map((category) => {
                   const linkUrl = isExternalHttpUrl(category.url) ? category.url : null
+                  const openInNewTab = Boolean(linkUrl && category.openInNewTab !== false)
                   return (
                     <li key={category._id}>
                       {linkUrl ? (
                         <a
                           href={linkUrl}
-                          target="_blank"
-                          rel="noreferrer noopener"
+                          target={openInNewTab ? '_blank' : undefined}
+                          rel={openInNewTab ? 'noopener noreferrer' : undefined}
                           className={`${styles.categoryTag} ${styles.categoryTagLink}`}
-                          aria-label={`${category.title} (opens in new tab)`}
+                          aria-label={openInNewTab ? `${category.title} (opens in new tab)` : category.title}
                         >
                           {category.title}
                         </a>
