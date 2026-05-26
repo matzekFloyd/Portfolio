@@ -1,5 +1,5 @@
 .title {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.9rem;
 }
 
 .legalHeading {
@@ -18,41 +18,59 @@
   margin-bottom: 0.8rem;
 }
 
-.addressPanel {
-  background: #f6f8fb;
-  border-color: #cdd6e4;
-  box-shadow: 0 1px 2px rgba(29, 39, 49, 0.06);
+.imprintPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
 }
 
-.details {
+.legalName {
   margin: 0;
-  display: grid;
-  grid-template-columns: minmax(92px, 120px) 1fr;
-  gap: 0.45rem 0.9rem;
-}
-
-.details dt {
-  margin: 0;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #1d2731;
+  line-height: 1.35;
 }
 
-.details dd {
+.mailRow {
   margin: 0;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.lineLabel {
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.mailLink {
+  color: #1f2937;
+  text-decoration: underline;
+  text-decoration-color: rgba(31, 41, 55, 0.3);
+  text-underline-offset: 3px;
+}
+
+.mailLink:hover {
+  color: #111827;
+  text-decoration-color: rgba(17, 24, 39, 0.55);
+}
+
+.addressBlock {
+  margin: 0.1rem 0 0;
+  padding-top: 0.15rem;
+}
+
+.addressLine {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.45;
   color: #4d5f77;
+}
+
+.addressLine + .addressLine {
+  margin-top: 0.2rem;
 }
 
 .body :global(p:first-child) {
   margin-top: 0;
-}
-
-@media (max-width: 700px) {
-  .details {
-    grid-template-columns: 1fr;
-    gap: 0.15rem;
-  }
-
-  .details dt {
-    margin-top: 0.45rem;
-  }
 }

@@ -4,21 +4,12 @@ import {impressumQuery, siteSettingsQuery} from '../lib/queries'
 import {PortableTextContent} from '../lib/portableText'
 import styles from '../styles/impressum.module.css'
 
-function getWebsiteHref(value) {
-  const raw = (value || '').trim()
-  if (!raw) return null
-  if (raw.startsWith('http://') || raw.startsWith('https://')) return raw
-  return `https://${raw}`
-}
-
 export default function ImpressumPage({site, impressum}) {
-  const emailHref = impressum?.email?.trim() ? `mailto:${impressum.email.trim()}` : null
-  const websiteHref = impressum?.websiteUrl ? getWebsiteHref(impressum.websiteUrl) : null
+  const emailTrimmed = impressum?.email?.trim() || ''
+  const emailHref = emailTrimmed ? `mailto:${emailTrimmed}` : null
 
-  const hasAddressPanel = Boolean(
-    impressum?.owner || impressum?.addressLineOne || impressum?.addressLineTwo
-  )
-  const hasContactPanel = Boolean(impressum?.email?.trim() || websiteHref)
+  const hasAddressLines = Boolean(impressum?.addressLineOne || impressum?.addressLineTwo)
+  const hasImprintPanel = Boolean(impressum?.owner || emailHref || hasAddressLines)
 
   return (
     <SiteLayout siteTitle={site?.title} pageTitle="Impressum" description={site?.description} keywords={site?.keywords}>
@@ -28,56 +19,27 @@ export default function ImpressumPage({site, impressum}) {
         <p className={styles.legalHeading}>{impressum.legalDisclosure}</p>
       ) : null}
 
-      {hasAddressPanel ? (
-        <section className={`${styles.card} ${styles.addressPanel}`} aria-label="Name and address">
-          <dl className={styles.details}>
-            {impressum?.owner ? (
-              <>
-                <dt>Full name</dt>
-                <dd>{impressum.owner}</dd>
-              </>
+      {hasImprintPanel ? (
+        <section className={styles.card} aria-label="Imprint details">
+          <div className={styles.imprintPanel}>
+            {impressum?.owner ? <p className={styles.legalName}>{impressum.owner}</p> : null}
+
+            {emailHref ? (
+              <p className={styles.mailRow}>
+                <span className={styles.lineLabel}>Mail:</span>{' '}
+                <a href={emailHref} className={styles.mailLink}>
+                  {emailTrimmed}
+                </a>
+              </p>
             ) : null}
 
-            {impressum?.addressLineOne ? (
-              <>
-                <dt>Street address</dt>
-                <dd>{impressum.addressLineOne}</dd>
-              </>
+            {hasAddressLines ? (
+              <div className={styles.addressBlock}>
+                {impressum?.addressLineOne ? <p className={styles.addressLine}>{impressum.addressLineOne}</p> : null}
+                {impressum?.addressLineTwo ? <p className={styles.addressLine}>{impressum.addressLineTwo}</p> : null}
+              </div>
             ) : null}
-
-            {impressum?.addressLineTwo ? (
-              <>
-                <dt>Address line 2</dt>
-                <dd>{impressum.addressLineTwo}</dd>
-              </>
-            ) : null}
-          </dl>
-        </section>
-      ) : null}
-
-      {hasContactPanel ? (
-        <section className={styles.card} aria-label="Contact details">
-          <dl className={styles.details}>
-            {impressum?.email?.trim() ? (
-              <>
-                <dt>Contact e-mail</dt>
-                <dd>
-                  <a href={emailHref}>{impressum.email.trim()}</a>
-                </dd>
-              </>
-            ) : null}
-
-            {websiteHref ? (
-              <>
-                <dt>Website</dt>
-                <dd>
-                  <a href={websiteHref} target="_blank" rel="noreferrer">
-                    {impressum.websiteUrl.trim()}
-                  </a>
-                </dd>
-              </>
-            ) : null}
-          </dl>
+          </div>
         </section>
       ) : null}
 

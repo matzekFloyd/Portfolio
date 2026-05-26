@@ -88,6 +88,5 @@ export const impressumQuery = `*[_type == "impressum" && _id in ["singleton-impr
   addressLineOne,
   addressLineTwo,
   email,
-  websiteUrl,
   body
 }`

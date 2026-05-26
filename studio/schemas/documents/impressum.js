@@ -50,12 +50,6 @@ export default {
         })
     },
     {
-      title: 'Website URL',
-      name: 'websiteUrl',
-      type: 'url',
-      description: 'Public site or portfolio URL shown on the Impressum (e.g. https://example.com).'
-    },
-    {
       name: 'body',
       title: 'Disclaimer & legal text',
       type: 'impressumPortableText',
