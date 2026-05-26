@@ -8,8 +8,10 @@ export default function ImpressumPage({site, impressum}) {
   const emailTrimmed = impressum?.email?.trim() || ''
   const emailHref = emailTrimmed ? `mailto:${emailTrimmed}` : null
 
-  const hasAddressLines = Boolean(impressum?.addressLineOne || impressum?.addressLineTwo)
-  const hasImprintPanel = Boolean(impressum?.owner || emailHref || hasAddressLines)
+  const line1 = impressum?.addressLineOne?.trim() || ''
+  const line2 = impressum?.addressLineTwo?.trim() || ''
+  const addressLine = [line1, line2].filter(Boolean).join(', ')
+  const hasImprintPanel = Boolean(impressum?.owner || emailHref || addressLine)
 
   return (
     <SiteLayout siteTitle={site?.title} pageTitle="Impressum" description={site?.description} keywords={site?.keywords}>
@@ -32,12 +34,7 @@ export default function ImpressumPage({site, impressum}) {
               </p>
             ) : null}
 
-            {hasAddressLines ? (
-              <div className={styles.addressBlock}>
-                {impressum?.addressLineOne ? <p className={styles.addressLine}>{impressum.addressLineOne}</p> : null}
-                {impressum?.addressLineTwo ? <p className={styles.addressLine}>{impressum.addressLineTwo}</p> : null}
-              </div>
-            ) : null}
+            {addressLine ? <p className={styles.addressLine}>{addressLine}</p> : null}
           </div>
         </section>
       ) : null}

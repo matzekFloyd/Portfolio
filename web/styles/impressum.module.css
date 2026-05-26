@@ -24,6 +24,11 @@
   gap: 0.55rem;
 }
 
+/* Override globals.css `.content p + p` inside imprint card */
+:global(.content) .imprintPanel p + p {
+  margin-top: 0;
+}
+
 .legalName {
   margin: 0;
   font-size: 1.05rem;
@@ -50,20 +55,11 @@
   text-decoration-color: rgba(17, 24, 39, 0.55);
 }
 
-.addressBlock {
-  margin: 0;
-  padding: 0;
-}
-
 .addressLine {
   margin: 0;
   font-size: 1rem;
   line-height: 1.45;
   color: #4d5f77;
-}
-
-.addressLine + .addressLine {
-  margin-top: 0.2rem;
 }
 
 .body :global(p:first-child) {
