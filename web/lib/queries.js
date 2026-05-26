@@ -83,9 +83,11 @@ export const contactQuery = `*[_type == "contact" && _id in ["singleton-contact"
 
 export const impressumQuery = `*[_type == "impressum" && _id in ["singleton-impressum", "drafts.singleton-impressum"]][0]{
   title,
+  "legalDisclosure": coalesce(legalDisclosure, ecgDisclosureHeading),
   owner,
   addressLineOne,
   addressLineTwo,
-  contact,
+  email,
+  websiteUrl,
   body
 }`

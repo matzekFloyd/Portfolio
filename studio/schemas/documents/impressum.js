@@ -8,32 +8,58 @@ export default {
     {
       title: 'Title',
       name: 'title',
-      type: 'string'
+      type: 'string',
+      description: 'Shown as the main heading on the Impressum page (e.g. “Impressum”).'
+    },
+    {
+      title: 'Legal disclosure',
+      name: 'legalDisclosure',
+      type: 'string',
+      description: 'Optional line under the title (e.g. a short legal or imprint notice).'
+    },
+    {
+      title: 'Full name',
+      name: 'owner',
+      type: 'string',
+      description: 'Name of the person responsible (Medieninhaber/in).'
+    },
+    {
+      title: 'Street address',
+      name: 'addressLineOne',
+      type: 'string',
+      description: 'Street and house number.'
+    },
+    {
+      title: 'ZIP, city, country',
+      name: 'addressLineTwo',
+      type: 'string',
+      description: 'e.g. 1010 Vienna, Austria'
+    },
+    {
+      title: 'Contact email',
+      name: 'email',
+      type: 'string',
+      description: 'Shown as the contact email (mailto link).',
+      validation: (Rule) =>
+        Rule.custom((value) => {
+          const v = (value || '').trim()
+          if (!v) return true
+          // Loose RFC-style check; enough for CMS validation
+          const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
+          return ok || 'Enter a valid email address'
+        })
+    },
+    {
+      title: 'Website URL',
+      name: 'websiteUrl',
+      type: 'url',
+      description: 'Public site or portfolio URL shown on the Impressum (e.g. https://example.com).'
     },
     {
       name: 'body',
-      title: 'Body',
-      type: 'impressumPortableText'
-    },
-    {
-      title: 'Owner',
-      name: 'owner',
-      type: 'string'
-    },
-    {
-      title: 'Address Line 1',
-      name: 'addressLineOne',
-      type: 'string'
-    },
-    {
-      title: 'Address Line 2',
-      name: 'addressLineTwo',
-      type: 'string'
-    },
-    {
-      title: 'Contact',
-      name: 'contact',
-      type: 'string'
+      title: 'Disclaimer & legal text',
+      type: 'impressumPortableText',
+      description: 'Disclaimer, copyright notice, and any further legal copy (portable text).'
     }
   ]
 }
