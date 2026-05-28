@@ -50,9 +50,13 @@ export default function HomePage({site, projects}) {
         <ul className={pageStyles.grid}>
           {projects.map((project) => {
             const thumb = project.previewImage ? urlFor(project.previewImage).width(800).height(520).fit('crop').url() : null
+            const excerptText = blocksToText(project.excerpt).trim()
+            const projectAriaLabel = excerptText
+              ? `${project.title} - ${excerptText}`
+              : `${project.title} project details`
             return (
               <li key={project._id}>
-                <Link href={`/project/${project.slug}`} className={previewStyles.root}>
+                <Link href={`/project/${project.slug}`} className={previewStyles.root} aria-label={projectAriaLabel}>
                   {thumb ? (
                     <div className={previewStyles.thumb}>
                       <Image src={thumb} alt={project.title} fill sizes="(min-width: 980px) 33vw, (min-width: 720px) 50vw, 100vw" />

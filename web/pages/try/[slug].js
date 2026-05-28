@@ -41,8 +41,9 @@ export default function TryoutPage({site, tryout}) {
       {tryout.description ? <p className={styles.note}>{tryout.description}</p> : null}
       {tryout.mode === 'external' ? (
         <p className={styles.note}>
-          <a href={tryout.url} target="_blank" rel="noreferrer">
+          <a href={tryout.url} target="_blank" rel="noopener noreferrer">
             Open {tryout.title}
+            <span className="sr-only"> (opens in new tab)</span>
           </a>
         </p>
       ) : (

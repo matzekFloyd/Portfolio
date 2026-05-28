@@ -14,6 +14,13 @@ function extractYouTubeId(url = '') {
   return null
 }
 
+function resolveFigureAltText(rawAlt) {
+  const normalized = typeof rawAlt === 'string' ? rawAlt.trim() : ''
+  if (!normalized) return ''
+  if (normalized.toLowerCase() === 'placeholder') return ''
+  return normalized
+}
+
 const components = {
   marks: {
     link({value, children}) {
@@ -33,7 +40,7 @@ const components = {
       if (!imageUrl) return null
       return (
         <figure className="portableFigure">
-          <img src={imageUrl} alt={value?.alt || ''} loading="lazy" />
+          <img src={imageUrl} alt={resolveFigureAltText(value?.alt)} loading="lazy" />
           {value?.caption ? <figcaption>{value.caption}</figcaption> : null}
         </figure>
       )

@@ -15,6 +15,13 @@ function contactOpensInNewTab(item) {
   return item.openInNewTab !== false
 }
 
+function contactAriaLabel(item) {
+  if (item.isEmail) return 'Send email to Mathias'
+  const title = item?.title?.trim() || 'external profile'
+  if (/linkedin/i.test(title)) return 'Mathias Mayrhofer on LinkedIn'
+  return `Open ${title}`
+}
+
 export default function ContactPage({site, contact}) {
   return (
     <SiteLayout siteTitle={site?.title} pageTitle="Contact" description={site?.description} keywords={site?.keywords}>
@@ -35,9 +42,11 @@ export default function ContactPage({site, contact}) {
                       href={contactHref(item)}
                       target={newTab ? '_blank' : '_self'}
                       rel={newTab ? 'noopener noreferrer' : undefined}
+                      aria-label={contactAriaLabel(item)}
                       className={styles.link}
                     >
                       {item.title}
+                      {newTab ? <span className="sr-only"> (opens in new tab)</span> : null}
                     </a>
                   </li>
                 )
@@ -56,9 +65,11 @@ export default function ContactPage({site, contact}) {
                     href={contactHref(item)}
                     target={newTab ? '_blank' : '_self'}
                     rel={newTab ? 'noopener noreferrer' : undefined}
+                    aria-label={contactAriaLabel(item)}
                     className={styles.link}
                   >
                     {item.title}
+                    {newTab ? <span className="sr-only"> (opens in new tab)</span> : null}
                   </a>
                 </li>
               )

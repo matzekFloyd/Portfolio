@@ -59,10 +59,11 @@ export default function ProjectPage({site, project}) {
               <a
                 href={tryout.url}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className={styles.tryButton}
               >
                 Try it
+                <span className="sr-only"> (opens in new tab)</span>
               </a>
             ) : (
               <Link href={`/try/${project.slug}`} className={styles.tryButton}>
