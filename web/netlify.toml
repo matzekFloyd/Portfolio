@@ -5,3 +5,11 @@
 [build.environment]
   NODE_VERSION = "22.22.2"
   HUSKY = "0"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/contact"
+  to = "/.netlify/functions/contact"
+  status = 200

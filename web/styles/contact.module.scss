@@ -12,25 +12,108 @@
 }
 
 .body {
+  margin-bottom: 1rem;
+
   :global(p:first-child) {
     margin-top: 0;
   }
+
+  :global(p:last-child) {
+    margin-bottom: 0;
+  }
 }
 
-.list {
-  list-style: none;
-  margin: 0.7rem 0 0;
-  padding: 0;
+.form {
   display: grid;
+  gap: 0.85rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
   gap: 0.35rem;
 }
 
-.link {
-  @include subtle-link(#1f2937, rgba(31, 41, 55, 0.3), $color-text, rgba(17, 24, 39, 0.55));
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2a3847;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: $color-text;
+  background: $color-white;
+  border: 1px solid $color-border-soft;
+  border-radius: $radius-sm;
+  padding: 0.62rem 0.75rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &::placeholder {
+    color: $color-text-subtle;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+    border-color: $color-accent;
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.actions {
+  margin-top: 0.15rem;
+}
+
+.submit {
+  appearance: none;
+  border: 0;
+  border-radius: $radius-sm;
+  background: $color-accent;
+  color: $color-white;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 0.68rem 1.15rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: $color-accent-hover;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+.feedback {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #2f6b3f;
+}
+
+.feedbackError {
+  color: #9b2c2c;
 }
 
 @media (max-width: 760px) {
-  .list {
-    margin-top: 0.55rem;
+  .body {
+    margin-bottom: 0.85rem;
   }
 }

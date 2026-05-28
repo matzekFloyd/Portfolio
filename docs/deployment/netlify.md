@@ -54,6 +54,16 @@ Optional (recommended for self-documentation):
 - `NEXT_PUBLIC_SANITY_PROJECT_ID` — `aartfjgc`
 - `NEXT_PUBLIC_SANITY_DATASET` — `production`
 
+Contact form (server-side only — Netlify **Site configuration → Environment**):
+
+- `RESEND_API_KEY` — API key from [Resend](https://resend.com)
+- `CONTACT_FROM_EMAIL` — verified sender, e.g. `Portfolio <contact@mathiasmayrhofer.at>`
+- `CONTACT_TO_EMAIL` — inbox that receives submissions
+
+The form posts to `/api/contact`, handled by `web/netlify/functions/contact.ts`.
+Static pages still export to `out`; only this function runs on the server.
+Test locally with `netlify dev` from the `web` directory (not `next dev` alone).
+
 ### Studio site (`studio`)
 
 Optional (recommended for self-documentation):

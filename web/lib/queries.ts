@@ -70,15 +70,7 @@ export const aboutQuery = `*[_type == "about" && _id in ["singleton-about", "dra
 
 export const contactQuery = `*[_type == "contact" && _id in ["singleton-contact", "drafts.singleton-contact"]][0]{
   title,
-  body,
-  "contacts": contacts[]->{
-    _id,
-    title,
-    url,
-    isEmail,
-    isSocialMedia,
-    openInNewTab
-  }
+  body
 }`;
 
 export const impressumQuery = `*[_type == "impressum" && _id in ["singleton-impressum", "drafts.singleton-impressum"]][0]{

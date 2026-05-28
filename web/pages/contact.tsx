@@ -1,28 +1,13 @@
+import ContactForm from "@web/components/ContactForm";
 import SiteLayout from "@web/components/SiteLayout";
 import { PortableTextContent } from "@web/lib/portableText";
 import { contactQuery, siteSettingsQuery } from "@web/lib/queries";
 import { sanityClient } from "@web/lib/sanity";
 import styles from "@web/styles/contact.module.scss";
 
-function contactHref(item: any) {
-  if (item.isEmail) return `mailto:${item.url}`;
-  if (item.url?.startsWith("http")) return item.url;
-  return `https://${item.url}`;
-}
-
-function contactOpensInNewTab(item: any) {
-  if (item.isEmail) return false;
-  return item.openInNewTab !== false;
-}
-
-function contactAriaLabel(item: any) {
-  if (item.isEmail) return "Send email to Mathias";
-  const title = item?.title?.trim() || "external profile";
-  if (/linkedin/i.test(title)) return "Mathias Mayrhofer on LinkedIn";
-  return `Open ${title}`;
-}
-
 export default function ContactPage({ site, contact }: { site: any; contact: any }) {
+  const hasBody = Array.isArray(contact?.body) && contact.body.length > 0;
+
   return (
     <SiteLayout
       siteTitle={site?.title}
@@ -32,56 +17,14 @@ export default function ContactPage({ site, contact }: { site: any; contact: any
     >
       <h2 className={styles.title}>{contact?.title || "Contact"}</h2>
 
-      {Array.isArray(contact?.body) && contact.body.length > 0 ? (
-        <section className={styles.card} aria-label="Contact intro">
+      <section className={styles.card} aria-label="Contact form">
+        {hasBody ? (
           <div className={styles.body}>
             <PortableTextContent value={contact.body} />
           </div>
-          {(contact?.contacts || []).length > 0 ? (
-            <ul className={styles.list}>
-              {(contact?.contacts || []).map((item: any) => {
-                const newTab = contactOpensInNewTab(item);
-                return (
-                  <li key={item._id}>
-                    <a
-                      href={contactHref(item)}
-                      target={newTab ? "_blank" : "_self"}
-                      rel={newTab ? "noopener noreferrer" : undefined}
-                      aria-label={contactAriaLabel(item)}
-                      className={styles.link}
-                    >
-                      {item.title}
-                      {newTab ? <span className="sr-only"> (opens in new tab)</span> : null}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          ) : null}
-        </section>
-      ) : (contact?.contacts || []).length > 0 ? (
-        <section className={styles.card} aria-label="Contact links">
-          <ul className={styles.list}>
-            {(contact?.contacts || []).map((item: any) => {
-              const newTab = contactOpensInNewTab(item);
-              return (
-                <li key={item._id}>
-                  <a
-                    href={contactHref(item)}
-                    target={newTab ? "_blank" : "_self"}
-                    rel={newTab ? "noopener noreferrer" : undefined}
-                    aria-label={contactAriaLabel(item)}
-                    className={styles.link}
-                  >
-                    {item.title}
-                    {newTab ? <span className="sr-only"> (opens in new tab)</span> : null}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      ) : null}
+        ) : null}
+        <ContactForm />
+      </section>
     </SiteLayout>
   );
 }
@@ -91,6 +34,7 @@ export async function getStaticProps() {
     sanityClient.fetch(siteSettingsQuery),
     sanityClient.fetch(contactQuery),
   ]);
+
   return {
     props: {
       site: site || null,
