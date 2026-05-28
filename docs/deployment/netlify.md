@@ -74,6 +74,27 @@ era, delete them — no code reads them anymore:
 - `GATSBY_SANITY_DATASET`
 - `SANITY_READ_TOKEN`, `SANITY_API_TOKEN` (Gatsby Sanity source plugin)
 
+### Node.js version (builds and Agent Runners)
+
+Each site should run **Node.js 22** (currently pinned to `22.22.2` in repo).
+
+Version is declared in:
+
+- `web/.nvmrc` / `web/.node-version` (frontend base directory)
+- `studio/.nvmrc` / `studio/.node-version` (studio base directory)
+- `web/netlify.toml` and `studio/netlify.toml` (`NODE_VERSION = "22.22.2"`)
+- Root, `web/package.json`, and `studio/package.json` (`engines.node`: `>=22.12.0`)
+
+If Netlify shows **“Your project uses Node.js 12”** for Agent Runners:
+
+1. Open **Site configuration → Build & deploy → Environment** for **each** site
+   (frontend and studio).
+2. Remove or update any `NODE_VERSION` variable set to `12`, `12.x`, or an old
+   Gatsby-era value. Either delete it (repo config wins) or set it to `22.22.2`.
+3. Confirm **Base directory** matches this doc (`web` or `studio`). Wrong base
+   directory can hide `.nvmrc` and fall back to legacy defaults.
+4. **Clear cache and deploy** after changing env vars.
+
 ## Verification checklist
 
 After config changes, run both:
