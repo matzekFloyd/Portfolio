@@ -51,7 +51,7 @@ export default function SiteLayout({children, siteTitle, pageTitle, description,
           <div className="branding">
             <Link
               href="/"
-              aria-label={siteTitle || 'Portfolio'}
+              aria-label="Mathias Mayrhofer – Home"
               className={`brandLink${router.pathname === '/' ? ' homeBrandLink' : ''}`}
             >
               MM
@@ -72,7 +72,7 @@ export default function SiteLayout({children, siteTitle, pageTitle, description,
             </button>
           ) : null}
           {isMenuOpen ? <button type="button" className="navBackdrop" aria-label="Close navigation menu" onClick={() => setIsMenuOpen(false)} /> : null}
-          <nav id="main-navigation" className={`nav${isMenuOpen ? ' navOpen' : ''}`}>
+          <nav id="main-navigation" aria-label="Main navigation" className={`nav${isMenuOpen ? ' navOpen' : ''}`}>
             <ul>
               {navItems().map((item) => (
                 <li key={item.href}>
