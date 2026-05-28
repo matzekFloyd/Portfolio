@@ -2,6 +2,7 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {dashboardTool, projectInfoWidget, projectUsersWidget} from '@sanity/dashboard'
 import {documentListWidget} from 'sanity-plugin-dashboard-widget-document-list'
+import './styles/variables.scss'
 import {schemaTypes} from './schemaTypes'
 import {structure} from './structure'
 
