@@ -1,7 +1,6 @@
 import about from "@studio/schemas/documents/about";
 import category from "@studio/schemas/documents/category";
 import contact from "@studio/schemas/documents/contact";
-import contacts from "@studio/schemas/documents/contacts";
 import impressum from "@studio/schemas/documents/impressum";
 import person from "@studio/schemas/documents/person";
 import sampleProject from "@studio/schemas/documents/sampleProject";
@@ -28,7 +27,6 @@ export const schemaTypes = [
   simplePortableText,
   tryout,
   category,
-  contacts,
   impressum,
   person,
   sampleProject,

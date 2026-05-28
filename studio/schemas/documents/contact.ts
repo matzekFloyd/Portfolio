@@ -15,11 +15,5 @@ export default {
       title: "Body",
       type: "contactPortableText",
     },
-    {
-      name: "contacts",
-      title: "Contacts",
-      type: "array",
-      of: [{ type: "reference", to: { type: "contacts" } }],
-    },
   ],
 };

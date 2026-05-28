@@ -43,7 +43,7 @@ In <https://www.sanity.io/manage> → portfolio project → **API** →
 GROQ filter:
 
 ```groq
-_type in ["sampleProject", "category", "about", "contact", "contacts", "impressum", "siteSettings"] && !(_id in path("drafts.**"))
+_type in ["sampleProject", "category", "about", "contact", "impressum", "siteSettings"] && !(_id in path("drafts.**"))
 ```
 
 Save.
@@ -87,7 +87,7 @@ The list mirrors the document types consumed by the frontend (see
 
 - `sampleProject` — project list + project detail pages
 - `category` — category badges on project detail
-- `about`, `contact`, `contacts`, `impressum` — singleton content pages
+- `about`, `contact`, `impressum` — singleton content pages
 - `siteSettings` — site title, description, keywords, portrait
 
 If a new document type is added later and the frontend reads it, extend the

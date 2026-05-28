@@ -2,7 +2,13 @@ import { FormEvent, useId, useState } from "react";
 
 import styles from "@web/styles/contact.module.scss";
 
-type FormStatus = "idle" | "sending" | "success" | "error";
+type FormStatus = "idle" | "sending" | "sent" | "error";
+
+function submitButtonLabel(status: FormStatus) {
+  if (status === "sending") return "Sending…";
+  if (status === "sent") return "Send another message";
+  return "Send message";
+}
 
 export default function ContactForm() {
   const formId = useId();
@@ -12,9 +18,19 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<FormStatus>("idle");
 
+  const isFormLocked = status === "sending" || status === "sent";
+
+  function handleComposeAgain() {
+    setName("");
+    setEmail("");
+    setSubject("");
+    setMessage("");
+    setStatus("idle");
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (status === "sending") return;
+    if (isFormLocked) return;
 
     setStatus("sending");
 
@@ -33,7 +49,7 @@ export default function ContactForm() {
       setEmail("");
       setSubject("");
       setMessage("");
-      setStatus("success");
+      setStatus("sent");
     } catch {
       setStatus("error");
     }
@@ -41,36 +57,40 @@ export default function ContactForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
-      <div className={styles.field}>
-        <label className={styles.label} htmlFor={`${formId}-name`}>
-          Name
-        </label>
-        <input
-          id={`${formId}-name`}
-          className={styles.input}
-          type="text"
-          name="name"
-          autoComplete="name"
-          required
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-      </div>
+      <div className={styles.fieldRow}>
+        <div className={styles.field}>
+          <label className={styles.label} htmlFor={`${formId}-name`}>
+            Name
+          </label>
+          <input
+            id={`${formId}-name`}
+            className={styles.input}
+            type="text"
+            name="name"
+            autoComplete="name"
+            required
+            disabled={isFormLocked}
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+        </div>
 
-      <div className={styles.field}>
-        <label className={styles.label} htmlFor={`${formId}-email`}>
-          Email
-        </label>
-        <input
-          id={`${formId}-email`}
-          className={styles.input}
-          type="email"
-          name="email"
-          autoComplete="email"
-          required
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
+        <div className={styles.field}>
+          <label className={styles.label} htmlFor={`${formId}-email`}>
+            Email
+          </label>
+          <input
+            id={`${formId}-email`}
+            className={styles.input}
+            type="email"
+            name="email"
+            autoComplete="email"
+            required
+            disabled={isFormLocked}
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </div>
       </div>
 
       <div className={styles.field}>
@@ -83,6 +103,7 @@ export default function ContactForm() {
           type="text"
           name="subject"
           required
+          disabled={isFormLocked}
           value={subject}
           onChange={(event) => setSubject(event.target.value)}
         />
@@ -98,28 +119,34 @@ export default function ContactForm() {
           name="message"
           rows={6}
           required
+          disabled={isFormLocked}
           value={message}
           onChange={(event) => setMessage(event.target.value)}
         />
       </div>
 
       <div className={styles.actions}>
-        <button className={styles.submit} type="submit" disabled={status === "sending"}>
-          {status === "sending" ? "Sending…" : "Send message"}
+        {status === "sent" ? (
+          <p className={styles.feedback} role="status">
+            Thanks — your message was sent.
+          </p>
+        ) : null}
+
+        {status === "error" ? (
+          <p className={`${styles.feedback} ${styles.feedbackError}`} role="alert">
+            Something went wrong. Please try again.
+          </p>
+        ) : null}
+
+        <button
+          className={`${styles.submit} ${status === "sent" ? styles.submitSecondary : ""}`}
+          type={status === "sent" ? "button" : "submit"}
+          disabled={status === "sending"}
+          onClick={status === "sent" ? handleComposeAgain : undefined}
+        >
+          {submitButtonLabel(status)}
         </button>
       </div>
-
-      {status === "success" ? (
-        <p className={styles.feedback} role="status">
-          Thanks — your message was sent.
-        </p>
-      ) : null}
-
-      {status === "error" ? (
-        <p className={`${styles.feedback} ${styles.feedbackError}`} role="alert">
-          Something went wrong. Please try again.
-        </p>
-      ) : null}
     </form>
   );
 }

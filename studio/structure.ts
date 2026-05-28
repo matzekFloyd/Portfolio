@@ -6,7 +6,6 @@ export const structure = (S) => {
       "about",
       "category",
       "contact",
-      "contacts",
       "impressum",
       "person",
       "sampleProject",
@@ -43,11 +42,6 @@ export const structure = (S) => {
         .icon(BlockElementIcon)
         .schemaType("category")
         .child(S.documentTypeList("category").title("Categories")),
-      S.listItem()
-        .title("Contacts")
-        .icon(BlockElementIcon)
-        .schemaType("contacts")
-        .child(S.documentTypeList("contacts").title("Contacts")),
       S.listItem()
         .title("People")
         .icon(BlockElementIcon)
