@@ -1,0 +1,151 @@
+@use './mixins' as *;
+@use './tokens' as *;
+
+.title {
+  margin-bottom: 0.9rem;
+  max-width: 100%;
+}
+
+.card {
+  @include card-surface;
+  padding: 1rem 1.1rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: clip;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+  min-width: 0;
+}
+
+.column {
+  min-width: 0;
+  overflow-wrap: anywhere;
+
+  :global(*) {
+    min-width: 0;
+  }
+
+  :global(img),
+  :global(video),
+  :global(iframe) {
+    max-width: 100%;
+  }
+
+  :global(pre),
+  :global(code) {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  :global(h3) {
+    margin-top: 0.15rem;
+  }
+
+  :global(.portableFigure) {
+    margin: 1rem 0 1.15rem;
+    max-width: 100%;
+    border-radius: $radius-md;
+    overflow: hidden;
+  }
+
+  :global(.portableFigure img) {
+    width: 100%;
+    max-height: 560px;
+    height: auto;
+    object-fit: contain;
+    border-radius: $radius-md;
+  }
+
+  :global(.portableFigure figcaption) {
+    max-width: 58ch;
+  }
+
+  &:last-child {
+    :global(.portableFigure) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.8rem;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    :global(.portableFigure img) {
+      width: auto;
+      height: auto;
+      max-width: min(100%, 440px);
+      max-width: 100%;
+      max-height: 560px;
+      box-sizing: border-box;
+      border-radius: $radius-md;
+      border: 0;
+      box-shadow: none;
+      background: transparent;
+      object-fit: contain;
+    }
+
+    :global(.portableFigure figcaption) {
+      margin-top: 0.45rem;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      color: $color-text-subtle;
+      text-align: center;
+    }
+
+    :global(.portableFigure:not(:has(figcaption)))::after {
+      content: 'Portrait of Mathias Mayrhofer';
+      margin-top: 0.45rem;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      color: $color-text-subtle;
+      text-align: center;
+    }
+  }
+}
+
+.column + .column {
+  border-top: 1px solid #e4e9f1;
+  padding-top: 1.1rem;
+}
+
+@media (min-width: 920px) {
+  .columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem;
+  }
+
+  .column + .column {
+    border-top: 0;
+    border-left: 1px solid #e4e9f1;
+    padding-top: 0;
+    padding-left: 1.2rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .card {
+    padding: 0.9rem 0.95rem;
+  }
+
+  .column {
+    :global(.portableFigure img) {
+      max-height: 420px;
+    }
+
+    &:last-child {
+      :global(.portableFigure) {
+        max-width: 100%;
+      }
+
+      :global(.portableFigure img) {
+        max-height: 420px;
+      }
+    }
+  }
+}

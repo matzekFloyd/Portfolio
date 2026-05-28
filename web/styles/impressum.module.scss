@@ -1,3 +1,6 @@
+@use './mixins' as *;
+@use './tokens' as *;
+
 .title {
   margin-bottom: 0.9rem;
 }
@@ -11,9 +14,7 @@
 }
 
 .card {
-  background: #fff;
-  border: 1px solid #dbe2eb;
-  border-radius: 10px;
+  @include card-surface;
   padding: 1rem 1.1rem;
   margin-bottom: 0.8rem;
 }
@@ -24,7 +25,7 @@
   gap: 0.55rem;
 }
 
-/* Override globals.css `.content p + p` inside imprint card */
+/* Override globals.scss `.content p + p` inside imprint card */
 :global(.content) .imprintPanel p + p {
   margin-top: 0;
 }
@@ -44,15 +45,7 @@
 }
 
 .mailLink {
-  color: #1f2937;
-  text-decoration: underline;
-  text-decoration-color: rgba(31, 41, 55, 0.3);
-  text-underline-offset: 3px;
-}
-
-.mailLink:hover {
-  color: #111827;
-  text-decoration-color: rgba(17, 24, 39, 0.55);
+  @include subtle-link(#1f2937, rgba(31, 41, 55, 0.3), $color-text, rgba(17, 24, 39, 0.55));
 }
 
 .addressLine {
@@ -62,6 +55,8 @@
   color: #4d5f77;
 }
 
-.body :global(p:first-child) {
-  margin-top: 0;
+.body {
+  :global(p:first-child) {
+    margin-top: 0;
+  }
 }

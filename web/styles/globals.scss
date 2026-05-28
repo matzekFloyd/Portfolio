@@ -1,15 +1,17 @@
+@use './tokens' as *;
+
 :root {
-  --bg: #f5f7fb;
-  --surface: #ffffff;
-  --surface-muted: #f8f9fc;
-  --text: #111827;
-  --text-muted: #4b5563;
-  --border: #d9dee8;
-  --accent: #1f4acc;
-  --accent-soft: #e8eefc;
-  --shadow: 0 2px 8px rgba(17, 24, 39, 0.05);
-  --radius-lg: 12px;
-  --radius-md: 10px;
+  --bg: #{$color-bg};
+  --surface: #{$color-white};
+  --surface-muted: #{$color-surface-muted};
+  --text: #{$color-text};
+  --text-muted: #{$color-text-muted};
+  --border: #{$color-border};
+  --accent: #{$color-accent};
+  --accent-soft: #{$color-accent-soft};
+  --shadow: #{$shadow-soft};
+  --radius-lg: #{$radius-lg};
+  --radius-md: #{$radius-md};
 }
 
 *,
@@ -26,7 +28,7 @@ body {
 }
 
 body {
-  font-family: var(--font-inter), Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-inter), Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 17px;
   line-height: 1.75;
   letter-spacing: 0.003em;
@@ -41,10 +43,10 @@ a {
   color: var(--accent);
   text-decoration: none;
   transition: color 0.2s ease;
-}
 
-a:hover {
-  color: #173aa7;
+  &:hover {
+    color: $color-accent-hover;
+  }
 }
 
 .sr-only {
@@ -81,20 +83,20 @@ a:hover {
   border-radius: 0;
   box-shadow: none;
   isolation: isolate;
-}
 
-.header::after {
-  content: '';
-  position: absolute;
-  left: -2.6rem;
-  right: -2.6rem;
-  bottom: 0;
-  border-bottom: 1px solid rgba(217, 222, 232, 0.55);
-  z-index: -1;
-}
+  &::after {
+    content: '';
+    position: absolute;
+    left: -2.6rem;
+    right: -2.6rem;
+    bottom: 0;
+    border-bottom: 1px solid $overlay-border-55;
+    z-index: -1;
+  }
 
-.header.menuOpen::after {
-  display: none;
+  &.menuOpen::after {
+    display: none;
+  }
 }
 
 .brandLink {
@@ -103,7 +105,7 @@ a:hover {
   font-size: 1.35rem;
   font-weight: 650;
   letter-spacing: -0.015em;
-  color: #1f4acc;
+  color: $color-accent;
   padding: 0.02rem 0.36rem;
 }
 
@@ -144,9 +146,9 @@ a:hover {
   width: 42px;
   height: 38px;
   border: 0 !important;
-  border-radius: 8px;
+  border-radius: $radius-sm;
   background: transparent;
-  color: #1f4acc;
+  color: $color-accent;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -164,7 +166,7 @@ a:hover {
   display: block;
   width: 18px;
   height: 2px;
-  border-radius: 999px;
+  border-radius: $radius-pill;
   background: currentColor;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -186,16 +188,16 @@ a:hover {
   border-radius: 999px;
   font-size: 0.93rem;
   font-weight: 500;
-  color: #4b5563;
-}
+  color: $color-text-muted;
 
-.navLink:hover {
-  color: var(--text);
-  background: var(--surface-muted);
+  &:hover {
+    color: var(--text);
+    background: var(--surface-muted);
+  }
 }
 
 .activeNavLink {
-  color: #1d43b8;
+  color: $color-accent-strong;
   background: transparent;
 }
 
@@ -229,7 +231,7 @@ a:hover {
   letter-spacing: -0.018em;
   line-height: 1.26;
   margin: 0 0 0.8rem;
-  color: #111827;
+  color: $color-text;
 }
 
 .content p,
@@ -254,7 +256,7 @@ a:hover {
 }
 
 .content a {
-  color: #1f4acc;
+  color: $color-accent;
   text-decoration: underline;
   text-decoration-color: rgba(31, 74, 204, 0.35);
   text-underline-offset: 3px;
@@ -263,13 +265,13 @@ a:hover {
 }
 
 .content a:hover {
-  color: #173aa7;
+  color: $color-accent-hover;
   text-decoration-color: rgba(23, 58, 167, 0.58);
 }
 
 .content a:focus-visible,
 .navLink:focus-visible {
-  outline: 2px solid #5b7ce0;
+  outline: 2px solid $color-focus;
   outline-offset: 2px;
   border-radius: 6px;
 }
@@ -277,7 +279,7 @@ a:hover {
 .siteFooter {
   margin-top: 2.2rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(217, 222, 232, 0.6);
+  border-top: 1px solid $overlay-border-60;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -286,17 +288,17 @@ a:hover {
 
 .footerMeta {
   font-size: 0.84rem;
-  color: #6b7280;
+  color: $color-text-subtle;
 }
 
 .footerLink {
   font-size: 0.84rem;
-  color: #6b7280;
+  color: $color-text-subtle;
   text-decoration: none;
 }
 
 .footerLink:hover {
-  color: #4b5563;
+  color: $color-text-muted;
   text-decoration: underline;
   text-decoration-color: rgba(75, 85, 99, 0.35);
   text-underline-offset: 3px;
@@ -305,14 +307,14 @@ a:hover {
 .card {
   background: transparent;
   border: 0;
-  border-left: 2px solid #d8e0ef;
+  border-left: 2px solid $color-border-muted;
   border-radius: 0;
   padding: 1rem 1.05rem;
   margin-bottom: 0.6rem;
 }
 
 .meta {
-  color: #6b7280;
+  color: $color-text-subtle;
 }
 
 .portableFigure {
@@ -364,11 +366,11 @@ a:hover {
     padding: 0.72rem 0 0.65rem;
     z-index: 3000;
     isolation: auto;
-  }
 
-  .header::after {
-    left: -1.2rem;
-    right: -1.2rem;
+    &::after {
+      left: -1.2rem;
+      right: -1.2rem;
+    }
   }
 
   .menuToggle {
@@ -382,7 +384,7 @@ a:hover {
     border: 0;
     margin: 0;
     padding: 0;
-    background: rgba(17, 24, 39, 0.24);
+    background: $overlay-dark-24;
     z-index: 3098;
     cursor: pointer;
   }
@@ -394,27 +396,27 @@ a:hover {
     right: 0;
     width: 100%;
     display: block;
-    background: #fff;
-    border-bottom: 1px solid #dbe2eb;
+    background: $color-white;
+    border-bottom: 1px solid $color-border-soft;
     border-radius: 0;
-    box-shadow: 0 14px 30px rgba(17, 24, 39, 0.12);
+    box-shadow: $shadow-menu;
     padding: 1.3rem 1rem 1rem;
     z-index: 3100;
     display: none;
-  }
 
-  .nav.navOpen {
-    display: block;
-  }
+    &.navOpen {
+      display: block;
+    }
 
-  .nav ul {
-    flex-direction: column;
-    gap: 0.1rem;
+    ul {
+      flex-direction: column;
+      gap: 0.1rem;
+    }
   }
 
   .navLink {
     display: block;
-    border-radius: 8px;
+    border-radius: $radius-sm;
   }
 
   .content h2 {

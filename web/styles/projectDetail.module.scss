@@ -1,3 +1,6 @@
+@use './mixins' as *;
+@use './tokens' as *;
+
 .titleRow {
   display: flex;
   align-items: flex-start;
@@ -14,13 +17,32 @@
   font-weight: 600;
   line-height: 1.28;
   margin: 0;
-  color: #111827;
+  color: $color-text;
   letter-spacing: -0.02em;
 }
 
 .tryCta {
   margin: 0.1rem 0 0;
   flex-shrink: 0;
+
+  .tryButton {
+    display: inline-block;
+    background: $color-accent;
+    color: $color-white;
+    padding: 0.58rem 0.95rem;
+    border-radius: $radius-sm;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.98rem;
+    line-height: 1.2;
+    box-shadow: none;
+
+    &:hover {
+      background: $color-accent-hover;
+      color: $color-white;
+      text-decoration: none;
+    }
+  }
 }
 
 .categoriesTop {
@@ -39,10 +61,10 @@
 .categoryTag {
   display: inline-flex;
   align-items: center;
-  border-radius: 999px;
-  border: 1px solid #d5dce8;
+  border-radius: $radius-pill;
+  border: 1px solid $color-border-pill;
   background: transparent;
-  color: #4b5563;
+  color: $color-text-muted;
   padding: 0.16rem 0.54rem;
   font-size: 0.82rem;
   line-height: 1.25;
@@ -50,49 +72,33 @@
 }
 
 .categoryTagLink {
-  color: #1f4acc;
-  border-color: #c4d1ee;
+  color: $color-accent;
+  border-color: $color-border-link;
   text-decoration: none !important;
   cursor: pointer;
   transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
-}
 
-.categoryTagLink:hover {
-  background: #e8eefc;
-  border-color: #1f4acc;
-  color: #173aa7;
-}
+  &:hover,
+  &:focus-visible {
+    background: $color-accent-soft;
+    border-color: $color-accent;
+    color: $color-accent-hover;
+  }
 
-.categoryTagLink:focus-visible {
-  background: #e8eefc;
-  border-color: #1f4acc;
-  color: #173aa7;
-  outline: 2px solid #5b7ce0;
-  outline-offset: 2px;
-}
-
-.tryCta .tryButton {
-  display: inline-block;
-  background: #1f4acc;
-  color: #fff;
-  padding: 0.58rem 0.95rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.98rem;
-  line-height: 1.2;
-  box-shadow: none;
-}
-
-.tryCta .tryButton:hover {
-  background: #173aa7;
-  color: #fff;
-  text-decoration: none;
+  &:focus-visible {
+    @include focus-ring;
+  }
 }
 
 .metaImage {
   margin-top: 0;
   max-width: 100%;
+
+  img {
+    border-radius: $radius-md;
+    box-shadow: none;
+    border: 1px solid $color-border;
+  }
 }
 
 .imageButton {
@@ -104,15 +110,9 @@
   cursor: zoom-in;
 }
 
-.metaImage img {
-  border-radius: 10px;
-  box-shadow: none;
-  border: 1px solid #d9dee8;
-}
-
 .imageCaption {
   margin: 0.5rem 0 0;
-  color: #6b7280;
+  color: $color-text-subtle;
   font-size: 0.88rem;
   line-height: 1.45;
 }
@@ -132,14 +132,14 @@
   margin-top: 0;
   background: transparent;
   border: 0;
-  border-left: 2px solid #d8e0ef;
+  border-left: 2px solid $color-border-muted;
   border-radius: 0;
   padding: 0 1.1rem 1rem;
   box-shadow: none;
-}
 
-.body p + p {
-  margin-top: 1rem;
+  p + p {
+    margin-top: 1rem;
+  }
 }
 
 .metaColumn {
@@ -164,7 +164,7 @@
 
 .lightboxImage {
   display: block;
-  border-radius: 10px;
+  border-radius: $radius-md;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -207,11 +207,11 @@
 @container project-title-row (max-width: 480px) {
   .tryCta {
     width: 100%;
-  }
 
-  .tryCta .tryButton {
-    display: block;
-    width: 100%;
-    text-align: center;
+    .tryButton {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
   }
 }

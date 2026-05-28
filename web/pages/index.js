@@ -4,8 +4,8 @@ import SiteLayout from '../components/SiteLayout'
 import {sanityClient, urlFor} from '../lib/sanity'
 import {siteSettingsQuery, latestProjectsQuery} from '../lib/queries'
 import {blocksToText} from '../lib/portableText'
-import pageStyles from '../styles/home.module.css'
-import previewStyles from '../styles/projectPreview.module.css'
+import pageStyles from '../styles/home.module.scss'
+import previewStyles from '../styles/projectPreview.module.scss'
 
 export default function HomePage({site, projects}) {
   const ogImage = site?.portrait?.asset ? urlFor(site.portrait).width(1200).height(630).fit('crop').url() : null

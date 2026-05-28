@@ -5,7 +5,7 @@ import SiteLayout from '../../components/SiteLayout'
 import {sanityClient, urlFor} from '../../lib/sanity'
 import {projectBySlugQuery, projectSlugsQuery, siteSettingsQuery} from '../../lib/queries'
 import {PortableTextContent, blocksToText} from '../../lib/portableText'
-import styles from '../../styles/projectDetail.module.css'
+import styles from '../../styles/projectDetail.module.scss'
 
 function isExternalHttpUrl(value) {
   if (typeof value !== 'string' || !value) return false

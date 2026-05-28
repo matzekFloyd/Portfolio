@@ -1,3 +1,6 @@
+@use './mixins' as *;
+@use './tokens' as *;
+
 .titleRow {
   display: flex;
   align-items: flex-start;
@@ -30,33 +33,30 @@
 .backButton {
   display: inline-block;
   background: transparent;
-  color: #1f4acc;
-  border: 1px solid #c4d1ee;
+  color: $color-accent;
+  border: 1px solid $color-border-link;
   padding: 0.58rem 0.95rem;
-  border-radius: 8px;
+  border-radius: $radius-sm;
   text-decoration: none !important;
   font-weight: 600;
   font-size: 0.98rem;
   line-height: 1.2;
   transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
-}
 
-.backButton:hover {
-  background: #e8eefc;
-  border-color: #1f4acc;
-  color: #173aa7;
-}
+  &:hover,
+  &:focus-visible {
+    background: $color-accent-soft;
+    border-color: $color-accent;
+    color: $color-accent-hover;
+  }
 
-.backButton:focus-visible {
-  background: #e8eefc;
-  border-color: #1f4acc;
-  color: #173aa7;
-  outline: 2px solid #5b7ce0;
-  outline-offset: 2px;
+  &:focus-visible {
+    @include focus-ring;
+  }
 }
 
 .embedWrap {
-  border-radius: 10px;
+  border-radius: $radius-md;
   overflow: hidden;
 }
 
@@ -81,7 +81,7 @@
   min-height: clamp(520px, 75vh, 920px);
   border: 0;
   display: block;
-  background: #fff;
+  background: $color-white;
 }
 
 .note {
@@ -92,7 +92,7 @@
 
 @media (max-width: 760px) {
   .embedWrap {
-    border-radius: 8px;
+    border-radius: $radius-sm;
   }
 
   .embed {

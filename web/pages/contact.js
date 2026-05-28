@@ -2,7 +2,7 @@ import SiteLayout from '../components/SiteLayout'
 import {sanityClient} from '../lib/sanity'
 import {contactQuery, siteSettingsQuery} from '../lib/queries'
 import {PortableTextContent} from '../lib/portableText'
-import styles from '../styles/contact.module.css'
+import styles from '../styles/contact.module.scss'
 
 function contactHref(item) {
   if (item.isEmail) return `mailto:${item.url}`

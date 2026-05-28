@@ -2,7 +2,7 @@ import SiteLayout from '../components/SiteLayout'
 import {sanityClient} from '../lib/sanity'
 import {impressumQuery, siteSettingsQuery} from '../lib/queries'
 import {PortableTextContent} from '../lib/portableText'
-import styles from '../styles/impressum.module.css'
+import styles from '../styles/impressum.module.scss'
 
 export default function ImpressumPage({site, impressum}) {
   const emailTrimmed = impressum?.email?.trim() || ''

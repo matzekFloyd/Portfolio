@@ -2,7 +2,7 @@ import SiteLayout from '../../components/SiteLayout'
 import Link from 'next/link'
 import {sanityClient} from '../../lib/sanity'
 import {projectTryoutBySlugQuery, siteSettingsQuery, tryoutSlugsQuery} from '../../lib/queries'
-import styles from '../../styles/tryPage.module.css'
+import styles from '../../styles/tryPage.module.scss'
 
 const ASPECT_RATIO_CLASSES = {
   '16:9': styles.aspect16x9,

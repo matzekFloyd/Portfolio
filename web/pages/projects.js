@@ -4,8 +4,8 @@ import SiteLayout from '../components/SiteLayout'
 import {sanityClient, urlFor} from '../lib/sanity'
 import {projectsQuery, siteSettingsQuery} from '../lib/queries'
 import {blocksToText} from '../lib/portableText'
-import pageStyles from '../styles/projects.module.css'
-import previewStyles from '../styles/projectPreview.module.css'
+import pageStyles from '../styles/projects.module.scss'
+import previewStyles from '../styles/projectPreview.module.scss'
 
 export default function ProjectsPage({site, projects}) {
   return (

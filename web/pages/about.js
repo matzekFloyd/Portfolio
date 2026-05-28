@@ -2,7 +2,7 @@ import SiteLayout from '../components/SiteLayout'
 import {sanityClient} from '../lib/sanity'
 import {aboutQuery, siteSettingsQuery} from '../lib/queries'
 import {PortableTextContent} from '../lib/portableText'
-import styles from '../styles/about.module.css'
+import styles from '../styles/about.module.scss'
 
 export default function AboutPage({site, about}) {
   return (

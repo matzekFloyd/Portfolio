@@ -1,0 +1,24 @@
+@use './tokens' as *;
+
+@mixin card-surface {
+  background: $color-white;
+  border: 1px solid $color-border-soft;
+  border-radius: $radius-md;
+}
+
+@mixin subtle-link($color, $underline-color, $hover-color, $hover-underline-color) {
+  color: $color;
+  text-decoration: underline;
+  text-decoration-color: $underline-color;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: $hover-color;
+    text-decoration-color: $hover-underline-color;
+  }
+}
+
+@mixin focus-ring {
+  outline: 2px solid $color-focus;
+  outline-offset: 2px;
+}
