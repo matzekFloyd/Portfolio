@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.sanity
+dist
+build
+package-lock.json
+coverage
+web/.cache
+web/out
+studio/dist

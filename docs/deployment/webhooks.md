@@ -28,17 +28,17 @@ page.
 In <https://www.sanity.io/manage> → portfolio project → **API** →
 **Webhooks** → **Create webhook**:
 
-| Field          | Value                                              |
-| -------------- | -------------------------------------------------- |
-| Name           | `Netlify production rebuild`                       |
-| URL            | the Netlify build hook URL from step 1             |
-| Dataset        | `production`                                       |
-| Trigger on     | Create, Update, Delete (all three checked)         |
-| HTTP method    | `POST`                                             |
-| HTTP headers   | _(none)_                                           |
-| API version    | leave at the default                               |
-| Include drafts | unchecked                                          |
-| Filter (GROQ)  | see below                                          |
+| Field          | Value                                      |
+| -------------- | ------------------------------------------ |
+| Name           | `Netlify production rebuild`               |
+| URL            | the Netlify build hook URL from step 1     |
+| Dataset        | `production`                               |
+| Trigger on     | Create, Update, Delete (all three checked) |
+| HTTP method    | `POST`                                     |
+| HTTP headers   | _(none)_                                   |
+| API version    | leave at the default                       |
+| Include drafts | unchecked                                  |
+| Filter (GROQ)  | see below                                  |
 
 GROQ filter:
 

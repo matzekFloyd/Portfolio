@@ -1,4 +1,4 @@
-@use './tokens' as *;
+@use "./tokens" as *;
 
 .sectionDescription {
   display: flex;
@@ -68,7 +68,9 @@
   text-decoration-color: rgba(29, 67, 184, 0.4);
   text-underline-offset: 3px;
   text-decoration-thickness: 1.2px;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
 
   &:hover {
     color: $color-accent-hover;

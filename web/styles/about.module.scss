@@ -1,5 +1,5 @@
-@use './mixins' as *;
-@use './tokens' as *;
+@use "./mixins" as *;
+@use "./tokens" as *;
 
 .title {
   margin-bottom: 0.9rem;
@@ -99,7 +99,7 @@
     }
 
     :global(.portableFigure:not(:has(figcaption)))::after {
-      content: 'Portrait of Mathias Mayrhofer';
+      content: "Portrait of Mathias Mayrhofer";
       margin-top: 0.45rem;
       font-size: 0.88rem;
       line-height: 1.35;

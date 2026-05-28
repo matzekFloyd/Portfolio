@@ -1,5 +1,5 @@
-@use './mixins' as *;
-@use './tokens' as *;
+@use "./mixins" as *;
+@use "./tokens" as *;
 
 .titleRow {
   display: flex;
@@ -41,7 +41,10 @@
   font-weight: 600;
   font-size: 0.98rem;
   line-height: 1.2;
-  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    color 120ms ease;
 
   &:hover,
   &:focus-visible {

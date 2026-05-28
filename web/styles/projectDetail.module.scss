@@ -1,5 +1,5 @@
-@use './mixins' as *;
-@use './tokens' as *;
+@use "./mixins" as *;
+@use "./tokens" as *;
 
 .titleRow {
   display: flex;
@@ -76,7 +76,10 @@
   border-color: $color-border-link;
   text-decoration: none !important;
   cursor: pointer;
-  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    color 120ms ease;
 
   &:hover,
   &:focus-visible {

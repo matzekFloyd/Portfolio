@@ -12,7 +12,9 @@
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "dev": "npm run dev --workspaces --if-present",
-    "format": "npm run format --workspaces --if-present",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky",
     "build-studio": "node -e \"const cp=require('child_process'); const run=(cmd)=>cp.execSync(cmd,{stdio:'inherit'}); if(process.env.NETLIFY){console.log('Netlify detected: installing and building studio'); run('cd studio && npm ci && npm run build');} else {run('cd studio && npm run build');}\"",
     "build-web": "node -e \"const cp=require('child_process'); const run=(cmd)=>cp.execSync(cmd,{stdio:'inherit'}); if(process.env.NETLIFY){console.log('Netlify detected: building web only'); run('cd web && npm ci && npm run build');} else {run('(cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd web && npm run build)');}\"",
     "graphql-deploy": "npm run graphql-deploy --workspaces --if-present",
@@ -20,8 +22,15 @@
     "build:favicon": "node scripts/build-favicon.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "lint-staged": {
+    "*.{ts,tsx,js,mjs,json,md,scss}": "prettier --write"
+  },
   "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "png-to-ico": "^2.1.8",
+    "prettier": "^3.8.3",
     "sharp": "^0.34.2"
   },
   "dependencies": {

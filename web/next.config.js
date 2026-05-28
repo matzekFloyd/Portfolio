@@ -1,18 +1,24 @@
+const path = require("path");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: "export",
   eslint: {
-    ignoreDuringBuilds: true
+    ignoreDuringBuilds: true,
   },
   images: {
     unoptimized: true,
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io'
-      }
-    ]
-  }
-}
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+    ],
+  },
+  webpack(config) {
+    config.resolve.alias["@web"] = path.resolve(__dirname);
+    return config;
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

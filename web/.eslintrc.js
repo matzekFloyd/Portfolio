@@ -1,6 +1,6 @@
 module.exports = {
-  extends: ['next/core-web-vitals'],
+  extends: ["next/core-web-vitals"],
   rules: {
-    'react/prop-types': 0
-  }
-}
+    "react/prop-types": 0,
+  },
+};
