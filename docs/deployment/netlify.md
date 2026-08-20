@@ -11,7 +11,7 @@ Live URL: [mathiasmayrhofer.at](https://mathiasmayrhofer.at)
 Use `web/netlify.toml` as source of truth:
 
 - Base directory: `web`
-- Build command: `npm ci && npm run build`
+- Build command: `npm ci --no-workspaces && npm run build`
 - Publish directory: `out`
 - Node version: `22.22.2`
 
@@ -19,6 +19,7 @@ Notes:
 
 - The Next.js app is configured for static export (`output: 'export'`), so Netlify must publish `out`.
 - Do not publish `web/public` (legacy Gatsby output).
+- `--no-workspaces` is required: a plain `npm ci` in `web` walks up to the monorepo root and uses the root `package-lock.json` instead of `web/package-lock.json`.
 
 ## 2) Studio site (`studio`)
 
