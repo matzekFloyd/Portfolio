@@ -3,8 +3,8 @@
 .sectionDescription {
   display: flex;
   align-items: stretch;
-  gap: 2.4rem;
-  margin: 1.4rem 0 2.8rem;
+  gap: $space-5;
+  margin: $space-3 0 $space-6;
   padding: 0;
   background: $color-white;
   border: 0;
@@ -14,16 +14,16 @@
 
 .description {
   margin: 0;
-  padding: 1.35rem 1.35rem 1.35rem 0;
+  padding: $space-4 $space-4 $space-4 0;
   text-align: left;
   max-width: 760px;
   display: block;
 
   h2 {
-    margin: 0 0 0.9rem;
+    margin: 0 0 $space-3;
     font-size: clamp(2.05rem, 1.6rem + 1.8vw, 2.85rem);
     line-height: 1.2;
-    font-weight: 650;
+    font-weight: 500;
     letter-spacing: -0.025em;
     color: $color-text;
     max-width: 18ch;
@@ -31,16 +31,21 @@
 
   p {
     margin: 0;
-    font-size: 1.02rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.6;
     color: $color-text-muted;
     max-width: 58ch;
+  }
+
+  .ctaWrap {
+    margin-top: $space-4;
   }
 }
 
 .kicker {
-  margin: 0 0 0.8rem;
-  font-size: 0.76rem;
+  margin: 0 0 $space-2;
+  font-size: 12px;
+  line-height: 1.4;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -48,33 +53,28 @@
 }
 
 .ctaWrap {
-  margin-top: 1rem;
+  margin-top: $space-4;
   text-align: left;
 }
 
-.ctaLinks {
+:global(.content) a.ctaLink {
   display: inline-flex;
   align-items: center;
-  gap: 0.95rem;
-  flex-wrap: wrap;
-}
-
-.ctaLink {
-  display: inline-block;
-  font-size: 0.9rem;
+  justify-content: center;
+  min-height: $space-6;
+  padding: 0 $space-4;
+  background: $color-accent;
+  color: $color-white;
+  font-size: 1rem;
   font-weight: 600;
-  color: $color-accent-strong;
-  text-decoration: underline;
-  text-decoration-color: rgba(29, 67, 184, 0.4);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1.2px;
-  transition:
-    color 0.2s ease,
-    text-decoration-color 0.2s ease;
+  line-height: 1.25;
+  text-decoration: none;
+  border-radius: $radius-sm;
 
   &:hover {
-    color: $color-accent-hover;
-    text-decoration-color: rgba(23, 58, 167, 0.6);
+    color: $color-white;
+    background: $color-accent-hover;
+    text-decoration: none;
   }
 }
 
@@ -97,8 +97,8 @@
 .sectionLatestProjects h3 {
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.8rem;
-  margin: 0 0 18px;
+  font-size: 12px;
+  margin: 0 0 $space-3;
   color: $color-text-muted;
 }
 
@@ -127,8 +127,8 @@
   .sectionDescription {
     flex-wrap: nowrap;
     align-items: stretch;
-    gap: 1rem;
-    margin: 1rem 0 2.3rem;
+    gap: $space-3;
+    margin: $space-3 0 $space-5;
     padding: 0;
     overflow: hidden;
   }
@@ -137,16 +137,16 @@
     order: 2;
     flex: 1;
     min-width: 0;
-    padding: 0.95rem 1rem 0.95rem 0;
+    padding: $space-3 $space-3 $space-3 0;
 
     h2 {
       font-size: clamp(1.75rem, 1.45rem + 1.5vw, 2.2rem);
-      line-height: 1.24;
+      line-height: 1.2;
     }
 
     p {
       font-size: 1rem;
-      line-height: 1.76;
+      line-height: 1.6;
     }
   }
 
@@ -159,8 +159,8 @@
 
 @media (max-width: 640px) {
   .sectionDescription {
-    gap: 0.85rem;
-    padding: 0.8rem 0.9rem;
+    gap: $space-3;
+    padding: $space-3;
   }
 
   .portrait {
@@ -179,18 +179,18 @@
 
   .sectionDescription {
     display: block;
-    margin: 0.9rem 0 2rem;
-    padding: 0.2rem 0;
+    margin: $space-3 0 $space-5;
+    padding: 0;
     gap: 0;
   }
 
   .description {
     max-width: 100%;
-    padding: 0.65rem 0.9rem 0.75rem;
+    padding: $space-2 $space-3 $space-3;
 
     h2 {
       max-width: 22ch;
-      margin-bottom: 0.75rem;
+      margin-bottom: $space-3;
     }
 
     p {
@@ -198,14 +198,8 @@
     }
   }
 
-  .ctaWrap {
-    margin-top: 0.85rem;
+  .description .ctaWrap {
+    margin-top: $space-3;
     text-align: center;
-  }
-
-  .ctaLinks {
-    width: 100%;
-    justify-content: center;
-    gap: 0.7rem;
   }
 }

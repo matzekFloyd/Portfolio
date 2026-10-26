@@ -28,6 +28,7 @@ export default function HomePage({ site, projects }: { site: any; projects: any[
               alt={site.title || "Portrait"}
               width={560}
               height={560}
+              priority
               style={{ width: "100%", height: "100%", display: "block" }}
             />
           </div>
@@ -37,14 +38,9 @@ export default function HomePage({ site, projects }: { site: any; projects: any[
           <h2>{site?.subtitle || "Software Engineer from Vienna, Austria."}</h2>
           <p>{site?.description}</p>
           <p className={pageStyles.ctaWrap}>
-            <span className={pageStyles.ctaLinks}>
-              <Link href="/projects" className={pageStyles.ctaLink}>
-                Explore projects
-              </Link>
-              <Link href="/about" className={pageStyles.ctaLink}>
-                About me
-              </Link>
-            </span>
+            <Link href="/contact" className={pageStyles.ctaLink}>
+              Contact
+            </Link>
           </p>
         </div>
       </section>
